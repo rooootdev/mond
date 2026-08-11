@@ -35,7 +35,7 @@ func is_supported() -> Bool {
     let sel = NSSelectorFromString("_hasHomeButton")
     return UIDevice.responds(to: sel) &&
         (UIDevice.perform(sel)?.takeUnretainedValue() as? Bool ?? false)
-*/}
+}*/
 
 enum AppPaths {
     static var backups: String {
