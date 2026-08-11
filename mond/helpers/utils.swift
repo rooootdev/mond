@@ -29,11 +29,13 @@ func is_supported() -> Bool {
            v.patchVersion == 0
 }
 
-func hasHomeButton() -> Bool {
+// Unused for now
+// Was causing KERN_INVALID_ADDRESS at 0x0000000000000001 on my iPhone SE 2 crashing the app when opening -- aokumo21
+/*func hasHomeButton() -> Bool {
     let sel = NSSelectorFromString("_hasHomeButton")
     return UIDevice.responds(to: sel) &&
         (UIDevice.perform(sel)?.takeUnretainedValue() as? Bool ?? false)
-}
+*/}
 
 enum AppPaths {
     static var backups: String {
