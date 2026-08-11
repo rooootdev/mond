@@ -91,9 +91,10 @@ struct ContentView: View {
                         if doubleSystemVersion() >= 26.0 {
                             Text("iPhone Air").tag(2736)
                         }
-                        if hasHomeButton() {
-                            Text("iPhone X Gestures").tag(2436)
-                        }
+                        // temp test
+                        //if hasHomeButton() {
+                        //    Text("iPhone X Gestures").tag(2436)
+                        //}
                     } label: {
                         HStack {
                             Text("Subtype")
@@ -126,9 +127,10 @@ struct ContentView: View {
                     PlainToggle(text: "Camera Control", minSupportedVersion: 18.0, isOn: mg_key_binding(["CwvKxM2cEogD3p+HYgaW0Q", "oOV1jhJbdV3AddkcCg0AEA"]))
                     PlainToggle(text: "Action Button", minSupportedVersion: 17.0, isOn: mg_key_binding(["cT44WE1EohiwRzhsZ8xEsw"]))
                     PlainToggle(text: "Crash Detection", isOn: mg_key_binding(["HCzWusHQwZDea6nNhaKndw"]))
-                    if hasHomeButton() {
-                        PlainToggle(text: "Enable Tap to Wake", isOn: mg_key_binding(["yZf3GTRMGTuwSV/lD7Cagw"]))
-                    }
+                    // temp test
+                    //if hasHomeButton() {
+                    //    PlainToggle(text: "Enable Tap to Wake", isOn: mg_key_binding(["yZf3GTRMGTuwSV/lD7Cagw"]))
+                    //}
                     PlainToggle(text: "Pulse Width Modulation", minSupportedVersion: 19.0, isOn: mg_key_binding(["6IejgN+1Fmu5/QrZFOIeNw"]))
                 } header: {
                     Label("Hardware-Oriented Features", systemImage: "iphone")
