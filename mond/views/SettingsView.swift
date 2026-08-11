@@ -150,6 +150,8 @@ struct SettingsView: View {
                     CreditsRow(name: "forcequit", role: "The bad_query exploit", profile: URL(string: "https://github.com/forcequitOS")!)
                     CreditsRow(name: "johnny", role: "His work on the MCM bug class", profile: URL(string: "https://github.com/0xjohnnydev")!)
                     CreditsRow(name: "jailbreak.party", role: "PartyUI, GestaltView", profile: URL(string: "https://github.com/jailbreakdotparty")!)
+                    CreditsRow(name: "skadz108", role: "Implementation of the respring function in Swift", profile: URL(string: "https://github.com/skadz108")!)
+                    CreditsRow(name: "neonmodder123", role: "The respring script", profile: URL(string: "https://github.com/neonmodder123")!)
                 } header: {
                     Label("Credits", systemImage: "person.3.fill")
                 }
