@@ -19,7 +19,7 @@ struct PosterView: View {
     @State private var busy = false
     
     @State private var show_browser: Bool = false
-    @State private var browser_url = URL(string: "https://cowabun.ga/wallpapers")!
+    @State private var browser_url = URL(string: "https://cowabunga.serstars.nl/wallpapers")!
 
     var body: some View {
         NavigationStack {
@@ -54,7 +54,7 @@ struct PosterView: View {
                     }
                     .disabled(busy)
                 } footer: {
-                    Text("Pick one or more .tendies (or .zip) wallpaper packs.\nGet .tendies [here](https://cowabun.ga/wallpapers).")
+                    Text("Pick one or more .tendies (or .zip) wallpaper packs.\nGet .tendies [here](https://cowabunga.serstars.nl/wallpapers).")
                         .environment(\.openURL, OpenURLAction { url in
                             browser_url = url
                             show_browser = true
