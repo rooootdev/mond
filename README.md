@@ -31,7 +31,7 @@
 | iOS ≤ 26.x | unsupported |
 | iOS 27.0 dev beta 1–4 | supported |
 | iOS 27.0 public beta 1–2 | supported |
-| iOS 27.0 dev beta ≥ 5 | unupported |
+| iOS 27.0 dev beta ≥ 5 | unsupported |
 | iOS 27.0 public beta ≥ 3 | unsupported |
 
 **Planned:**<br>
