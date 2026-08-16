@@ -1,5 +1,7 @@
 {
   "sourceLanguage" : "en",
+  "targetLanguage" : "zh-Hans",
+  "version" : "1.0",
   "strings" : {
     "Action Button Settings" : {
       "extractionState" : "stale",
