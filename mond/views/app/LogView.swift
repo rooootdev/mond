@@ -47,11 +47,10 @@ struct LogView: View {
                     Button {
                         UIPasteboard.general.string = log
                     } label: {
-                        Label("Copy Output", systemImage: "doc.on.doc")
+                        Label(String(localized: "Copy Output"), systemImage: "doc.on.doc")
                     }
                 }
             }
         }
     }
 }
-

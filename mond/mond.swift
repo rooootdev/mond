@@ -28,26 +28,26 @@ var path: String {
 @main
 struct mond: App {
     @StateObject private var state = AppState()
-    
+
     @AppStorage("ka_on") private var ka_on = true
-    
+
     init() {
         if !is_debugged() {
             setvbuf(stdout, nil, _IONBF, 0)
             dup2(pipe.fileHandleForWriting.fileDescriptor, STDOUT_FILENO)
         }
-        
+
         UserDefaults.standard.register(defaults: ["exploit_method": "bad_query"])
         if UserDefaults.standard.bool(forKey: "ka_on") {
             keep_alive()
         }
-        
+
         // thanks lunginspector
         let fix = class_getInstanceMethod(UIDocumentPickerViewController.self, #selector(UIDocumentPickerViewController.fix_init(forOpeningContentTypes:asCopy:)))!
         let og = class_getInstanceMethod(UIDocumentPickerViewController.self, #selector(UIDocumentPickerViewController.init(forOpeningContentTypes:asCopy:)))!
         method_exchangeImplementations(og, fix)
     }
-    
+
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -62,9 +62,9 @@ struct mond: App {
                 }
                 .onAppear() {
                     if !is_supported() {
-                        Alertinator.shared.alert(title: "Not supported!", body: "Your iOS version may not be supported by mond.\nMond only supports iOS 27.0 developer beta 1 - 4.")
+                        Alertinator.shared.alert(title: String(localized: "Not supported!"), body: String(localized: "Your iOS version may not be supported by mond.\nMond only supports iOS 27.0 developer beta 1 - 4."))
                     }
-                    
+
                     grant_all(state: state)
                 }
                 .overlay {

@@ -60,16 +60,16 @@ struct GestaltView: View {
                 if !is_valid || is_empty {
                     Section {
                         if is_empty {
-                            PlainAlert(title: "Do not reboot!", icon: "exclamationmark.triangle.fill", text: "Your MobileGestalt.plist seems to be empty.", color: Color.yellow)
+                            PlainAlert(title: String(localized: "Do not reboot!"), icon: "exclamationmark.triangle.fill", text: String(localized: "Your MobileGestalt.plist seems to be empty."), color: Color.yellow)
                         }
 
                         if !is_valid {
-                            PlainAlert(title: "Do not reboot!", icon: "exclamationmark.triangle.fill", text: "Your MobileGestalt.plist seems to be invalid.", color: Color.yellow)
+                            PlainAlert(title: String(localized: "Do not reboot!"), icon: "exclamationmark.triangle.fill", text: String(localized: "Your MobileGestalt.plist seems to be invalid."), color: Color.yellow)
                         }
                     } header: {
-                        Label("Warning", systemImage: "exclamationmark.triangle")
+                        Label(String(localized: "Warning"), systemImage: "exclamationmark.triangle")
                     } footer: {
-                        Text("Rebooting now might cause a bootloop. Try pressing 'Revert Tweaks'. If the warnings dont go away after that, you're fucked.")
+                        Text(String(localized: "Rebooting now might cause a bootloop. Try pressing 'Revert Tweaks'. If the warnings dont go away after that, you're fucked."))
                     }
                 }
 
@@ -78,22 +78,22 @@ struct GestaltView: View {
                         mg_apply_ui_state(selected_st, enable_device_name, mg_device_name, product_type)
                         mg_apply()
                     } label: {
-                        Text("Apply Tweaks")
+                        Text(String(localized: "Apply Tweaks"))
                     }
 
                     Button {
                         mg_revert()
                     } label: {
-                        Text("Revert Tweaks")
+                        Text(String(localized: "Revert Tweaks"))
                     }
-                    
+
                     Button {
                         state.respring()
                     } label: {
-                        Text("Respring")
+                        Text(String(localized: "Respring"))
                     }
                 } footer: {
-                    Text("**WARNING:** These tweaks have the capability to break features on your device or softbrick it if misused!")
+                    Text(String(localized: "These tweaks have the capability to break features on your device or softbrick it if misused."))
                 }
 
                 Section {
@@ -101,7 +101,7 @@ struct GestaltView: View {
                         Text("Original (\(og_st))").tag("og")
 
                         if is_device_good() {
-                            Text("Disable Dynamic Island").tag("no_dynamic_island")
+                            Text(String(localized: "Disable Dynamic Island")).tag("no_dynamic_island")
                         }
 
                         Text("iPhone 14 Pro").tag("14p")
@@ -118,22 +118,22 @@ struct GestaltView: View {
                         }
 
                         if has_home_button() {
-                            Text("iPhone X Gestures").tag("x")
+                            Text(String(localized: "iPhone X Gestures")).tag("x")
                         }
                     } label: {
                         HStack {
-                            Text("Subtype")
+                            Text(String(localized: "Subtype"))
                             Spacer()
                         }
                     }
 
-                    Toggle("Custom Device Name", isOn: $enable_device_name)
+                    Toggle(String(localized: "Custom Device Name"), isOn: $enable_device_name)
 
                     if enable_device_name {
-                        TextField("Device Name", text: $mg_device_name)
+                        TextField(String(localized: "Device Name"), text: $mg_device_name)
                     }
                 } header: {
-                    Label("Device Artwork", systemImage: "paintbrush.pointed")
+                    Label(String(localized: "Device Artwork"), systemImage: "paintbrush.pointed")
                 }
 
                 Section {
@@ -146,7 +146,7 @@ struct GestaltView: View {
                     TweakToggle(title: "Enable Liquid Glass Low-Performance Mode")
                     TweakToggle(title: "Disable Liquid Glass Low-Performance Mode")
                 } header: {
-                    Label("Software-Oriented Features", systemImage: "gearshape")
+                    Label(String(localized: "Software-Oriented Features"), systemImage: "gearshape")
                 }
 
                 Section {
@@ -158,7 +158,7 @@ struct GestaltView: View {
                     }
                     TweakToggle(title: "Pulse Width Modulation")
                 } header: {
-                    Label("Hardware-Oriented Features", systemImage: "iphone")
+                    Label(String(localized: "Hardware-Oriented Features"), systemImage: "iphone")
                 }
 
                 Section {
@@ -167,8 +167,8 @@ struct GestaltView: View {
                     TweakToggle(title: "Apple Intelligence")
 
                     HStack(spacing: 10) {
-                        Picker("Spoofing", selection: $product_type) {
-                            Text("Default").tag(machine_name())
+                        Picker(String(localized: "Spoofing"), selection: $product_type) {
+                            Text(String(localized: "Default")).tag(machine_name())
                             if UIDevice.current.userInterfaceIdiom == .pad {
                                 if doubleSystemVersion() >= 17.4 {
                                     Text("iPad Pro 11-inch (M4)").tag("iPad16,3")
@@ -189,15 +189,15 @@ struct GestaltView: View {
                                     Text("iPhone 17").tag("iPhone18,3")
                                     Text("iPhone 17 Pro").tag("iPhone18,1")
                                     Text("iPhone 17 Pro Max").tag("iPhone18,2")
-                                    Text("iPhone Air").tag("iPhone18,4")
+                                    Text("iPhone 17 Air").tag("iPhone18,4")
                                 }
                             }
                         }
 
                         Button {
                             Alertinator.shared.alert(
-                                title: "Device Spoofing Info",
-                                body: "Only spoof your device model if you want to download Apple Intelligence. This may break Face ID. If you decide to unspoof and want to keep Apple Intelligence, do NOT re-enter the Apple Intelligence & Siri menu in Settings."
+                                title: String(localized: "Device Spoofing Info"),
+                                body: String(localized: "Only spoof your device model if you want to download Apple Intelligence. This may break Face ID. If you decide to unspoof and want to keep Apple Intelligence, do NOT re-enter the Apple Intelligence & Siri menu in Settings.")
                             )
                         } label: {
                             Image(systemName: "info.circle")
@@ -206,7 +206,7 @@ struct GestaltView: View {
                         .buttonStyle(.plain)
                     }
                 } header: {
-                    Label("Eligibility", systemImage: "checklist")
+                    Label(String(localized: "Eligibility"), systemImage: "checklist")
                 }
 
                 Section {
@@ -222,7 +222,7 @@ struct GestaltView: View {
                     TweakToggle(title: "Enable iPadOS Mode")
                         .disabled(cache_extra?["+3Uf0Pm5F8Xy7Onyvko0vA"] as? String != "iPhone")
                 } header: {
-                    Label("iPadOS Features", systemImage: "ipad")
+                    Label(String(localized: "iPadOS Features"), systemImage: "ipad")
                 }
 
                 Section {
@@ -230,10 +230,10 @@ struct GestaltView: View {
                     TweakToggle(title: "Internal Features")
                     TweakToggle(title: "Apple Internal Install")
                 } header: {
-                    Label("Internal", systemImage: "ant")
+                    Label(String(localized: "Internal"), systemImage: "ant")
                 }
             }
-            .navigationTitle("mond")
+            .navigationTitle(String(localized: "mond"))
             .tint(Color("AccentColor"))
             .task {
                 mg_load()

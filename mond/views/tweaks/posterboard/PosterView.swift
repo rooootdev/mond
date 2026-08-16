@@ -13,7 +13,7 @@ import PartyUI
 struct PosterView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var state: AppState
-    
+
     @State private var show_settings: Bool = false
     @State private var show_importer: Bool = false
     @State private var show_explorer: Bool = false
@@ -30,8 +30,8 @@ struct PosterView: View {
                             if busy {
                                 ProgressView()
                             }
-                            
-                            Text("Apply")
+
+                            Text(String(localized: "Apply"))
                         }
                     }
                     .disabled(state.poster_files.isEmpty || busy)
@@ -40,28 +40,28 @@ struct PosterView: View {
                         Button {
                             reset()
                         } label: {
-                            Text("Reset")
+                            Text(String(localized: "Reset"))
                         }
                         .disabled(busy)
                     }
                 }
-                
+
                 Section {
                     Button {
                         show_importer = true
                     } label: {
-                        Text("Import Tendies")
+                        Text(String(localized: "Import Tendies"))
                     }
                     .disabled(busy)
-                    
+
                     Button {
                         show_explorer = true
                     } label: {
-                        Text("Explore Tendies")
+                        Text(String(localized: "Explore Tendies"))
                     }
                     .disabled(busy)
                 } footer: {
-                    Text("Import up to 5 wallpaper packs.\n**NOTE:** Importing more than 5 tendies at once is not a good idea and importing more than 15 is a TERRIBLE idea. Dont say I didnt warn you.")
+                    Text(String(localized: "Import up to 5 wallpaper packs.\n**NOTE:** Importing more than 5 tendies at once is not a good idea and importing more than 15 is a TERRIBLE idea. Dont say I didnt warn you."))
                 }
 
                 if !state.poster_files.isEmpty {
@@ -73,11 +73,11 @@ struct PosterView: View {
                             state.remove_poster_files(at: offsets)
                         }
                     } header: {
-                        Label("Imported", systemImage: "document.on.document")
+                        Label(String(localized: "Imported"), systemImage: "document.on.document")
                     }
                 }
             }
-            .navigationTitle("PosterBoard")
+            .navigationTitle(String(localized: "PosterBoard"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack {
@@ -113,12 +113,12 @@ struct PosterView: View {
             print("(pb) applied \(count) descriptor(s).")
             busy = false
             Alertinator.shared.alert(
-                title: "Successfully applied PosterBoard!",
-                body: "For changes to take effect:\n1. Click 'Open' to launch Posterboard\n2. Close it from the App Switcher",
-                actionLabel: "Open",
+                title: String(localized: "Successfully applied PosterBoard!"),
+                body: String(localized: "For changes to take effect:\n1. Click 'Open' to launch Posterboard\n2. Close it from the App Switcher"),
+                actionLabel: String(localized: "Open"),
                 action: {
                     // state.respring()
-                    
+
                     let cls = objc_getClass("LSApplicationWorkspace") as? NSObject
                     let ws = cls?.perform(Selector(("defaultWorkspace"))).takeUnretainedValue()
                     _ = ws?.perform(Selector(("openApplicationWithBundleID:")), with: "com.apple.PosterBoard")
@@ -128,8 +128,8 @@ struct PosterView: View {
             print("(pb) failed: \(error.localizedDescription)\n")
             busy = false
             Alertinator.shared.alert(
-                title: "Failed to apply PosterBoard!",
-                body: "Restart the app and try again. Check logs for more detailed information."
+                title: String(localized: "Failed to apply PosterBoard!"),
+                body: String(localized: "Restart the app and try again. Check logs for more detailed information.")
             )
         }
     }
@@ -141,9 +141,9 @@ struct PosterView: View {
             print("(pb) reset done.")
             busy = false
             Alertinator.shared.alert(
-                title: "Successfully reverted PosterBoard!",
-                body: "Respring your device for changes to take effect.",
-                actionLabel: "Respring",
+                title: String(localized: "Successfully reverted PosterBoard!"),
+                body: String(localized: "Respring your device for changes to take effect."),
+                actionLabel: String(localized: "Respring"),
                 action: {
                     state.respring()
                 }
@@ -152,8 +152,8 @@ struct PosterView: View {
             print("(pb) failed: \(error.localizedDescription)")
             busy = false
             Alertinator.shared.alert(
-                title: "Failed to revert PosterBoard!",
-                body: "Restart the app and try again. Check logs for more detailed information."
+                title: String(localized: "Failed to revert PosterBoard!"),
+                body: String(localized: "Restart the app and try again. Check logs for more detailed information.")
             )
         }
     }

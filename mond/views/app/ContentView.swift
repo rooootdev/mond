@@ -11,10 +11,10 @@ import PartyUI
 struct ContentView: View {
     @EnvironmentObject var state: AppState
     @AppStorage("method") private var method: String = "bad_query"
-    
+
     @State private var is_valid: Bool = false
     @State private var show_settings: Bool = false
-    
+
     var body: some View {
         NavigationStack {
             List {
@@ -22,15 +22,15 @@ struct ContentView: View {
                     LogView()
                         .modifier(TerminalPlatter())
                 } header: {
-                    Label("Logs", systemImage: "apple.terminal")
+                    Label(String(localized: "Logs"), systemImage: "apple.terminal")
                 }
-                
+
                 Section {
                     NavigationLink {
                         GestaltView()
                     } label: {
                         HStack {
-                            Text("MobileGestalt")
+                            Text(String(localized: "MobileGestalt"))
                             if state.granting_mg {
                                 Spacer()
                                 ProgressView()
@@ -39,12 +39,12 @@ struct ContentView: View {
                         }
                     }
                     .disabled(state.mg_granted != true)
-                    
+
                     NavigationLink {
                         PosterView()
                     } label: {
                         HStack {
-                            Text("PosterBoard")
+                            Text(String(localized: "PosterBoard"))
                             if state.granting_pb {
                                 Spacer()
                                 ProgressView()
@@ -53,12 +53,12 @@ struct ContentView: View {
                         }
                     }
                     .disabled(method == "cmg" || state.pb_granted != true)
-                    
+
                     NavigationLink {
                         SantanderView()
                     } label: {
                         HStack {
-                            Text("HouseArrest")
+                            Text(String(localized: "HouseArrest"))
                             if state.granting_apps {
                                 Spacer()
                                 ProgressView()
@@ -68,14 +68,14 @@ struct ContentView: View {
                     }
                     .disabled(method == "cmg" || state.apps_granted != true)
                 } header: {
-                    Label("Tweaks", systemImage: "paintbrush")
+                    Label(String(localized: "Tweaks"), systemImage: "paintbrush")
                 } footer: {
                     if method == "cmg" {
-                         Text("Only MobileGestalt is available when method is set to cmg.")
+                         Text(String(localized: "Only MobileGestalt is available when method is set to cmg."))
                     }
                 }
             }
-            .navigationTitle("mond")
+            .navigationTitle(String(localized: "mond"))
             .tint(Color("AccentColor"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

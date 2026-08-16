@@ -19,14 +19,14 @@ struct TendiesView: View {
         NavigationStack {
             Group {
                 if vm.loading && vm.wallpapers.isEmpty {
-                    ProgressView("Loading wallpapers…")
+                    ProgressView(String(localized: "Loading wallpapers…"))
                 } else if let error = vm.error_msg, vm.wallpapers.isEmpty {
                     ContentUnavailableView {
-                        Label("Couldn't Load tendies", systemImage: "wifi.exclamationmark")
+                        Label(String(localized: "Couldn't Load tendies"), systemImage: "wifi.exclamationmark")
                     } description: {
                         Text(error)
                     } actions: {
-                        Button("Try Again") {
+                        Button(String(localized: "Try Again")) {
                             Task {
                                 await vm.retry()
                             }
@@ -36,10 +36,10 @@ struct TendiesView: View {
                     tendies_list
                 }
             }
-            .navigationTitle("Tendies")
+            .navigationTitle(String(localized: "Tendies"))
             .searchable(
                 text: $vm.query,
-                prompt: "Search wallpapers"
+                prompt: String(localized: "Search wallpapers")
             )
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -57,7 +57,7 @@ struct TendiesView: View {
                 await vm.load()
             }
         }
-        .alert("Import Failed", isPresented: Binding(
+        .alert(String(localized: "Import Failed"), isPresented: Binding(
             get: { import_error != nil },
             set: { if !$0 { import_error = nil } }
         )) {
@@ -99,7 +99,7 @@ struct TendiesView: View {
                                 .frame(height: 300)
                                 .background(.quaternary)
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
-                            
+
                         case .success(let image):
                             image
                                 .resizable()
@@ -107,7 +107,7 @@ struct TendiesView: View {
                                 .frame(maxWidth: .infinity)
                                 .background(.quaternary)
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
-                            
+
                         case .failure:
                             Image(systemName: "photo")
                                 .font(.title2)
@@ -116,19 +116,19 @@ struct TendiesView: View {
                                 .frame(height: 300)
                                 .background(.quaternary)
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
-                            
+
                         @unknown default:
                             EmptyView()
                         }
                     }
-                    
+
                     HStack {
                         Text(wallpaper.name)
                             .lineLimit(1)
                             .multilineTextAlignment(.leading)
-                        
+
                         Spacer(minLength: 0)
-                        
+
                         Image(systemName: "chevron.right")
                             .font(.footnote)
                             .foregroundStyle(.secondary)
@@ -149,7 +149,7 @@ struct TendiesView: View {
                         await add_to_imported(wallpaper)
                     }
                 } label: {
-                    Label("Add to Imported", systemImage: "arrow.down.circle")
+                    Label(String(localized: "Add to Imported"), systemImage: "arrow.down.circle")
                 }
             }
         }
@@ -241,7 +241,7 @@ struct TendiesDetail: View {
                             .clipShape(RoundedRectangle(cornerRadius: 20))
 
                     case .failure:
-                        ContentUnavailableView("Preview Unavailable", systemImage: "photo", description: Text("The wallpaper preview couldn't be loaded."))
+                        ContentUnavailableView(String(localized: "Preview Unavailable"), systemImage: "photo", description: Text(String(localized: "The wallpaper preview couldn't be loaded.")))
 
                     @unknown default:
                         EmptyView()
@@ -291,10 +291,10 @@ struct TendiesDetail: View {
                         if importing {
                             HStack {
                                 ProgressView()
-                                Text("Downloading...")
+                                Text(String(localized: "Downloading..."))
                             }
                         } else {
-                            Text("Add to Imported")
+                            Text(String(localized: "Add to Imported"))
                         }
                     }
                     .disabled(importing)
@@ -302,7 +302,7 @@ struct TendiesDetail: View {
             }
         }
         .navigationTitle(wallpaper.name)
-        .alert("Download Failed", isPresented: Binding(
+        .alert(String(localized: "Download Failed"), isPresented: Binding(
             get: { import_error != nil },
             set: { if !$0 { import_error = nil } }
         )) {

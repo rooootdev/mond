@@ -140,25 +140,25 @@ struct SantanderDirectoryView: View {
                 NavigationLink {
                     SantanderDirectoryView(path: root_path)
                 } label: {
-                    Label("Go to Root", systemImage: "externaldrive")
+                    Label(String(localized: "Go to Root"), systemImage: "externaldrive")
                 }
                 NavigationLink {
                     SantanderDirectoryView(path: home_path)
                 } label: {
-                    Label("Go to Home", systemImage: "house")
+                    Label(String(localized: "Go to Home"), systemImage: "house")
                 }
                 Divider()
-                Toggle("Display hidden files", isOn: $display_hidden_files)
+                Toggle(String(localized: "Display hidden files"), isOn: $display_hidden_files)
                 Divider()
                 Button {
                     sort_ascending = true
                 } label: {
-                    Label("Sort A-Z", systemImage: "textformat")
+                    Label(String(localized: "Sort A-Z"), systemImage: "textformat")
                 }
                 Button {
                     sort_ascending = false
                 } label: {
-                    Label("Sort Z-A", systemImage: "textformat")
+                    Label(String(localized: "Sort Z-A"), systemImage: "textformat")
                 }
             } label: {
                 Image(systemName: "ellipsis.circle")
@@ -194,11 +194,11 @@ struct SantanderDirectoryView: View {
     }
 
     private var empty_state_message: String {
-        if !search_text.isEmpty { return "No matching items." }
+        if !search_text.isEmpty { return String(localized: "No matching items.") }
         if !display_hidden_files && !items.isEmpty {
-            return "No visible items. Enable \"Display hidden files\" to show dotfiles."
+            return String(localized: "No visible items. Enable \"Display hidden files\" to show dotfiles.")
         }
-        return empty_message ?? "Directory is empty."
+        return empty_message ?? String(localized: "Directory is empty.")
     }
 
     private func load() {
@@ -227,7 +227,7 @@ struct SantanderDirectoryView: View {
                 return SantanderPath(url: url, display_name: bundle_id(for: url), is_directory: true)
             }
             if items.isEmpty {
-                return SantanderDirectoryListing(items: [], empty_state_message: "No app containers found.")
+                return SantanderDirectoryListing(items: [], empty_state_message: String(localized: "No app containers found."))
             }
             return SantanderDirectoryListing(items: items, empty_state_message: nil)
         }
@@ -242,12 +242,12 @@ struct SantanderDirectoryView: View {
             return listing
         }
 
-        return SantanderDirectoryListing(items: [], empty_state_message: "Cannot list directory (missing permissions).")
+        return SantanderDirectoryListing(items: [], empty_state_message: String(localized: "Cannot list directory (missing permissions)."))
     }
 
     private static func try_direct_listing(for path: SantanderPath) -> SantanderDirectoryListing? {
         guard path.is_directory else {
-            return SantanderDirectoryListing(items: [], empty_state_message: "Not a directory.")
+            return SantanderDirectoryListing(items: [], empty_state_message: String(localized: "Not a directory."))
         }
 
         let fm = FileManager.default
@@ -263,7 +263,7 @@ struct SantanderDirectoryView: View {
         do {
             let urls = try fm.contentsOfDirectory(at: path.url, includingPropertiesForKeys: nil)
             let items = urls.map(SantanderPath.init(url:))
-            return SantanderDirectoryListing(items: items, empty_state_message: items.isEmpty ? "Directory is empty." : nil)
+            return SantanderDirectoryListing(items: items, empty_state_message: items.isEmpty ? String(localized: "Directory is empty.") : nil)
         } catch {
             return nil
         }
@@ -319,10 +319,10 @@ struct SantanderFileView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     if is_editing {
-                        Button("Cancel") {
+                        Button(String(localized: "Cancel")) {
                             is_editing = false
                         }
-                        Button("Save") {
+                        Button(String(localized: "Save")) {
                             save()
                         }
                     } else {
@@ -347,7 +347,7 @@ struct SantanderFileView: View {
                         || Self.plist_editor_content(from: data) != nil
                 }
             }
-            .alert("Save Failed", isPresented: Binding(
+            .alert(String(localized: "Save Failed"), isPresented: Binding(
                 get: { save_error != nil },
                 set: { if !$0 { save_error = nil } }
             )) {
@@ -386,7 +386,7 @@ struct SantanderFileView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.black)
             } else {
-                ContentUnavailableView(failure_text("Failed to render image"), systemImage: "photo")
+                ContentUnavailableView(failure_text(String(localized: "Failed to render image")), systemImage: "photo")
             }
         }
     }
@@ -424,7 +424,7 @@ struct SantanderFileView: View {
 
     private func save() {
         guard Self.grant_file_write(path.path) else {
-            save_error = "Missing write permission."
+            save_error = String(localized: "Missing write permission.")
             return
         }
         if let format = original_plist_format {
@@ -432,7 +432,7 @@ struct SantanderFileView: View {
             return
         }
         guard let data = edit_text.data(using: original_encoding) else {
-            save_error = "Could not encode text."
+            save_error = String(localized: "Could not encode text.")
             return
         }
         do {
@@ -445,7 +445,7 @@ struct SantanderFileView: View {
 
     private func save_plist(format: PropertyListSerialization.PropertyListFormat) {
         guard let edited_data = edit_text.data(using: .utf8) else {
-            save_error = "Could not encode text."
+            save_error = String(localized: "Could not encode text.")
             return
         }
         let object: Any
@@ -454,7 +454,7 @@ struct SantanderFileView: View {
         } else if let plist = try? PropertyListSerialization.propertyList(from: edited_data, options: [], format: nil) {
             object = plist
         } else {
-            save_error = "Edited text is not a valid plist/JSON document."
+            save_error = String(localized: "Edited text is not a valid plist/JSON document.")
             return
         }
         do {
