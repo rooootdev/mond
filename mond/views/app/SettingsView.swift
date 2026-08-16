@@ -166,7 +166,7 @@ struct SettingsView: View {
                     CreditsRow(name: "johnny", role: String(localized: "His work on the MCM bug class"), profile: URL(string: "https://github.com/0xjohnnydev")!)
                     CreditsRow(name: "jailbreak.party", role: String(localized: "PartyUI, GestaltView"), profile: URL(string: "https://github.com/jailbreakdotparty")!)
                     CreditsRow(name: "SerStars", role: String(localized: "Tendies repository"), profile: URL(string: "https://github.com/SerStars")!)
-                    CreditsRow(name: "Erico", role: String(localized: "Translate"), profile: URL(string: "https://github.com/EricoEC")!)
+                    CreditsRow(name: "Erico", role: String(localized: "Simplified Chinese Translation"), profile: URL(string: "https://github.com/EricoEC")!)
                 } header: {
                     Label(String(localized: "Credits"), systemImage: "person.3.fill")
                 }

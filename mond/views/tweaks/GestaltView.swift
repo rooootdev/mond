@@ -23,9 +23,11 @@ struct TweakToggle: View {
     var body: some View {
         if let tweak = tweak(title) {
             PlainToggle(
-                text: tweak.title,
+                text: String(localized: String.LocalizationValue(tweak.title)),
                 infoType: tweak.info_t?.party_info_type ?? .none,
-                infoMessage: tweak.info_msg ?? "",
+                infoMessage: tweak.info_msg.map {
+                    String(localized: String.LocalizationValue($0))
+                } ?? "",
                 minSupportedVersion: tweak.minv ?? 0.0,
                 isOn: mg_tweak_binding(tweak)
             )

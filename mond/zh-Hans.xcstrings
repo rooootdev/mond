@@ -1,10 +1,11 @@
 {
   "sourceLanguage" : "en",
-  "targetLanguage" : "zh-Hans",
-  "version" : "1.0",
   "strings" : {
+    "%@" : {
+
+    },
     "Action Button Settings" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -15,7 +16,7 @@
       }
     },
     "Add to Imported" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -25,8 +26,19 @@
         }
       }
     },
+    "Adds the chime sound when the device powers on or shuts down." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设备开机或关机时播放提示音。"
+          }
+        }
+      }
+    },
     "Allow iPad Apps" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -36,8 +48,19 @@
         }
       }
     },
+    "Allows iPad apps to be installed on iPhone." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "允许在 iPhone 上安装 iPad 应用。"
+          }
+        }
+      }
+    },
     "Always-On Display" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -47,8 +70,19 @@
         }
       }
     },
+    "An alternate way to enable the Dynamic Island, as used by Nugget." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这是启用灵动岛的另一种方式，Nugget 使用的就是此方式。"
+          }
+        }
+      }
+    },
     "AOD Vibrancy" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -59,7 +93,7 @@
       }
     },
     "Apple Intelligence" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -69,8 +103,19 @@
         }
       }
     },
+    "Apple Intelligence Spoof" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "伪装 Apple Intelligence"
+          }
+        }
+      }
+    },
     "Apple Internal Install" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -81,7 +126,7 @@
       }
     },
     "Apple Pencil Settings" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -92,7 +137,7 @@
       }
     },
     "Apply" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -103,7 +148,7 @@
       }
     },
     "Apply Tweaks" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -114,7 +159,7 @@
       }
     },
     "Are you sure?" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -124,8 +169,19 @@
         }
       }
     },
+    "bad_query" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "bad_query"
+          }
+        }
+      }
+    },
     "Boot & Shutdown Chime" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -135,8 +191,19 @@
         }
       }
     },
+    "Can increase screen burn-in risk on devices that don't officially support it." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在未获官方支持的设备上启用可能增加屏幕烧屏风险。"
+          }
+        }
+      }
+    },
     "Cancel" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -147,7 +214,7 @@
       }
     },
     "Cannot list directory (missing permissions)." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -158,7 +225,7 @@
       }
     },
     "Charge Limit Menu" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -168,8 +235,19 @@
         }
       }
     },
+    "Check logs for error information." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请查看日志中的错误信息。"
+          }
+        }
+      }
+    },
     "Class: %@" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -179,8 +257,19 @@
         }
       }
     },
+    "cmg" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cmg"
+          }
+        }
+      }
+    },
     "Collision SOS" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -191,7 +280,7 @@
       }
     },
     "Confirm" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -202,18 +291,18 @@
       }
     },
     "Confirm that you want to respring." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "确认重启设备。"
+            "value" : "确认注销设备。"
           }
         }
       }
     },
     "Copy Output" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -224,7 +313,7 @@
       }
     },
     "Copy token" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -235,7 +324,7 @@
       }
     },
     "Could not encode text." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -246,7 +335,7 @@
       }
     },
     "Couldn't Load tendies" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -257,7 +346,7 @@
       }
     },
     "Credits" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -268,7 +357,7 @@
       }
     },
     "Custom Device Name" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -279,7 +368,7 @@
       }
     },
     "Default" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -290,7 +379,7 @@
       }
     },
     "Device Artwork" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -301,7 +390,7 @@
       }
     },
     "Device Name" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -312,7 +401,7 @@
       }
     },
     "Device Spoofing Info" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -323,7 +412,7 @@
       }
     },
     "Directory is empty." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -334,7 +423,7 @@
       }
     },
     "Disable Dynamic Island" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -345,7 +434,7 @@
       }
     },
     "Disable Liquid Glass Low-Performance Mode" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -356,7 +445,7 @@
       }
     },
     "Disable Region Restrictions" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -367,7 +456,7 @@
       }
     },
     "Disable Wallpaper Parallax" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -378,7 +467,7 @@
       }
     },
     "Disabled because the exploit failed. Is your iOS version supported?" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -389,7 +478,7 @@
       }
     },
     "Dismiss after importing" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -400,7 +489,7 @@
       }
     },
     "Display hidden files" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -410,8 +499,19 @@
         }
       }
     },
+    "Displays internal files in the Storage settings; can be dangerous on some iPads." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在存储设置中显示内部文件；在部分 iPad 上可能有风险。"
+          }
+        }
+      }
+    },
     "Do not reboot!" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -421,8 +521,19 @@
         }
       }
     },
+    "Don't use this at the same time as the option above." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请勿与上方选项同时启用。"
+          }
+        }
+      }
+    },
     "Done" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -433,7 +544,7 @@
       }
     },
     "Download Failed" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -444,7 +555,7 @@
       }
     },
     "Downloading..." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -455,7 +566,7 @@
       }
     },
     "Edited text is not a valid plist/JSON document." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -466,7 +577,7 @@
       }
     },
     "Eligibility" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -477,7 +588,7 @@
       }
     },
     "Enable Dynamic Island Capability" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -488,7 +599,7 @@
       }
     },
     "Enable iPadOS Mode" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -499,7 +610,7 @@
       }
     },
     "Enable Liquid Glass Low-Performance Mode" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -509,8 +620,19 @@
         }
       }
     },
+    "Experimental and high risk; This is a very dangerous tweak to use! If you use an alphanumeric passcode, DO NOT USE THIS TWEAK AT ALL! Please do not turn off \"Show Dock In Stage Manager\" or your device will BOOTLOOP when rotating to landscape! Some users have also reported that enabling the iPadOS UI and then tapping Stage Manager can cause the device to enter Recovery Mode, even when the UI itself appears unchanged. The Settings search bar may move to the top before this happens. With these three things in mind, you may experience general instability, or other major issues such as app data randomly disappearing. But I guess some funny multitasking features that still make the device relatively unusable are cool? Whatever dude, I'm not here to tell you how to use your own device." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "实验性高风险修改，使用时非常危险！如果你使用字母数字混合密码，请绝对不要启用此项！请勿关闭“在台前调度中显示程序坞”，否则设备横屏时会陷入开机循环。部分用户报告，启用 iPadOS 界面后再点按台前调度，即使界面看起来没有变化，设备也可能进入恢复模式；此前设置中的搜索栏可能会移到顶部。你可能遇到整体不稳定、应用数据随机消失等严重问题。请自行承担风险。"
+          }
+        }
+      }
+    },
     "Exploit" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -521,7 +643,7 @@
       }
     },
     "Explore Tendies" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -531,8 +653,30 @@
         }
       }
     },
+    "Exposes the Camera Control settings and its related capabilities." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示相机控制设置及其相关功能。"
+          }
+        }
+      }
+    },
+    "Failed to apply MobileGestalt!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应用 MobileGestalt 失败！"
+          }
+        }
+      }
+    },
     "Failed to apply PosterBoard!" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -543,7 +687,7 @@
       }
     },
     "Failed to get token." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -553,8 +697,19 @@
         }
       }
     },
+    "Failed to load current MobileGestalt!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "加载当前 MobileGestalt 失败！"
+          }
+        }
+      }
+    },
     "Failed to render image" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -564,8 +719,19 @@
         }
       }
     },
+    "Failed to revert MobileGestalt!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还原 MobileGestalt 失败！"
+          }
+        }
+      }
+    },
     "Failed to revert PosterBoard!" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -575,8 +741,30 @@
         }
       }
     },
+    "Flags the device as an Apple Security Research Device." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将设备标记为 Apple 安全研究设备。"
+          }
+        }
+      }
+    },
+    "Flags the device as capable of Stage Manager." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将设备标记为支持台前调度。"
+          }
+        }
+      }
+    },
     "For changes to take effect:\n1. Click 'Open' to launch Posterboard\n2. Close it from the App Switcher" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -587,7 +775,7 @@
       }
     },
     "Generate Token" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -598,7 +786,7 @@
       }
     },
     "Go to Home" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -609,7 +797,7 @@
       }
     },
     "Go to Root" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -620,7 +808,7 @@
       }
     },
     "Hardware-Oriented Features" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -631,7 +819,7 @@
       }
     },
     "His work on the MCM bug class" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -642,7 +830,7 @@
       }
     },
     "HouseArrest" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -652,8 +840,19 @@
         }
       }
     },
+    "How to use this tweak:\n1. Spoof to the model next to the first one supported by Apple Intelligence.\n2. Spoof back to your model.\n3. Spoof to your final model and you should see the Apple Intelligence icon in Settings.\n4. Connect iPhone to power and leave the Settings > Storage tab open for ~1 hour.\n\nNOTE: Do not spoof back." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用方法：\n1. 伪装为 Apple Intelligence 首个受支持机型相邻的型号。\n2. 再伪装回你的原始机型。\n3. 最后伪装为目标机型，此时应能在“设置”中看到 Apple Intelligence 图标。\n4. 将 iPhone 接通电源，并保持“设置 > 存储”页面打开约 1 小时。\n\n注意：完成后不要再伪装回原机型。"
+          }
+        }
+      }
+    },
     "Import Failed" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -664,7 +863,7 @@
       }
     },
     "Import Tendies" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -675,7 +874,7 @@
       }
     },
     "Import up to 5 wallpaper packs.\n**NOTE:** Importing more than 5 tendies at once is not a good idea and importing more than 15 is a TERRIBLE idea. Dont say I didnt warn you." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -686,7 +885,7 @@
       }
     },
     "Imported" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -696,8 +895,19 @@
         }
       }
     },
+    "Intended for iOS 26 and newer." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "适用于 iOS 26 及更高版本。"
+          }
+        }
+      }
+    },
     "Internal" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -708,7 +918,7 @@
       }
     },
     "Internal Features" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -719,7 +929,7 @@
       }
     },
     "Internal Storage View" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -729,8 +939,52 @@
         }
       }
     },
+    "iPad Pro 11-inch (4th Gen, Cellular)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPad Pro 11-inch (4th Gen, Cellular)"
+          }
+        }
+      }
+    },
+    "iPad Pro 11-inch (4th Gen)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPad Pro 11-inch (4th Gen)"
+          }
+        }
+      }
+    },
+    "iPad Pro 11-inch (M4, Cellular)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPad Pro 11-inch (M4, Cellular)"
+          }
+        }
+      }
+    },
+    "iPad Pro 11-inch (M4)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPad Pro 11-inch (M4)"
+          }
+        }
+      }
+    },
     "iPadOS Features" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -740,8 +994,63 @@
         }
       }
     },
+    "iPhone 14 Pro" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 14 Pro"
+          }
+        }
+      }
+    },
+    "iPhone 14 Pro Max" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 14 Pro Max"
+          }
+        }
+      }
+    },
+    "iPhone 15 Pro" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 15 Pro"
+          }
+        }
+      }
+    },
+    "iPhone 15 Pro Max" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 15 Pro Max"
+          }
+        }
+      }
+    },
+    "iPhone 16" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 16"
+          }
+        }
+      }
+    },
     "iPhone 16 Camera Control Settings" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -751,8 +1060,96 @@
         }
       }
     },
+    "iPhone 16 Plus" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 16 Plus"
+          }
+        }
+      }
+    },
+    "iPhone 16 Pro" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 16 Pro"
+          }
+        }
+      }
+    },
+    "iPhone 16 Pro Max" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 16 Pro Max"
+          }
+        }
+      }
+    },
+    "iPhone 17" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 17"
+          }
+        }
+      }
+    },
+    "iPhone 17 Air" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 17 Air"
+          }
+        }
+      }
+    },
+    "iPhone 17 Pro" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 17 Pro"
+          }
+        }
+      }
+    },
+    "iPhone 17 Pro Max" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 17 Pro Max"
+          }
+        }
+      }
+    },
+    "iPhone Air" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone Air"
+          }
+        }
+      }
+    },
     "iPhone X Gestures" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -763,7 +1160,7 @@
       }
     },
     "Keep Alive" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -774,7 +1171,7 @@
       }
     },
     "Keep Alive allows the app to keep running in the background." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -785,7 +1182,7 @@
       }
     },
     "Loading wallpapers…" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -796,7 +1193,7 @@
       }
     },
     "Logs" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -807,7 +1204,7 @@
       }
     },
     "Main developer" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -817,8 +1214,19 @@
         }
       }
     },
+    "Meant for devices like the iPhone SE where tapping to wake isn't otherwise available." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "适用于 iPhone SE 等原本无法轻点唤醒的设备。"
+          }
+        }
+      }
+    },
     "Method" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -829,7 +1237,7 @@
       }
     },
     "Missing write permission." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -840,7 +1248,7 @@
       }
     },
     "MobileGestalt" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -851,7 +1259,7 @@
       }
     },
     "mond" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -862,7 +1270,7 @@
       }
     },
     "No app containers found." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -873,7 +1281,7 @@
       }
     },
     "No matching items." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -884,7 +1292,7 @@
       }
     },
     "No visible items. Enable \"Display hidden files\" to show dotfiles." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -895,7 +1303,7 @@
       }
     },
     "Not a directory." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -906,7 +1314,7 @@
       }
     },
     "Not supported!" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -917,7 +1325,7 @@
       }
     },
     "OK" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -928,7 +1336,7 @@
       }
     },
     "Only MobileGestalt is available when method is set to cmg." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -939,7 +1347,7 @@
       }
     },
     "Only spoof your device model if you want to download Apple Intelligence. This may break Face ID. If you decide to unspoof and want to keep Apple Intelligence, do NOT re-enter the Apple Intelligence & Siri menu in Settings." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -950,7 +1358,7 @@
       }
     },
     "Open" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -960,8 +1368,11 @@
         }
       }
     },
+    "Original (%lld)" : {
+
+    },
     "PartyUI, GestaltView" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -972,7 +1383,7 @@
       }
     },
     "Path: %@" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -982,8 +1393,19 @@
         }
       }
     },
+    "Please do not use this feature to bypass region restrictions that would equate to breaking regional laws (e.g. disabling the camera shutter sound). We will NOT be held responsible for enabling any illegal activites!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请勿使用此功能绕过会违反当地法律的地区限制，例如关闭相机快门声。因启用此类功能造成的后果，我们概不负责！"
+          }
+        }
+      }
+    },
     "PosterBoard" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -993,8 +1415,19 @@
         }
       }
     },
+    "Prevents the wallpaper from moving when you tilt or move the device." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "防止壁纸在倾斜或移动设备时发生位移。"
+          }
+        }
+      }
+    },
     "Preview Unavailable" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1005,7 +1438,7 @@
       }
     },
     "Pulse Width Modulation" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1015,8 +1448,19 @@
         }
       }
     },
+    "Reboot your device for changes to take effect." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请重启设备以使更改生效。"
+          }
+        }
+      }
+    },
     "Rebooting now might cause a bootloop. Try pressing 'Revert Tweaks'. If the warnings dont go away after that, you're fucked." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1027,7 +1471,7 @@
       }
     },
     "Reset" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1038,51 +1482,106 @@
       }
     },
     "Respring" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "重启"
+            "value" : "注销刷新"
           }
         }
       }
     },
     "Respring method by neon, swift implementation by skadz." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "重启方式由 neon 开发，Swift 实现由 skadz 完成。"
+            "value" : "注销刷新方式由 neon 开发，Swift 实现由 skadz 完成。"
           }
         }
       }
     },
     "Respring your device for changes to take effect." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "重启设备以使更改生效。"
+            "value" : "注销刷新设备以使更改生效。"
+          }
+        }
+      }
+    },
+    "Respring your device for changes to take effect. Note that some tweaks may require a reboot for them to apply properly." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请注销刷新设备以使更改生效。部分修改可能需要重启设备后才能正确应用。"
           }
         }
       }
     },
     "Restart the app and try again. Check logs for more detailed information." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "重启应用后重试。查看日志以获取更详细的信息。"
+            "value" : "请重启应用后再试。更多详细信息请查看日志。"
+          }
+        }
+      }
+    },
+    "Reveals the Action Button settings page." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示操作按钮设置页面。"
+          }
+        }
+      }
+    },
+    "Reveals the Apple Pencil settings page." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示 Apple Pencil 设置页面。"
+          }
+        }
+      }
+    },
+    "Reveals the collision detection options in the SOS settings." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示 SOS 设置中的碰撞检测选项。"
+          }
+        }
+      }
+    },
+    "Reveals the Settings menu; whether it actually limits charging depends on your hardware." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示充电限制设置菜单；是否能真正限制充电取决于你的硬件。"
           }
         }
       }
     },
     "Revert Tweaks" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1093,7 +1592,7 @@
       }
     },
     "Run Exploit" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1104,7 +1603,7 @@
       }
     },
     "Sandbox Extension Token." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1115,7 +1614,7 @@
       }
     },
     "Save" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1126,7 +1625,7 @@
       }
     },
     "Save Failed" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1137,7 +1636,7 @@
       }
     },
     "Search wallpapers" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1148,7 +1647,7 @@
       }
     },
     "Security Research Device Mode" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1159,7 +1658,7 @@
       }
     },
     "Settings" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1169,8 +1668,18 @@
         }
       }
     },
+    "Simplified Chinese Translation" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "简体中文翻译"
+          }
+        }
+      }
+    },
     "Software-Oriented Features" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1181,7 +1690,7 @@
       }
     },
     "Sort A-Z" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1192,7 +1701,7 @@
       }
     },
     "Sort Z-A" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1203,7 +1712,7 @@
       }
     },
     "Spoofing" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1214,7 +1723,7 @@
       }
     },
     "Stage Manager Support" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1225,7 +1734,7 @@
       }
     },
     "Subtype" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1235,8 +1744,19 @@
         }
       }
     },
+    "Successfully applied Gestalt tweaks!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gestalt 修改已成功应用！"
+          }
+        }
+      }
+    },
     "Successfully applied PosterBoard!" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1246,8 +1766,19 @@
         }
       }
     },
+    "Successfully reverted Gestalt tweaks!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gestalt 修改已成功还原！"
+          }
+        }
+      }
+    },
     "Successfully reverted PosterBoard!" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1258,7 +1789,7 @@
       }
     },
     "Supports iOS 27.0 b1 - b4. By forcequit." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1269,7 +1800,7 @@
       }
     },
     "Supports iOS 27.0 b1 - b4. Only MobileGestalt will work with this method. Only use this when bad_query isnt working for you." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1280,7 +1811,7 @@
       }
     },
     "Tap to Wake" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1291,7 +1822,7 @@
       }
     },
     "Tendies" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1302,7 +1833,7 @@
       }
     },
     "Tendies repository" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1313,7 +1844,7 @@
       }
     },
     "The bad_query exploit" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1324,7 +1855,7 @@
       }
     },
     "The wallpaper preview couldn't be loaded." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1335,7 +1866,7 @@
       }
     },
     "These tweaks have the capability to break features on your device or softbrick it if misused." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1345,8 +1876,19 @@
         }
       }
     },
+    "This tweak may be broken or have no effect on some iOS versions or devices." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "该修改在部分 iOS 版本或设备上可能失效或没有效果。"
+          }
+        }
+      }
+    },
     "Token" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1357,7 +1899,7 @@
       }
     },
     "Tools" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1367,8 +1909,19 @@
         }
       }
     },
+    "Translate zh-CN" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "简体中文翻译"
+          }
+        }
+      }
+    },
     "Try Again" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1378,8 +1931,30 @@
         }
       }
     },
+    "Turn this on if your Always-On Display renders incorrectly." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果全天候显示效果异常，请开启此项。"
+          }
+        }
+      }
+    },
+    "Turns on internal features like the Metal HUD; some services may act up." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用 Metal HUD 等内部功能；部分服务可能出现异常。"
+          }
+        }
+      }
+    },
     "Tweaks" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1390,7 +1965,7 @@
       }
     },
     "Unknown App" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1401,7 +1976,7 @@
       }
     },
     "Warning" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1411,8 +1986,19 @@
         }
       }
     },
+    "Warning!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "警告！"
+          }
+        }
+      }
+    },
     "When enabled, the Tendies explorer will close automatically after importing a .tendies file into PosterBoard." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1423,7 +2009,7 @@
       }
     },
     "Your iOS version may not be supported by mond.\nMond only supports iOS 27.0 developer beta 1 - 4." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1434,7 +2020,7 @@
       }
     },
     "Your MobileGestalt.plist seems to be empty." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1445,7 +2031,7 @@
       }
     },
     "Your MobileGestalt.plist seems to be invalid." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1456,7 +2042,7 @@
       }
     },
     "Your sandbox token is invalid." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1467,7 +2053,7 @@
       }
     },
     "Your sandbox token is valid." : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
