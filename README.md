@@ -20,37 +20,33 @@
 </p>
 
 > [!WARNING]  
-> Some of the tweaks have the potential to brick your device!<br>Use at your own risk.
+> Some of these tweaks may cause unexpected device issues, data loss, or, even softbricks! Have a backup before usage.
 
->[!NOTE]
-> No questions regarding Apple Intelligence will be answered in GitHub issues anymore.<br>Ask in the [discord server](https://discord.gg/gw8PcRF3Jr).
+## Important note regarding Apple Intelligence
+If you're looking to enable Apple Intelligence using this tool, it may not work properly for you. This tweak is completely dependent on whether or not your device and Apple's servers want to cooperate, so, if the tweak never works properly, **do not ask for support!** There is nothing that we can do about this.
 
-**Version Support:**
-| iOS Version | Support |
-|---|---|
-| iOS ≤ 26.x | unsupported |
-| iOS 27.0 dev beta 1–4 | supported |
-| iOS 27.0 public beta 1–2 | supported |
-| iOS 27.0 dev beta ≥ 5 | unsupported |
-| iOS 27.0 public beta ≥ 3 | unsupported |
+### Supported Versions
+- iOS 27.0 (24A5355q) -> Developer Beta 1
+- iOS 27.0 (24A5370h) -> Developer Beta 2
+- iOS 27.0 (24A5380h) -> Developer Beta 3/Public Beta 1
+- iOS 27.0 (24A5390f) -> Developer Beta 4/Public Beta 2
 
-**Planned:**<br>
-&#45; Gestalt Keys browser<br>
+This weird range of supported versions is due to the sandbox escape that this app is reliant on, [bad_query](https://github.com/forcequitOS/bad_query). Please do NOT ask about supporting other iOS versions! Exploits like this are rare to come by, and we cannot extend support unless new, usable bugs are released.
 
-**Implemented:**<br>
-&#45; Pocket Poster<br>
-&#45; MobileGestalt Editor<br>
-&#45; HouseArrest File Browser<br>
+### Implemented Tweaks
+- PosterBoard Wallpapers (like Pocket Poster)
+- MobileGestalt Tweaks
+- HouseArrest File Browser (app containers)
+- Gestalt Keys Editor
 
-**Known Issues:**<br>
-&#45; Tweaks may disappear on reboot<br>
-&#45; Apple Intelligence spoofing doesnt work on iPhone 15<br>
-&#45; Disable Region restrictions may be broken on some versions/devices<br>
-&#45; iPadOS UI and related tweaks may not work and/or **bootloop** you!<br>
+### Known Issues
+- Tweaks may disappear on reboot.
+- Disabling region restrictions may not work properly.
+- iPadOS UI and related tweaks may not work and/or **bootloop** you!
 
-**Credits:**<br>
-&#45; [forcequit](https://github.com/forcequitOS) for his work on bad_query<br>
-&#45; [johnny](https://github.com/0xjohnnydev) for his work on the MCM bug class<br>
-&#45; [jailbreak.party](https://github.com/jailbreakdotparty) for PartyUI, GestaltView and the implementation of [neon](https://github.com/neonmodder123)'s respring method<br>
+### Credits
+- [forcequit](https://github.com/forcequitOS) for his work on bad_query
+- [johnny](https://github.com/0xjohnnydev) for his work on the MCM bug class.
+- [jailbreak.party](https://github.com/jailbreakdotparty) for PartyUI, GestaltView and the implementation of [neon](https://github.com/neonmodder123)'s respring method.
 
 <i>btw, you should like totally star this repo and stuff</i>
