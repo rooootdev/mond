@@ -176,7 +176,7 @@ let all_tweaks: [mg_tweak] = [
         },
         w_on: { dict in
             guard let cache_extra = dict["CacheExtra"] as? NSMutableDictionary else { return }
-            Alertinator.shared.alert(title: "Warning!", body: "Please do not use this feature to bypass region restrictions that would equate to breaking regional laws (e.g. disabling the camera shutter sound). We will NOT be held responsible for enabling any illegal activites!")
+            Alertinator.shared.alert(title: L10n.shared.t("Warning!"), body: L10n.shared.t("Please do not use this feature to bypass region restrictions that would equate to breaking regional laws (e.g. disabling the camera shutter sound). We will NOT be held responsible for enabling any illegal activites!"))
             cache_extra[region_code_key] = "LL"
             cache_extra[region_info_key] = "LL/A"
         },
@@ -200,8 +200,8 @@ let all_tweaks: [mg_tweak] = [
             guard let cache_extra = dict["CacheExtra"] as? NSMutableDictionary else { return }
             cache_extra["A62OafQ85EJAiiqKn4agtg"] = 1
             Alertinator.shared.alert(
-                title: "Apple Intelligence Spoof",
-                body: "How to use this tweak:\n1. Spoof to the model next to the first one supported by Apple Intelligence.\n2. Spoof back to your model.\n3. Spoof to your final model and you should see the Apple Intelligence icon in Settings.\n4. Connect iPhone to power and leave the Settings > Storage tab open for ~1 hour.\n\nNOTE: Do not spoof back."
+                title: L10n.shared.t("Apple Intelligence Spoof"),
+                body: L10n.shared.t("How to use this tweak:\n1. Spoof to the model next to the first one supported by Apple Intelligence.\n2. Spoof back to your model.\n3. Spoof to your final model and you should see the Apple Intelligence icon in Settings.\n4. Connect iPhone to power and leave the Settings > Storage tab open for ~1 hour.\n\nNOTE: Do not spoof back.")
             )
         },
         w_off: { dict in
@@ -503,7 +503,7 @@ func mg_load() {
                 is_valid = false
                 is_empty = (try? FileManager.default.attributesOfItem(atPath: mg_url_now.path))?[.size] as? UInt64 == 0
                 is_loading = false
-                Alertinator.shared.alert(title: "Failed to load current MobileGestalt!", body: "Restart the app and try again. Check logs for more detailed information.")
+                Alertinator.shared.alert(title: L10n.shared.t("Failed to load current MobileGestalt!"), body: L10n.shared.t("Restart the app and try again. Check logs for more detailed information."))
             }
         }
     }
@@ -529,12 +529,12 @@ func mg_apply() {
         enable_device_name = false
 
         print("(mg) successfully overwrote mobilegestalt!")
-        Alertinator.shared.alert(title: "Successfully applied Gestalt tweaks!", body: "Respring your device for changes to take effect. Note that some tweaks may require a reboot for them to apply properly.", actionLabel: "Respring", action: {
+        Alertinator.shared.alert(title: L10n.shared.t("Successfully applied Gestalt tweaks!"), body: L10n.shared.t("Respring your device for changes to take effect. Note that some tweaks may require a reboot for them to apply properly."), actionLabel: L10n.shared.t("Respring"), action: {
             state.respring()
         })
     } catch {
         print("(mg) failed to apply mobilegestalt: \(error)")
-        Alertinator.shared.alert(title: "Failed to apply MobileGestalt!", body: "Restart the app and try again. Check logs for more detailed information.")
+        Alertinator.shared.alert(title: L10n.shared.t("Failed to apply MobileGestalt!"), body: L10n.shared.t("Restart the app and try again. Check logs for more detailed information."))
     }
 }
 
@@ -545,10 +545,10 @@ func mg_revert() {
         try mg_write(backup_data)
 
         print("(mg) successfully reverted mobilegestalt!)")
-        Alertinator.shared.alert(title: "Successfully reverted Gestalt tweaks!", body: "Reboot your device for changes to take effect.")
+        Alertinator.shared.alert(title: L10n.shared.t("Successfully reverted Gestalt tweaks!"), body: L10n.shared.t("Reboot your device for changes to take effect."))
     } catch {
         print("(mg) failed to revert mobilegestalt: \(error)")
-        Alertinator.shared.alert(title: "Failed to revert MobileGestalt!", body: "Check logs for error information.")
+        Alertinator.shared.alert(title: L10n.shared.t("Failed to revert MobileGestalt!"), body: L10n.shared.t("Check logs for error information."))
     }
 }
 
@@ -710,9 +710,9 @@ enum mg_view_err: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
             case .missing_artwork_st:
-                return "Failed to get ArtworkDeviceSubType!"
+                return L10n.shared.t("Failed to get ArtworkDeviceSubType!")
             case .missing_artwork_device_name:
-                return "Failed to get ArtworkDeviceProductDescription!"
+                return L10n.shared.t("Failed to get ArtworkDeviceProductDescription!")
         }
     }
 }

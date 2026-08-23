@@ -11,6 +11,7 @@ import PartyUI
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var state: AppState
+    @EnvironmentObject private var l10n: L10n
     
     @AppStorage("method") private var method: String = "bad_query"
     @AppStorage("ka_on") private var ka_on = true
@@ -70,7 +71,7 @@ struct SettingsView: View {
                 }
                 
                 Section {
-                    Picker("Method", selection: $method) {
+                    Picker(l10n.t("Method"), selection: $method) {
                         Text("bad_query").tag("bad_query")
                         Text("cmg").tag("cmg")
                     }
@@ -79,16 +80,18 @@ struct SettingsView: View {
                     Button {
                         grant_all(state: state)
                     } label: {
-                        Text("Run Exploit")
+                        Text(l10n.t("Run Exploit"))
                     }
                 } header: {
                     Label("Exploit", systemImage: "wrench.and.screwdriver")
                 } footer: {
-                    Text(method == "cmg" ? "**CMG:** Supports iOS 27.0 b1 - b4. Only MobileGestalt will work with this method. Only use this when bad_query isnt working for you." : "**bad_query:** Supports iOS 27.0 b1 - b4. By [forcequit](https://github.com/forcequitOS).")
+                    Text(LocalizedStringKey(l10n.t(method == "cmg"
+                        ? "**CMG:** Supports iOS 27.0 b1 - b4. Only MobileGestalt will work with this method. Only use this when bad_query isnt working for you."
+                        : "**bad_query:** Supports iOS 27.0 b1 - b4. By [forcequit](https://github.com/forcequitOS).")))
                 }
                 
                 Section {
-                    TextField("Sandbox Extension Token.", text: $token)
+                    TextField(l10n.t("Sandbox Extension Token."), text: $token)
                     .contextMenu {
                         Text("Class: \(token.split(separator: ";").first { $0.contains("com.apple") }.map(String.init) ?? "N/A")")
                         Text("Path: \(token.split(separator: ";").last.map(String.init) ?? "N/A")")
@@ -96,35 +99,35 @@ struct SettingsView: View {
                         Button {
                             UIPasteboard.general.string = token
                         } label: {
-                            Label("Copy Token", systemImage: "doc.on.doc")
+                            Label(l10n.t("Copy Token"), systemImage: "doc.on.doc")
                         }
                     }
                     .lineLimit(1)
                     
                     Button {
-                        token = sandbox_extension_issue_file(path: TweakPaths.gestalt_dir) ?? "Failed to get token."
+                        token = sandbox_extension_issue_file(path: TweakPaths.gestalt_dir) ?? l10n.t("Failed to get token.")
                     } label: {
-                        Text("Generate Token")
+                        Text(l10n.t("Generate Token"))
                     }
                     .disabled(!state.exploit_succeeded)
                 } header: {
                     Label("Token", systemImage: "key")
                 } footer: {
-                    if !token.isEmpty && token != "Failed to get token." {
+                    if !token.isEmpty && token != l10n.t("Failed to get token.") {
                         if valid {
-                            Text("Your sandbox token is valid.")
+                            Text(l10n.t("Your sandbox token is valid."))
                         } else {
-                            Text("Your sandbox token is invalid.")
+                            Text(l10n.t("Your sandbox token is invalid."))
                         }
                     }
                     
                     if !state.exploit_succeeded {
-                        Text("Disabled because the exploit failed. Is your iOS version supported?")
+                        Text(l10n.t("Disabled because the exploit failed. Is your iOS version supported?"))
                     }
                 }
                 
                 Section {
-                    PlainToggle(text: "Keep Alive", infoType: .info, infoMessage: "Keeps the app running in the background after you close it, allowing it to remain active.", isOn: $ka_on)
+                    PlainToggle(text: l10n.t("Keep Alive"), infoType: .info, infoTitle: l10n.t("Information"), infoMessage: l10n.t("Keeps the app running in the background after you close it, allowing it to remain active."), isOn: $ka_on)
                         .onChange(of: ka_on) { _, enabled in
                             if enabled {
                                 keep_alive()
@@ -133,59 +136,59 @@ struct SettingsView: View {
                             }
                         }
 
-                    PlainToggle(text: "Dismiss after importing", infoType: .info, infoMessage: "When enabled, the Tendies explorer will close automatically after importing a .tendies file into PosterBoard.", isOn: $dismiss_after_import)
+                    PlainToggle(text: l10n.t("Dismiss after importing"), infoType: .info, infoTitle: l10n.t("Information"), infoMessage: l10n.t("When enabled, the Tendies explorer will close automatically after importing a .tendies file into PosterBoard."), isOn: $dismiss_after_import)
 
-                    PlainToggle(text: "Persist after reboot", infoType: .info, infoMessage: "When enabled, MobileGestalt is written in-place on the same inode, which (hopefully) prevents iOS from regenerating the cache on reboot. Disable to use atomic file replacement instead.", isOn: $atomic_write)
+                    PlainToggle(text: l10n.t("Persist after reboot"), infoType: .info, infoTitle: l10n.t("Information"), infoMessage: l10n.t("When enabled, MobileGestalt is written in-place on the same inode, which (hopefully) prevents iOS from regenerating the cache on reboot. Disable to use atomic file replacement instead."), isOn: $atomic_write)
                     
-                    PlainToggle(text: "Ignore exploit failure", infoType: .info, infoMessage: "When enabled, All Tweaks will be accessible even if the exploit failed.", isOn: $ignore_failure)
+                    PlainToggle(text: l10n.t("Ignore exploit failure"), infoType: .info, infoTitle: l10n.t("Information"), infoMessage: l10n.t("When enabled, All Tweaks will be accessible even if the exploit failed."), isOn: $ignore_failure)
                 } header: {
-                    Label("Settings", systemImage: "gear")
+                    Label(l10n.t("Settings"), systemImage: "gear")
                 }
                 
                 Section {
                     Button {
                         show_confirm = true
                     } label: {
-                        Text("Respring")
+                        Text(l10n.t("Respring"))
                     }
                 } header: {
-                    Label("Tools", systemImage: "wrench.and.screwdriver")
+                    Label(l10n.t("Tools"), systemImage: "wrench.and.screwdriver")
                 } footer: {
-                    Text("Respring method by [neon](https://github.com/neonmodder123), swift implementation by [skadz](https://github.com/skadz108).")
+                    Text(LocalizedStringKey(l10n.t("Respring method by [neon](https://github.com/neonmodder123), swift implementation by [skadz](https://github.com/skadz108).")))
                 }
                 
                 Section {
-                    CreditsRow(name: "roooot", role: "Main developer", profile: URL(string: "https://github.com/rooootdev")!)
-                    CreditsRow(name: "forcequit", role: "The bad_query exploit", profile: URL(string: "https://github.com/forcequitOS")!)
-                    CreditsRow(name: "johnny", role: "His work on the MCM bug class", profile: URL(string: "https://github.com/0xjohnnydev")!)
+                    CreditsRow(name: "roooot", role: l10n.t("Main developer"), profile: URL(string: "https://github.com/rooootdev")!)
+                    CreditsRow(name: "forcequit", role: l10n.t("The bad_query exploit"), profile: URL(string: "https://github.com/forcequitOS")!)
+                    CreditsRow(name: "johnny", role: l10n.t("His work on the MCM bug class"), profile: URL(string: "https://github.com/0xjohnnydev")!)
                     CreditsRow(name: "jailbreak.party", role: "PartyUI, GestaltView", profile: URL(string: "https://github.com/jailbreakdotparty")!)
-                    CreditsRow(name: "SerStars", role: "Tendies repository", profile: URL(string: "https://github.com/SerStars")!)
+                    CreditsRow(name: "SerStars", role: l10n.t("Tendies repository"), profile: URL(string: "https://github.com/SerStars")!)
                 } header: {
-                    Label("Credits", systemImage: "person.3.fill")
+                    Label(l10n.t("Credits"), systemImage: "person.3.fill")
                 }
             }
-            .navigationTitle("Settings")
+            .navigationTitle(l10n.t("Settings"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack {
                         Button {
                             dismiss()
                         } label: {
-                            Text("Done")
+                            Text(l10n.t("Done"))
                         }
                     }
                 }
             }
-            .alert("Are you sure?", isPresented: $show_confirm) {
-                Button("Cancel") {
+            .alert(l10n.t("Are you sure?"), isPresented: $show_confirm) {
+                Button(l10n.t("Cancel")) {
                     show_confirm = false
                 }
                 
-                Button("Confirm") {
+                Button(l10n.t("Confirm")) {
                     state.respring()
                 }
             } message: {
-                Text("Confirm that you want to respring.")
+                Text(l10n.t("Confirm that you want to respring."))
             }
         }
     }

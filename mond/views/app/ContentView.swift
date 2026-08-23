@@ -10,6 +10,7 @@ import PartyUI
 
 struct ContentView: View {
     @EnvironmentObject var state: AppState
+    @EnvironmentObject private var l10n: L10n
     @AppStorage("method") private var method: String = "bad_query"
     @AppStorage("ignore_failure") private var ignore_failure = false
     
@@ -20,10 +21,25 @@ struct ContentView: View {
         NavigationStack {
             List {
                 Section {
+                    Picker(selection: l10n.language_binding) {
+                        ForEach(AppLanguage.allCases) { language in
+                            Text(language.display_name).tag(language)
+                        }
+                    } label: {
+                        Label(l10n.t("Language"), systemImage: "globe")
+                    }
+                    .pickerStyle(.segmented)
+                } header: {
+                    Label(l10n.t("Language"), systemImage: "globe")
+                } footer: {
+                    Text(l10n.t("Choose the language used by the app."))
+                }
+
+                Section {
                     LogView()
                         .modifier(TerminalPlatter())
                 } header: {
-                    Label("Logs", systemImage: "apple.terminal")
+                    Label(l10n.t("Logs"), systemImage: "apple.terminal")
                 }
                 
                 Section {
@@ -69,10 +85,10 @@ struct ContentView: View {
                     }
                     .disabled((method == "cmg" || state.apps_granted != true) && !ignore_failure)
                 } header: {
-                    Label("Tweaks", systemImage: "paintbrush")
+                    Label(l10n.t("Tweaks"), systemImage: "paintbrush")
                 } footer: {
                     if method == "cmg" {
-                         Text("Only MobileGestalt is available when method is set to cmg.")
+                         Text(l10n.t("Only MobileGestalt is available when method is set to cmg."))
                     }
                 }
                 
@@ -80,12 +96,12 @@ struct ContentView: View {
                     NavigationLink {
                         CEView()
                     } label: {
-                        Text("CacheExtra Fields")
+                        Text(l10n.t("CacheExtra Fields"))
                     }
                 } header: {
-                    Label("Advanced", systemImage: "wrench.and.screwdriver")
+                    Label(l10n.t("Advanced"), systemImage: "wrench.and.screwdriver")
                 } footer: {
-                    Text("Only use these Tweaks if you know what you're doing.\nYou could break something irreversibly.")
+                    Text(l10n.t("Only use these Tweaks if you know what you're doing.\nYou could break something irreversibly."))
                 }
             }
             .navigationTitle("mond")

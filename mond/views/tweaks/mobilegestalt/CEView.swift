@@ -52,16 +52,16 @@ func ce_parse(_ text: String, as type: ce_type) throws -> Any {
         case .str:
             return text
         case .int:
-            guard let v = Int64(t) else { throw ce_err.bad_val("Invalid Integer") }
+            guard let v = Int64(t) else { throw ce_err.bad_val(L10n.shared.t("Invalid Integer")) }
             return NSNumber(value: v)
         case .bool:
             switch t.lowercased() {
                 case "true", "1", "yes": return NSNumber(value: true)
                 case "false", "0", "no": return NSNumber(value: false)
-                default: throw ce_err.bad_val("Enter true/false")
+                default: throw ce_err.bad_val(L10n.shared.t("Enter true/false"))
             }
         case .data:
-            guard let d = Data(base64Encoded: t) else { throw ce_err.bad_val("Invalid base64") }
+            guard let d = Data(base64Encoded: t) else { throw ce_err.bad_val(L10n.shared.t("Invalid base64")) }
             return d
     }
 }
@@ -78,6 +78,7 @@ enum ce_err: LocalizedError {
 
 struct CEView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var l10n: L10n
 
     @State private var search = ""
     @State private var editing: CEField?
@@ -97,7 +98,7 @@ struct CEView: View {
     var body: some View {
         List {
             if keys.isEmpty {
-                Text(search.isEmpty ? "No CacheExtra fields" : "No results")
+                Text(l10n.t(search.isEmpty ? "No CacheExtra fields" : "No results"))
                     .foregroundStyle(.secondary)
             } else {
                 ForEach(keys, id: \.self) { key in
@@ -135,7 +136,7 @@ struct CEView: View {
                 }
             }
         }
-        .searchable(text: $search, prompt: "Search for keys or values")
+        .searchable(text: $search, prompt: l10n.t("Search for keys or values"))
         .navigationTitle("CacheExtra")
         .onAppear() {
             mg_load()
@@ -179,15 +180,15 @@ struct CEView: View {
             try mg_write(data)
             
             Alertinator.shared.alert(
-                title: "Saved",
-                body: "Field changes written to MobileGestalt. Respring for changes to take effect.",
-                actionLabel: "Respring",
+                title: L10n.shared.t("Saved"),
+                body: L10n.shared.t("Field changes written to MobileGestalt. Respring for changes to take effect."),
+                actionLabel: L10n.shared.t("Respring"),
                 action: {
                     state.respring()
                 }
             )
         } catch {
-            Alertinator.shared.alert(title: "Save failed", body: error.localizedDescription)
+            Alertinator.shared.alert(title: L10n.shared.t("Save failed"), body: error.localizedDescription)
         }
     }
 }
@@ -200,6 +201,7 @@ private struct CEField: Identifiable {
 
 private struct CEEditSheet: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var l10n: L10n
 
     let key: String
     let save: (String, Any) -> Void
@@ -219,16 +221,16 @@ private struct CEEditSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Type") {
-                    Picker("Type", selection: $type) {
-                        ForEach(ce_type.allCases) { t in Text(t.label).tag(t) }
+                Section(l10n.t("Type")) {
+                    Picker(l10n.t("Type"), selection: $type) {
+                        ForEach(ce_type.allCases) { t in Text(l10n.t(t.label)).tag(t) }
                     }
                     .pickerStyle(.menu)
                     .onChange(of: type) { _, _ in
                         error = nil
                     }
                 }
-                Section("Value") {
+                Section(l10n.t("Value")) {
                     TextEditor(text: $text)
                         .font(.system(.body, design: .monospaced))
                         .frame(minHeight: 120)
@@ -243,10 +245,10 @@ private struct CEEditSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") { dismiss() }
+                    Button(l10n.t("Cancel")) { dismiss() }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
+                    Button(l10n.t("Done")) {
                         do {
                             save(key, try ce_parse(text, as: type))
                             dismiss()
@@ -263,6 +265,7 @@ private struct CEEditSheet: View {
 
 private struct CEAddSheet: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var l10n: L10n
 
     let save: (String, Any) -> Void
 
@@ -274,19 +277,19 @@ private struct CEAddSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Key") {
-                    TextField("Key name", text: $key)
+                Section(l10n.t("Key")) {
+                    TextField(l10n.t("Key name"), text: $key)
                         .font(.system(.body, design: .monospaced))
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
                 }
-                Section("Type") {
-                    Picker("Type", selection: $type) {
-                        ForEach(ce_type.allCases) { t in Text(t.label).tag(t) }
+                Section(l10n.t("Type")) {
+                    Picker(l10n.t("Type"), selection: $type) {
+                        ForEach(ce_type.allCases) { t in Text(l10n.t(t.label)).tag(t) }
                     }
                     .pickerStyle(.menu)
                 }
-                Section("Value") {
+                Section(l10n.t("Value")) {
                     TextEditor(text: $text)
                         .font(.system(.body, design: .monospaced))
                         .frame(minHeight: 100)
@@ -297,21 +300,21 @@ private struct CEAddSheet: View {
                     Section { Text(error).foregroundStyle(.red) }
                 }
             }
-            .navigationTitle("Add Field")
+            .navigationTitle(l10n.t("Add Field"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") { dismiss() }
+                    Button(l10n.t("Cancel")) { dismiss() }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add") {
+                    Button(l10n.t("Add")) {
                         let trimmed = key.trimmingCharacters(in: .whitespacesAndNewlines)
                         guard !trimmed.isEmpty else {
-                            error = "Key cannot be empty"
+                            error = L10n.shared.t("Key cannot be empty")
                             return
                         }
                         guard (mg_dict_now["CacheExtra"] as? [String: Any])?[trimmed] == nil else {
-                            error = "Key already exists"
+                            error = L10n.shared.t("Key already exists")
                             return
                         }
                         do {
@@ -330,12 +333,12 @@ private struct CEAddSheet: View {
 
 private func ce_summary(_ value: Any?) -> String {
     switch value {
-    case let s as String: s.isEmpty ? "(empty str)" : s
+    case let s as String: s.isEmpty ? L10n.shared.t("(empty str)") : s
     case let n as NSNumber:
         CFGetTypeID(n) == CFBooleanGetTypeID()
             ? (n.boolValue ? "true" : "false")
             : n.stringValue
-    case let d as Data: "Data (\(d.count) bytes)"
+    case let d as Data: L10n.shared.t("Data (%d bytes)", d.count)
     default: String(describing: value ?? "nil")
     }
 }

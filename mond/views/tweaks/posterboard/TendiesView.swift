@@ -10,6 +10,7 @@ import UIKit
 
 struct TendiesView: View {
     @EnvironmentObject private var state: AppState
+    @EnvironmentObject private var l10n: L10n
     @Environment(\.dismiss) private var dismiss
     @AppStorage("dismiss_after_import") private var dismiss_after_import = false
     @State private var vm = TendiesVM()
@@ -19,14 +20,14 @@ struct TendiesView: View {
         NavigationStack {
             Group {
                 if vm.loading && vm.wallpapers.isEmpty {
-                    ProgressView("Loading wallpapers…")
+                    ProgressView(l10n.t("Loading wallpapers…"))
                 } else if let error = vm.error_msg, vm.wallpapers.isEmpty {
                     ContentUnavailableView {
-                        Label("Couldn't Load tendies", systemImage: "wifi.exclamationmark")
+                        Label(l10n.t("Couldn't Load tendies"), systemImage: "wifi.exclamationmark")
                     } description: {
                         Text(error)
                     } actions: {
-                        Button("Try Again") {
+                        Button(l10n.t("Try Again")) {
                             Task {
                                 await vm.retry()
                             }
@@ -39,7 +40,7 @@ struct TendiesView: View {
             .navigationTitle("Tendies")
             .searchable(
                 text: $vm.query,
-                prompt: "Search wallpapers"
+                prompt: l10n.t("Search wallpapers")
             )
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -57,11 +58,11 @@ struct TendiesView: View {
                 await vm.load()
             }
         }
-        .alert("Import Failed", isPresented: Binding(
+        .alert(l10n.t("Import Failed"), isPresented: Binding(
             get: { import_error != nil },
             set: { if !$0 { import_error = nil } }
         )) {
-            Button("OK", role: .cancel) {}
+            Button(l10n.t("OK"), role: .cancel) {}
         } message: {
             Text(import_error ?? "")
         }
@@ -149,7 +150,7 @@ struct TendiesView: View {
                         await add_to_imported(wallpaper)
                     }
                 } label: {
-                    Label("Add to Imported", systemImage: "arrow.down.circle")
+                    Label(l10n.t("Add to Imported"), systemImage: "arrow.down.circle")
                 }
             }
         }
@@ -218,6 +219,7 @@ struct TendiesDetail: View {
     let dismiss_explorer: () -> Void
 
     @EnvironmentObject private var state: AppState
+    @EnvironmentObject private var l10n: L10n
     @AppStorage("dismiss_after_import") private var dismiss_after_import = false
 
     @State private var importing = false
@@ -241,7 +243,7 @@ struct TendiesDetail: View {
                             .clipShape(RoundedRectangle(cornerRadius: 20))
 
                     case .failure:
-                        ContentUnavailableView("Preview Unavailable", systemImage: "photo", description: Text("The wallpaper preview couldn't be loaded."))
+                        ContentUnavailableView(l10n.t("Preview Unavailable"), systemImage: "photo", description: Text(l10n.t("The wallpaper preview couldn't be loaded.")))
 
                     @unknown default:
                         EmptyView()
@@ -291,10 +293,10 @@ struct TendiesDetail: View {
                         if importing {
                             HStack {
                                 ProgressView()
-                                Text("Downloading...")
+                                Text(l10n.t("Downloading..."))
                             }
                         } else {
-                            Text("Add to Imported")
+                            Text(l10n.t("Add to Imported"))
                         }
                     }
                     .disabled(importing)
@@ -302,11 +304,11 @@ struct TendiesDetail: View {
             }
         }
         .navigationTitle(wallpaper.name)
-        .alert("Download Failed", isPresented: Binding(
+        .alert(l10n.t("Download Failed"), isPresented: Binding(
             get: { import_error != nil },
             set: { if !$0 { import_error = nil } }
         )) {
-            Button("OK", role: .cancel) {}
+            Button(l10n.t("OK"), role: .cancel) {}
         } message: {
             Text(import_error ?? "")
         }

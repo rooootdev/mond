@@ -55,6 +55,7 @@ struct mond: App {
         WindowGroup {
             ContentView()
                 .environmentObject(state)
+                .environmentObject(L10n.shared)
                 .onOpenURL { url in
                     guard is_pb_archive(url) else {
                         print("(mond) ignoring unsupported URL: \(url.lastPathComponent)")
@@ -65,7 +66,7 @@ struct mond: App {
                 }
                 .onAppear() {
                     if !is_supported() {
-                        Alertinator.shared.alert(title: "Not supported!", body: "Your iOS version may not be supported by mond.\nMond only supports iOS 27.0 developer beta 1 - 4.")
+                        Alertinator.shared.alert(title: L10n.shared.t("Not supported!"), body: L10n.shared.t("Your iOS version may not be supported by mond.\nMond only supports iOS 27.0 developer beta 1 - 4."))
                     }
                     
                     grant_all(state: state)
