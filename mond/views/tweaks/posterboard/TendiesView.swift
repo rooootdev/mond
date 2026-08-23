@@ -19,14 +19,14 @@ struct TendiesView: View {
         NavigationStack {
             Group {
                 if vm.loading && vm.wallpapers.isEmpty {
-                    ProgressView("Loading wallpapers…")
+                    ProgressView(NSLocalizedString("loading_wallpapers", tableName: "TendiesView", comment: ""))
                 } else if let error = vm.error_msg, vm.wallpapers.isEmpty {
                     ContentUnavailableView {
-                        Label("Couldn't Load tendies", systemImage: "wifi.exclamationmark")
+                        Label(NSLocalizedString("couldnt_load_tendies", tableName: "TendiesView", comment: ""), systemImage: "wifi.exclamationmark")
                     } description: {
                         Text(error)
                     } actions: {
-                        Button("Try Again") {
+                        Button(NSLocalizedString("try_again", tableName: "TendiesView", comment: "")) {
                             Task {
                                 await vm.retry()
                             }
@@ -39,7 +39,7 @@ struct TendiesView: View {
             .navigationTitle("Tendies")
             .searchable(
                 text: $vm.query,
-                prompt: "Search wallpapers"
+                prompt: NSLocalizedString("search_wallpapers", tableName: "TendiesView", comment: "")
             )
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -57,11 +57,11 @@ struct TendiesView: View {
                 await vm.load()
             }
         }
-        .alert("Import Failed", isPresented: Binding(
+        .alert(NSLocalizedString("import_failed", tableName: "TendiesView", comment: ""), isPresented: Binding(
             get: { import_error != nil },
             set: { if !$0 { import_error = nil } }
         )) {
-            Button("OK", role: .cancel) {}
+            Button(NSLocalizedString("ok", tableName: "TendiesView", comment: ""), role: .cancel) {}
         } message: {
             Text(import_error ?? "")
         }
@@ -149,7 +149,7 @@ struct TendiesView: View {
                         await add_to_imported(wallpaper)
                     }
                 } label: {
-                    Label("Add to Imported", systemImage: "arrow.down.circle")
+                    Label(NSLocalizedString("add_to_imported", tableName: "TendiesView", comment: ""), systemImage: "arrow.down.circle")
                 }
             }
         }
@@ -241,7 +241,7 @@ struct TendiesDetail: View {
                             .clipShape(RoundedRectangle(cornerRadius: 20))
 
                     case .failure:
-                        ContentUnavailableView("Preview Unavailable", systemImage: "photo", description: Text("The wallpaper preview couldn't be loaded."))
+                        ContentUnavailableView(NSLocalizedString("preview_unavailable", tableName: "TendiesView", comment: ""), systemImage: "photo", description: Text(NSLocalizedString("preview_couldnt_load", tableName: "TendiesView", comment: "")))
 
                     @unknown default:
                         EmptyView()
@@ -291,10 +291,10 @@ struct TendiesDetail: View {
                         if importing {
                             HStack {
                                 ProgressView()
-                                Text("Downloading...")
+                                Text(NSLocalizedString("downloading", tableName: "TendiesView", comment: ""))
                             }
                         } else {
-                            Text("Add to Imported")
+                            Text(NSLocalizedString("add_to_imported", tableName: "TendiesView", comment: ""))
                         }
                     }
                     .disabled(importing)
@@ -302,11 +302,11 @@ struct TendiesDetail: View {
             }
         }
         .navigationTitle(wallpaper.name)
-        .alert("Download Failed", isPresented: Binding(
+        .alert(NSLocalizedString("download_failed", tableName: "TendiesView", comment: ""), isPresented: Binding(
             get: { import_error != nil },
             set: { if !$0 { import_error = nil } }
         )) {
-            Button("OK", role: .cancel) {}
+            Button(NSLocalizedString("ok", tableName: "TendiesView", comment: ""), role: .cancel) {}
         } message: {
             Text(import_error ?? "")
         }

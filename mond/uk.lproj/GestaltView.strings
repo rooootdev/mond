@@ -1,0 +1,86 @@
+"menu_warning.do_not_reboot" = "Не перезавантажуйте!";
+"menu_warning.mg_empty" = "Ваш MobileGestalt.plist, схоже, порожній.";
+"menu_warning.mg_invalid" = "Ваш MobileGestalt.plist, схоже, недійсний.";
+"menu_warning.bootloop" = "Перезавантаження зараз може спричинити бутлуп. Спробуйте натиснути «Скасувати твіки». Якщо попередження після цього не зникнуть, вам кінець.";
+
+"menu.apply_tweaks" = "Застосувати твіки";
+"menu.revert_tweaks" = "Скасувати твіки";
+"menu.tweak_warning" = "**ПОПЕРЕДЖЕННЯ:** У разі неправильного використання ці твіки можуть порушити роботу функцій пристрою або спричинити софтбрик!";
+
+"artwork.original_subtype_format" = "Оригінальний ";
+"artwork.disable_dynamic_island" = "Вимкнути Dynamic Island";
+"artwork.subtype" = "Підтип";
+"artwork.custom_device_name" = "Власна назва пристрою";
+"artwork.device_name" = "Назва пристрою";
+"artwork.device_artwork" = "Зображення пристрою";
+
+"software.enable_dynamic_island_capability" = "Увімкнути підтримку Dynamic Island";
+"software.enable_dynamic_island_capability_info" = "Альтернативний спосіб увімкнути Dynamic Island, який використовується Nugget.";
+"software.always_on_display" = "Always-On Display";
+"software.always_on_display_info" = "Може підвищити ризик вигорання екрана на пристроях, які офіційно не підтримують цю функцію.";
+"software.aod_vibrancy" = "Насиченість AOD";
+"software.aod_vibrancy_info" = "Увімкніть це, якщо Always-On Display відображається неправильно.";
+"software.disable_wallpaper_parallax" = "Вимкнути паралакс шпалер";
+"software.disable_wallpaper_parallax_info" = "Запобігає руху шпалер під час нахилу або переміщення пристрою.";
+"software.charge_limit_menu" = "Меню ліміту заряджання";
+"software.charge_limit_menu_info" = "Показує меню в Налаштуваннях; фактичне обмеження заряджання залежить від апаратного забезпечення.";
+"software.boot_shutdown_chime" = "Звук запуску та вимкнення";
+"software.boot_shutdown_chime_info" = "Додає звуковий сигнал під час увімкнення або вимкнення пристрою.";
+"software.enable_liquid_glass_low_performance_mode" = "Увімкнути режим низької продуктивності Liquid Glass";
+"software.enable_liquid_glass_low_performance_mode_info" = "Призначено для iOS 26 і новіших версій.";
+"software.disable_liquid_glass_low_performance_mode" = "Вимкнути режим низької продуктивності Liquid Glass";
+"software.disable_liquid_glass_low_performance_mode_info" = "Не використовуйте одночасно з опцією вище.";
+"software.software_oriented_features" = "Програмні функції";
+
+"hardware.camera_control_settings" = "Налаштування Camera Control iPhone 16";
+"hardware.camera_control_settings_info" = "Відкриває налаштування Camera Control та пов’язані з ним можливості.";
+"hardware.action_button_settings" = "Налаштування кнопки дії";
+"hardware.action_button_settings_info" = "Показує сторінку налаштувань кнопки дії.";
+"hardware.collision_sos" = "SOS при зіткненні";
+"hardware.collision_sos_info" = "Показує параметри виявлення зіткнень у налаштуваннях SOS.";
+"hardware.tap_to_wake" = "Торкніться для пробудження";
+"hardware.tap_to_wake_info" = "Призначено для пристроїв на кшталт iPhone SE, де пробудження дотиком інакше недоступне.";
+"hardware.pulse_width_modulation" = "Широтно-імпульсна модуляція";
+"hardware.hardware_oriented_features" = "Апаратні функції";
+
+"eligibility.security_research_device_mode" = "Режим пристрою для досліджень безпеки";
+"eligibility.security_research_device_mode_info" = "Позначає пристрій як пристрій Apple для досліджень безпеки.";
+"eligibility.disable_region_restrictions" = "Вимкнути регіональні обмеження";
+"eligibility.disable_region_restrictions_info" = "Цей твік може бути зламаним або не мати ефекту на деяких версіях iOS чи пристроях.";
+"eligibility.disable_region_restrictions_warning" = "Будь ласка, не використовуйте цю функцію для обходу регіональних обмежень, якщо це означатиме порушення регіональних законів (наприклад, вимкнення звуку затвора камери). Ми НЕ несемо відповідальності за ввімкнення будь-яких незаконних дій!";
+"eligibility.apple_intelligence" = "Apple Intelligence";
+"eligibility.apple_intelligence_info" = "Як використовувати цей твік:\n1. Підмініть модель на наступну після першої моделі, яку підтримує Apple Intelligence.\n2. Поверніть підміну на свою модель.\n3. Підмініть на фінальну модель — після цього в Налаштуваннях має з’явитися іконка Apple Intelligence.\n4. Підключіть iPhone до живлення та залиште відкритою вкладку Налаштування > Сховище приблизно на 1 годину.\n\nПРИМІТКА: Не виконуйте зворотну підміну.";
+"eligibility.spoofing" = "Підміна";
+"eligibility.default_model" = "Типова";
+"eligibility.device_spoofing_info" = "Інформація про підміну пристрою";
+"eligibility.device_spoofing_info_body" = "Підміняйте модель пристрою лише якщо хочете завантажити Apple Intelligence. Це може порушити роботу Face ID. Якщо ви вирішите скасувати підміну та хочете зберегти Apple Intelligence, НЕ відкривайте знову меню Apple Intelligence та Siri в Налаштуваннях.";
+"eligibility.apple_intelligence_spoof" = "Підміна для Apple Intelligence";
+"eligibility.apple_intelligence_spoof_info" = "Як використовувати цей твік:\n1. Підмініть модель на наступну після першої моделі, яку підтримує Apple Intelligence.\n2. Поверніть підміну на свою модель.\n3. Підмініть на фінальну модель — після цього в Налаштуваннях має з’явитися іконка Apple Intelligence.\n4. Підключіть iPhone до живлення та залиште відкритою вкладку Налаштування > Сховище приблизно на 1 годину.\n\nПРИМІТКА: Не виконуйте зворотну підміну.";
+"eligibility.eligibility" = "Відповідність";
+
+"ipados.allow_ipados_apps" = "Дозволити програми iPad";
+"ipados.allow_ipados_apps_info" = "Дозволяє встановлювати програми iPad на iPhone.";
+"ipados.apple_pencil_settings" = "Налаштування Apple Pencil";
+"ipados.apple_pencil_settings_info" = "Показує сторінку налаштувань Apple Pencil.";
+"ipados.stage_manager_support" = "Підтримка Stage Manager";
+"ipados.stage_manager_support_info" = "Позначає пристрій як сумісний зі Stage Manager.";
+"ipados.ipados_mode" = "Увімкнути режим iPadOS";
+"ipados.ipados_mode_info" = "Експериментальна функція з високим ризиком; це дуже небезпечний твік! Якщо ви використовуєте буквено-цифровий код-пароль, НЕ ВИКОРИСТОВУЙТЕ ЦЕЙ ТВІК! Не вимикайте «Показувати Dock у Stage Manager», інакше пристрій увійде в БУТЛУП під час повороту в альбомну орієнтацію! Деякі користувачі також повідомляли, що ввімкнення інтерфейсу iPadOS, а потім натискання Stage Manager може перевести пристрій у режим відновлення, навіть якщо сам інтерфейс візуально не змінився. Перед цим рядок пошуку в Налаштуваннях може переміститися вгору. З огляду на це ви можете зіткнутися із загальною нестабільністю або іншими серйозними проблемами, наприклад із випадковим зникненням даних застосунків. Але, мабуть, деякі кумедні функції багатозадачності, які все одно роблять пристрій відносно непридатним для використання, — це круто? У будь-якому разі, я не збираюся вказувати вам, як користуватися власним пристроєм.";
+"ipados.ipados_features" = "Функції iPadOS";
+
+"internal.internal_storage_view" = "Перегляд внутрішнього сховища";
+"internal.internal_storage_view_info" = "Показує внутрішні файли в налаштуваннях Сховища; на деяких iPad це може бути небезпечно.";
+"internal.internal_features" = "Внутрішні функції";
+"internal.apple_internal_install" = "Внутрішнє встановлення Apple";
+"internal.apple_internal_install_info" = "Вмикає внутрішні функції, такі як Metal HUD; деякі служби можуть працювати неправильно.";
+"internal.internal" = "Внутрішні";
+
+"warning.failed_to_load_mg" = "Не вдалося завантажити поточний MobileGestalt!";
+"warning.restart_and_check_logs" = "Перезапустіть застосунок і спробуйте ще раз. Перевірте журнали для отримання детальнішої інформації.";
+"warning.successfully_applyed_mg" = "Твіки Gestalt успішно застосовано!";
+"warning.respring_to_take_effect" = "Виконайте респринг пристрою, щоб зміни набули чинності. Зверніть увагу, що для правильного застосування деяких твиків може знадобитися перезавантаження.";
+"warning.failed_to_apply_mg" = "Не вдалося застосувати MobileGestalt!";
+"warning.successfully_reverted_mg" = "Твіки Gestalt успішно скасовано!";
+"warning.reboot_to_take_effect" = "Перезавантажте пристрій, щоб зміни набули чинності.";
+"warning.failed_to_revert_mg" = "Не вдалося скасувати MobileGestalt!";
+"warning.check_logs" = "Перевірте журнали для отримання інформації про помилку.";

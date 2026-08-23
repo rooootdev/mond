@@ -1,0 +1,10 @@
+/* Serbian localization for mond */
+
+"warning" = "Упозорење!";
+"respring" = "Respring";
+"not_supported" = "Није подржано!";
+"check_your_ios" = "Ваша верзија iOS-а можда није подржана у апликацији mond.\nMond подржава само iOS 27.0 developer beta 1 - 4.";
+"cancel" = "Откажи";
+"done" = "Готово";
+"save_failed" = "Није сачувано";
+"information" = "Информације";

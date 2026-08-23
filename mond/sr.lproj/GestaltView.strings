@@ -1,0 +1,86 @@
+"menu_warning.do_not_reboot" = "Не рестартујте!";
+"menu_warning.mg_empty" = "Ваш MobileGestalt.plist изгледа празно.";
+"menu_warning.mg_invalid" = "Ваш MobileGestalt.plist изгледа неважеће.";
+"menu_warning.bootloop" = "Рестартовање сада може изазвати bootloop. Покушајте да притиснете „Ресетуј модификације“. Ако упозорења не нестану након тога, стварно сте надрљали.";
+
+"menu.apply_tweaks" = "Примени модификације";
+"menu.revert_tweaks" = "Врати модификације";
+"menu.tweak_warning" = "**УПОЗОРЕЊЕ:** Ове модификације могу покварити функције на вашем уређају или изазвати softbrick ако се погрешно користе!";
+
+"artwork.original_subtype_format" = "Оригинално ";
+"artwork.disable_dynamic_island" = "Уклони Dynamic Island";
+"artwork.subtype" = "Подтип";
+"artwork.custom_device_name" = "Прилагођени назив уређаја";
+"artwork.device_name" = "Назив уређаја";
+"artwork.device_artwork" = "Графика уређаја";
+
+"software.enable_dynamic_island_capability" = "Укључи Dynamic Island могућност";
+"software.enable_dynamic_island_capability_info" = "Алтернативни начин за укључивање Dynamic Island-а, као у Nugget-у.";
+"software.always_on_display" = "Always-On Display";
+"software.always_on_display_info" = "Може повећати ризик изгоревања пиксела на екрану на уређајима који то званично не подржавају.";
+"software.aod_vibrancy" = "AOD Vibrancy";
+"software.aod_vibrancy_info" = "Укључите ово ако се Always-On Display приказује неисправно.";
+"software.disable_wallpaper_parallax" = "Угасите паралаксу позадине";
+"software.disable_wallpaper_parallax_info" = "Спречава померање позадине када нагнете или померите уређај.";
+"software.charge_limit_menu" = "Мени ограничења пуњења";
+"software.charge_limit_menu_info" = "Приказује мени у Подешавањима; да ли заиста ограничава пуњење зависи од хардвера.";
+"software.boot_shutdown_chime" = "Звук при укључивању и искључивању";
+"software.boot_shutdown_chime_info" = "Укључите звук када се уређај укључује или искључује.";
+"software.enable_liquid_glass_low_performance_mode" = "Укључите режим ниских перформанси Liquid Glass-а";
+"software.enable_liquid_glass_low_performance_mode_info" = "Намењено за iOS 26 и новије верзије.";
+"software.disable_liquid_glass_low_performance_mode" = "Угасите режим ниских перформанси Liquid Glass-а";
+"software.disable_liquid_glass_low_performance_mode_info" = "Немојте користити истовремено са опцијом изнад.";
+"software.software_oriented_features" = "Софтверске функције";
+
+"hardware.camera_control_settings" = "Подешавања Camera Control-а као за iPhone 16";
+"hardware.camera_control_settings_info" = "Приказује подешавања Camera Control-а и повезане могућности.";
+"hardware.action_button_settings" = "Подешавања Action Button-а";
+"hardware.action_button_settings_info" = "Приказује страницу са подешавањима Action Button-а.";
+"hardware.collision_sos" = "SOS при детекцији судара";
+"hardware.collision_sos_info" = "Приказује опције детекције судара у SOS подешавањима.";
+"hardware.tap_to_wake" = "Додирни за укључивање";
+"hardware.tap_to_wake_info" = "Намењено уређајима као што је iPhone SE, на којима укључивање додиром иначе није доступно.";
+"hardware.pulse_width_modulation" = "Модулација ширине импулса";
+"hardware.hardware_oriented_features" = "Хардверска функција";
+
+"eligibility.security_research_device_mode" = "Режим уређаја за безбедносна истраживања";
+"eligibility.security_research_device_mode_info" = "Означава уређај као Apple уређај за безбедносна истраживања.";
+"eligibility.disable_region_restrictions" = "Уклоните регионална ограничења";
+"eligibility.disable_region_restrictions_info" = "Ова измена можда не ради или нема ефекта на неким верзијама iOS-а или уређајима.";
+"eligibility.disable_region_restrictions_warning" = "Немојте користити ову функцију за заобилажење регионалних ограничења које би значило кршење локалних закона (нпр. онемогућавање звука затварача камере). НЕ СНОСИМО одговорност за омогућавање било каквих незаконитих активности!";
+"eligibility.apple_intelligence" = "Apple Intelligence";
+"eligibility.apple_intelligence_info" = "Како користити ову измену:\n1. Подесите модел на онај који је одмах после првог модела који Apple Intelligence подржава.\n2. Вратите се на свој модел.\n3. Подесите коначни модел и требало би да видите икону Apple Intelligence у Подешавањима.\n4. Повежите iPhone на напајање и оставите отворену картицу Подешавања > Меморија око 1 сат.\n\nНАПОМЕНА: Немојте се враћати назад.";
+"eligibility.spoofing" = "Лажирање модела";
+"eligibility.default_model" = "Подразумевано";
+"eligibility.device_spoofing_info" = "Информације о лажирању уређаја";
+"eligibility.device_spoofing_info_body" = "Лажирајте модел уређаја само ако желите да преузмете Apple Intelligence. Ово може покварити Face ID. Ако одлучите да уклоните лажирање и желите да задржите Apple Intelligence, НЕ отварајте поново мени Apple Intelligence и Siri у Подешавањима.";
+"eligibility.apple_intelligence_spoof" = "Лажирање за Apple Intelligence";
+"eligibility.apple_intelligence_spoof_info" = "Како користити ову измену:\n1. Подесите модел на онај који је одмах после првог модела који Apple Intelligence подржава.\n2. Вратите се на свој модел.\n3. Подесите коначни модел и требало би да видите икону Apple Intelligence у Подешавањима.\n4. Повежите iPhone на напајање и оставите отворену картицу Подешавања > Меморија око 1 сат.\n\nНАПОМЕНА: Немојте се враћати назад.";
+"eligibility.eligibility" = "Подобност";
+
+"ipados.allow_ipados_apps" = "Дозволи iPad апликације";
+"ipados.allow_ipados_apps_info" = "Омогућава инсталирање iPad апликација на iPhone.";
+"ipados.apple_pencil_settings" = "Подешавања Apple Pencil-а";
+"ipados.apple_pencil_settings_info" = "Приказује страницу са подешавањима Apple Pencil-а.";
+"ipados.stage_manager_support" = "Подршка за Stage Manager";
+"ipados.stage_manager_support_info" = "Означава уређај као способан за Stage Manager.";
+"ipados.ipados_mode" = "Омогући iPadOS режим";
+"ipados.ipados_mode_info" = "Ризична и експериментална функција; ово је веома опасна измена! Ако користите алфанумеричку шифру, НЕ КОРИСТИТЕ ОВУ ИЗМЕНУ! Немојте искључивати „Прикажи Dock у Stage Manager-у“ јер ће ваш уређај ући у бутлуп при ротирању у пејзажни режим! Неки корисници су такође пријавили да омогућавање iPadOS интерфејса, а затим додиривање Stage Manager-а, може пребацити уређај у Recovery Mode, чак и када сам интерфејс изгледа непромењено. Имајући ово троје на уму, можете доживети општу нестабилност или друге озбиљне проблеме, као што је насумично нестајање података апликација. Али ваљда су неке смешне функције мултитаскинга које и даље чине уређај релативно неупотребљивим кул? Како год, човече, нисам овде да ти говорим како да користите сопствени уређај.";
+"ipados.ipados_features" = "iPadOS функције";
+
+"internal.internal_storage_view" = "Приказ интерне меморије";
+"internal.internal_storage_view_info" = "Приказује интерне датотеке у подешавањима меморије; на неким iPad уређајима може бити опасно.";
+"internal.internal_features" = "Интерне функције";
+"internal.apple_internal_install" = "Интерна Apple инсталација";
+"internal.apple_internal_install_info" = "Укључује интерне функције као што је Metal HUD; Неке сервисе могу радити неисправно.";
+"internal.internal" = "Интерно";
+
+"warning.failed_to_load_mg" = "Учитавање тренутног MobileGestalt-а није успело!";
+"warning.restart_and_check_logs" = "Поново покрените апликацију и покушајте поново. Погледајте логове за детаљније информације.";
+"warning.successfully_applyed_mg" = "Gestalt измене су успешно примењене!";
+"warning.respring_to_take_effect" = "Урадите respring уређаја да би промене ступиле на снагу. Имајте на уму да неке измене могу захтевати поновно покретање да би се правилно примениле.";
+"warning.failed_to_apply_mg" = "Примена MobileGestalt-а није успела!";
+"warning.successfully_reverted_mg" = "Gestalt измене су успешно ресетоване!";
+"warning.reboot_to_take_effect" = "Поново покрените уређај да би промене ступиле на снагу.";
+"warning.failed_to_revert_mg" = "Рестартовање MobileGestalt-а није успело!";
+"warning.check_logs" = "Проверите логове за информације о грешци.";

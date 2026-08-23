@@ -1,0 +1,17 @@
+"go_to_root" = "Ir a la raíz";
+"go_to_home" = "Ir a Inicio";
+"display_hidden_files" = "Mostrar archivos ocultos";
+"sort_az" = "Ordenar A-Z";
+"sort_za" = "Ordenar Z-A";
+"save" = "Guardar";
+"ok" = "Aceptar";
+"failed_to_render_image" = "No se pudo procesar la imagen";
+"missing_write_permission" = "Falta el permiso de escritura.";
+"could_not_encode_text" = "No se pudo codificar el texto.";
+"invalid_plist_json" = "El texto editado no es un documento plist/JSON válido.";
+"no_visible_items" = "No hay elementos visibles. Activa \"Mostrar archivos ocultos\" para mostrar los archivos ocultos.";
+"directory_empty" = "El directorio está vacío.";
+"no_app_containers_found" = "No se encontraron contenedores de aplicaciones.";
+"cannot_list_directory" = "No se puede listar el directorio (faltan permisos).";
+"not_a_directory" = "No es un directorio.";
+"no_matching_items" = "No hay elementos coincidentes.";

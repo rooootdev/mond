@@ -1,0 +1,86 @@
+"menu_warning.do_not_reboot" = "¡No reinicies!";
+"menu_warning.mg_empty" = "Tu archivo MobileGestalt.plist parece estar vacío.";
+"menu_warning.mg_invalid" = "Tu archivo MobileGestalt.plist parece ser inválido.";
+"menu_warning.bootloop" = "Reiniciar ahora puede causar un bootloop. Intenta pulsar 'Revertir Tweaks'. Si las advertencias no desaparecen después de eso, estás jodido.";
+
+"menu.apply_tweaks" = "Aplicar Tweaks";
+"menu.revert_tweaks" = "Revertir Tweaks";
+"menu.tweak_warning" = "**ADVERTENCIA:** ¡Estos tweaks pueden romper funciones de tu dispositivo o provocar un softbrick si se usan incorrectamente!";
+
+"artwork.original_subtype_format" = "Original ";
+"artwork.disable_dynamic_island" = "Desactivar Isla Dinámica";
+"artwork.subtype" = "Subtipo";
+"artwork.custom_device_name" = "Nombre de dispositivo personalizado";
+"artwork.device_name" = "Nombre de dispositivo";
+"artwork.device_artwork" = "Detalles del dispositivo";
+
+"software.enable_dynamic_island_capability" = "Activar la capacidad de Isla Dinámica";
+"software.enable_dynamic_island_capability_info" = "Una forma alternativa de activar la Isla Dinámica, como se utiliza en Nugget.";
+"software.always_on_display" = "Pantalla siempre activa";
+"software.always_on_display_info" = "Puede aumentar el riesgo de quemado de pantalla en dispositivos que no la admiten oficialmente.";
+"software.aod_vibrancy" = "Intensidad de AOD";
+"software.aod_vibrancy_info" = "Activa esto si tu Pantalla siempre activa se muestra incorrectamente.";
+"software.disable_wallpaper_parallax" = "Desactivar el paralaje del fondo de pantalla";
+"software.disable_wallpaper_parallax_info" = "Evita que el fondo de pantalla se mueva cuando inclinas o mueves el dispositivo.";
+"software.charge_limit_menu" = "Menú de límite de carga";
+"software.charge_limit_menu_info" = "Muestra el menú correspondiente en Configuración; que realmente limite la carga depende de tu hardware.";
+"software.boot_shutdown_chime" = "Sonido de inicio y apagado";
+"software.boot_shutdown_chime_info" = "Añade el sonido al encender o apagar el dispositivo.";
+"software.enable_liquid_glass_low_performance_mode" = "Activar el modo de bajo rendimiento de Liquid Glass";
+"software.enable_liquid_glass_low_performance_mode_info" = "Diseñado para iOS 26 y posteriores.";
+"software.disable_liquid_glass_low_performance_mode" = "Desactivar el modo de bajo rendimiento de Liquid Glass";
+"software.disable_liquid_glass_low_performance_mode_info" = "No lo uses al mismo tiempo que la opción anterior.";
+"software.software_oriented_features" = "Funciones orientadas al software";
+
+"hardware.camera_control_settings" = "Ajustes del Control de cámara del iPhone 16";
+"hardware.camera_control_settings_info" = "Muestra los ajustes del Control de cámara y sus funciones relacionadas.";
+"hardware.action_button_settings" = "Ajustes del botón de acción";
+"hardware.action_button_settings_info" = "Muestra la página de ajustes del botón de acción.";
+"hardware.collision_sos" = "SOS por colisión";
+"hardware.collision_sos_info" = "Muestra las opciones de detección de colisiones en los ajustes de SOS.";
+"hardware.tap_to_wake" = "Tocar para activar";
+"hardware.tap_to_wake_info" = "Pensado para dispositivos como el iPhone SE, donde tocar para activar no está disponible de otra forma.";
+"hardware.pulse_width_modulation" = "Modulación por ancho de pulso";
+"hardware.hardware_oriented_features" = "Funciones orientadas al hardware";
+
+"eligibility.security_research_device_mode" = "Modo de dispositivo de investigación de seguridad";
+"eligibility.security_research_device_mode_info" = "Marca el dispositivo como un dispositivo de investigación de seguridad de Apple.";
+"eligibility.disable_region_restrictions" = "Desactivar restricciones regionales";
+"eligibility.disable_region_restrictions_info" = "Este tweak puede estar roto o no tener efecto en algunas versiones de iOS o dispositivos.";
+"eligibility.disable_region_restrictions_warning" = "No utilices esta función para eludir restricciones regionales que impliquen infringir las leyes regionales (por ejemplo, desactivar el sonido del obturador de la cámara). ¡NO nos hacemos responsables de ninguna actividad ilegal que se habilite mediante esta función!";
+"eligibility.apple_intelligence" = "Apple Intelligence";
+"eligibility.apple_intelligence_info" = "Cómo usar este tweak:\n1. Suplanta el modelo por el siguiente al primer modelo compatible con Apple Intelligence.\n2. Vuelve a suplantar tu modelo original.\n3. Suplanta tu modelo final y deberías ver el icono de Apple Intelligence en Configuración.\n4. Conecta el iPhone a la corriente y deja abierta la pestaña Configuración > Almacenamiento durante aproximadamente 1 hora.\n\nNOTA: No vuelvas a suplantar tu modelo.";
+"eligibility.spoofing" = "Suplantación";
+"eligibility.default_model" = "Predeterminado";
+"eligibility.device_spoofing_info" = "Información de suplantación del dispositivo";
+"eligibility.device_spoofing_info_body" = "Suplanta el modelo de tu dispositivo solo si quieres descargar Apple Intelligence. Esto puede romper Face ID. Si decides dejar de suplantar el modelo y quieres conservar Apple Intelligence, NO vuelvas a entrar en el menú Apple Intelligence y Siri de Configuración.";
+"eligibility.apple_intelligence_spoof" = "Suplantación para Apple Intelligence";
+"eligibility.apple_intelligence_spoof_info" = "Cómo usar este tweak:\n1. Suplanta el modelo por el siguiente al primer modelo compatible con Apple Intelligence.\n2. Vuelve a suplantar tu modelo original.\n3. Suplanta tu modelo final y deberías ver el icono de Apple Intelligence en Configuración.\n4. Conecta el iPhone a la corriente y deja abierta la pestaña Configuración > Almacenamiento durante aproximadamente 1 hora.\n\nNOTA: No vuelvas a suplantar tu modelo.";
+"eligibility.eligibility" = "Elegibilidad";
+
+"ipados.allow_ipados_apps" = "Permitir apps de iPad";
+"ipados.allow_ipados_apps_info" = "Permite instalar apps de iPad en el iPhone.";
+"ipados.apple_pencil_settings" = "Ajustes del Apple Pencil";
+"ipados.apple_pencil_settings_info" = "Muestra la página de ajustes del Apple Pencil.";
+"ipados.stage_manager_support" = "Compatibilidad con Stage Manager";
+"ipados.stage_manager_support_info" = "Marca el dispositivo como compatible con Stage Manager.";
+"ipados.ipados_mode" = "Activar el modo iPadOS";
+"ipados.ipados_mode_info" = "Experimental y de alto riesgo; ¡es un tweak muy peligroso! Si utilizas un código de acceso alfanumérico, ¡NO USES ESTE TWEAK! No desactives \"Mostrar el Dock en Stage Manager\" o tu dispositivo entrará en BOOTLOOP al girarlo al modo horizontal. Algunos usuarios también han informado de que activar la interfaz de iPadOS y tocar Stage Manager puede hacer que el dispositivo entre en modo de recuperación, incluso cuando la interfaz parece no haber cambiado. La barra de búsqueda de Configuración puede moverse a la parte superior antes de que esto ocurra. Teniendo en cuenta estas tres cosas, puedes experimentar inestabilidad general u otros problemas graves, como que los datos de las apps desaparezcan aleatoriamente. Pero supongo que algunas funciones de multitarea divertidas que hacen que el dispositivo siga siendo relativamente inutilizable están bien. En fin, no estoy aquí para decirte cómo usar tu propio dispositivo.";
+"ipados.ipados_features" = "Funciones de iPadOS";
+
+"internal.internal_storage_view" = "Vista del almacenamiento interno";
+"internal.internal_storage_view_info" = "Muestra archivos internos en los ajustes de Almacenamiento; puede ser peligroso en algunos iPad.";
+"internal.internal_features" = "Funciones internas";
+"internal.apple_internal_install" = "Instalación interna de Apple";
+"internal.apple_internal_install_info" = "Activa funciones internas como Metal HUD; algunos servicios pueden comportarse de forma inesperada.";
+"internal.internal" = "Interno";
+
+"warning.failed_to_load_mg" = "¡Error al cargar el MobileGestalt actual!";
+"warning.restart_and_check_logs" = "Reinicia la app e inténtalo de nuevo. Revisa los registros para obtener información más detallada.";
+"warning.successfully_applyed_mg" = "¡Los tweaks de Gestalt se aplicaron correctamente!";
+"warning.respring_to_take_effect" = "Haz respring en tu dispositivo para que los cambios surtan efecto. Ten en cuenta que algunos tweaks pueden requerir un reinicio para aplicarse correctamente.";
+"warning.failed_to_apply_mg" = "¡Error al aplicar MobileGestalt!";
+"warning.successfully_reverted_mg" = "¡Los tweaks de Gestalt se revirtieron correctamente!";
+"warning.reboot_to_take_effect" = "Reinicia tu dispositivo para que los cambios surtan efecto.";
+"warning.failed_to_revert_mg" = "¡Error al revertir MobileGestalt!";
+"warning.check_logs" = "Revisa los registros para obtener información sobre el error.";

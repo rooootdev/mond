@@ -1,0 +1,17 @@
+"go_to_root" = "Go to Root";
+"go_to_home" = "Go to Home";
+"display_hidden_files" = "Display hidden files";
+"sort_az" = "Sort A-Z";
+"sort_za" = "Sort Z-A";
+"save" = "Save";
+"ok" = "OK";
+"failed_to_render_image" = "Failed to render image";
+"missing_write_permission" = "Missing write permission.";
+"could_not_encode_text" = "Could not encode text.";
+"invalid_plist_json" = "Edited text is not a valid plist/JSON document.";
+"no_visible_items" = "No visible items. Enable \"Display hidden files\" to show dotfiles.";
+"directory_empty" = "Directory is empty.";
+"no_app_containers_found" = "No app containers found.";
+"cannot_list_directory" = "Cannot list directory (missing permissions).";
+"not_a_directory" = "Not a directory.";
+"no_matching_items" = "No matching items.";

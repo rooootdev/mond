@@ -1,0 +1,5 @@
+"logs" = "Registros";
+"tweaks" = "Tweaks";
+"only_mobilegestalt_available" = "Solo los ajustes de MobileGestalt están disponibles cuando el método está configurado como cmg.";
+"advanced" = "Avanzado";
+"advanced_warning" = "Usa estos Tweaks solo si sabes lo que haces.\nPodrías romper algo de forma irreversible.";

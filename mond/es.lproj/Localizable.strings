@@ -1,0 +1,10 @@
+/* Spanish localization for mond */
+// Keys used in multiple files or elsewhere
+"warning" = "¡Advertencia!";
+"respring" = "Respring";
+"not_supported" = "¡No compatible!";
+"check_your_ios" = "Es posible que tu versión de iOS no sea compatible con mond.\nMond solo es compatible con iOS 27.0 developer beta 1 - 4.";
+"cancel" = "Cancelar";
+"done" = "Listo";
+"save_failed" = "Error al guardar";
+"information" = "Información";

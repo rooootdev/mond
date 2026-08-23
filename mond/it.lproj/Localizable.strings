@@ -1,0 +1,10 @@
+/* Localizzazione italiana di mond */
+// Chiavi utilizzate in più file o in altre parti
+"warning" = "Attenzione!";
+"respring" = "Respring";
+"not_supported" = "Non supportato!";
+"check_your_ios" = "La tua versione di iOS potrebbe non essere supportata da mond.\nMond supporta solo iOS 27.0 developer beta 1–4.";
+"cancel" = "Annulla";
+"done" = "Fine";
+"save_failed" = "Salvataggio non riuscito";
+"information" = "Informazioni";
