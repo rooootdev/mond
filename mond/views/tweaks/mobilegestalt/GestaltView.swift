@@ -18,14 +18,16 @@ private extension mg_tweak.InfoType {
 }
 
 struct TweakToggle: View {
+    @EnvironmentObject private var l10n: L10n
     let title: String
 
     var body: some View {
         if let tweak = tweak(title) {
             PlainToggle(
-                text: tweak.title,
+                text: l10n.t(tweak.title),
                 infoType: tweak.info_t?.party_info_type ?? .none,
-                infoMessage: tweak.info_msg ?? "",
+                infoTitle: l10n.t("Information"),
+                infoMessage: l10n.t(tweak.info_msg ?? ""),
                 minSupportedVersion: tweak.minv ?? 0.0,
                 isOn: mg_tweak_binding(tweak)
             )
@@ -46,6 +48,7 @@ fileprivate func mg_apply_ui_state(_ selected: String, _ enableName: Bool, _ dev
 
 struct GestaltView: View {
     @EnvironmentObject var state: AppState
+    @EnvironmentObject private var l10n: L10n
 
     @State private var show_settings: Bool = false
 
@@ -60,16 +63,16 @@ struct GestaltView: View {
                 if !is_valid || is_empty {
                     Section {
                         if is_empty {
-                            PlainAlert(title: "Do not reboot!", icon: "exclamationmark.triangle.fill", text: "Your MobileGestalt.plist seems to be empty.", color: Color.yellow)
+                            PlainAlert(title: l10n.t("Do not reboot!"), icon: "exclamationmark.triangle.fill", text: l10n.t("Your MobileGestalt.plist seems to be empty."), color: Color.yellow)
                         }
 
                         if !is_valid {
-                            PlainAlert(title: "Do not reboot!", icon: "exclamationmark.triangle.fill", text: "Your MobileGestalt.plist seems to be invalid.", color: Color.yellow)
+                            PlainAlert(title: l10n.t("Do not reboot!"), icon: "exclamationmark.triangle.fill", text: l10n.t("Your MobileGestalt.plist seems to be invalid."), color: Color.yellow)
                         }
                     } header: {
-                        Label("Warning", systemImage: "exclamationmark.triangle")
+                        Label(l10n.t("Warning"), systemImage: "exclamationmark.triangle")
                     } footer: {
-                        Text("Rebooting now might cause a bootloop. Try pressing 'Revert Tweaks'. If the warnings dont go away after that, you're fucked.")
+                        Text(l10n.t("Rebooting now might cause a bootloop. Try pressing 'Revert Tweaks'. If the warnings dont go away after that, you're fucked."))
                     }
                 }
 
@@ -78,30 +81,30 @@ struct GestaltView: View {
                         mg_apply_ui_state(selected_st, enable_device_name, mg_device_name, product_type)
                         mg_apply()
                     } label: {
-                        Text("Apply Tweaks")
+                        Text(l10n.t("Apply Tweaks"))
                     }
 
                     Button {
                         mg_revert()
                     } label: {
-                        Text("Revert Tweaks")
+                        Text(l10n.t("Revert Tweaks"))
                     }
                     
                     Button {
                         state.respring()
                     } label: {
-                        Text("Respring")
+                        Text(l10n.t("Respring"))
                     }
                 } footer: {
-                    Text("**WARNING:** These tweaks have the capability to break features on your device or softbrick it if misused!")
+                    Text(LocalizedStringKey(l10n.t("**WARNING:** These tweaks have the capability to break features on your device or softbrick it if misused!")))
                 }
 
                 Section {
                     Picker(selection: $selected_st) {
-                        Text("Original (\(og_st))").tag("og")
+                        Text(l10n.t("Original (%@)", String(og_st))).tag("og")
 
                         if is_device_good() {
-                            Text("Disable Dynamic Island").tag("no_dynamic_island")
+                            Text(l10n.t("Disable Dynamic Island")).tag("no_dynamic_island")
                         }
 
                         Text("iPhone 14 Pro").tag("14p")
@@ -118,22 +121,22 @@ struct GestaltView: View {
                         }
 
                         if has_home_button() {
-                            Text("iPhone X Gestures").tag("x")
+                            Text(l10n.t("iPhone X Gestures")).tag("x")
                         }
                     } label: {
                         HStack {
-                            Text("Subtype")
+                            Text(l10n.t("Subtype"))
                             Spacer()
                         }
                     }
 
-                    Toggle("Custom Device Name", isOn: $enable_device_name)
+                    Toggle(l10n.t("Custom Device Name"), isOn: $enable_device_name)
 
                     if enable_device_name {
-                        TextField("Device Name", text: $mg_device_name)
+                        TextField(l10n.t("Device Name"), text: $mg_device_name)
                     }
                 } header: {
-                    Label("Device Artwork", systemImage: "paintbrush.pointed")
+                    Label(l10n.t("Device Artwork"), systemImage: "paintbrush.pointed")
                 }
 
                 Section {
@@ -146,7 +149,7 @@ struct GestaltView: View {
                     TweakToggle(title: "Enable Liquid Glass Low-Performance Mode")
                     TweakToggle(title: "Disable Liquid Glass Low-Performance Mode")
                 } header: {
-                    Label("Software-Oriented Features", systemImage: "gearshape")
+                    Label(l10n.t("Software-Oriented Features"), systemImage: "gearshape")
                 }
 
                 Section {
@@ -158,7 +161,7 @@ struct GestaltView: View {
                     }
                     TweakToggle(title: "Pulse Width Modulation")
                 } header: {
-                    Label("Hardware-Oriented Features", systemImage: "iphone")
+                    Label(l10n.t("Hardware-Oriented Features"), systemImage: "iphone")
                 }
 
                 Section {
@@ -167,8 +170,8 @@ struct GestaltView: View {
                     TweakToggle(title: "Apple Intelligence")
 
                     HStack(spacing: 10) {
-                        Picker("Spoofing", selection: $product_type) {
-                            Text("Default").tag(machine_name())
+                        Picker(l10n.t("Spoofing"), selection: $product_type) {
+                            Text(l10n.t("Default")).tag(machine_name())
                             if UIDevice.current.userInterfaceIdiom == .pad {
                                 if doubleSystemVersion() >= 17.4 {
                                     Text("iPad Pro 11-inch (M4)").tag("iPad16,3")
@@ -196,8 +199,8 @@ struct GestaltView: View {
 
                         Button {
                             Alertinator.shared.alert(
-                                title: "Device Spoofing Info",
-                                body: "Only spoof your device model if you want to download Apple Intelligence. This may break Face ID. If you decide to unspoof and want to keep Apple Intelligence, do NOT re-enter the Apple Intelligence & Siri menu in Settings."
+                                title: L10n.shared.t("Device Spoofing Info"),
+                                body: L10n.shared.t("Only spoof your device model if you want to download Apple Intelligence. This may break Face ID. If you decide to unspoof and want to keep Apple Intelligence, do NOT re-enter the Apple Intelligence & Siri menu in Settings.")
                             )
                         } label: {
                             Image(systemName: "info.circle")
@@ -206,7 +209,7 @@ struct GestaltView: View {
                         .buttonStyle(.plain)
                     }
                 } header: {
-                    Label("Eligibility", systemImage: "checklist")
+                    Label(l10n.t("Eligibility"), systemImage: "checklist")
                 }
 
                 Section {
@@ -222,7 +225,7 @@ struct GestaltView: View {
                     TweakToggle(title: "Enable iPadOS Mode")
                         .disabled(cache_extra?["+3Uf0Pm5F8Xy7Onyvko0vA"] as? String != "iPhone")
                 } header: {
-                    Label("iPadOS Features", systemImage: "ipad")
+                    Label(l10n.t("iPadOS Features"), systemImage: "ipad")
                 }
 
                 Section {
@@ -230,7 +233,7 @@ struct GestaltView: View {
                     TweakToggle(title: "Internal Features")
                     TweakToggle(title: "Apple Internal Install")
                 } header: {
-                    Label("Internal", systemImage: "ant")
+                    Label(l10n.t("Internal"), systemImage: "ant")
                 }
             }
             .navigationTitle("MobileGestalt")

@@ -77,6 +77,7 @@ private struct SantanderDirectoryListing {
 struct SantanderDirectoryView: View {
     let path: SantanderPath
 
+    @EnvironmentObject private var l10n: L10n
     @State private var items: [SantanderPath] = []
     @State private var empty_message: String?
     @State private var is_loading = true
@@ -140,25 +141,25 @@ struct SantanderDirectoryView: View {
                 NavigationLink {
                     SantanderDirectoryView(path: root_path)
                 } label: {
-                    Label("Go to Root", systemImage: "externaldrive")
+                    Label(l10n.t("Go to Root"), systemImage: "externaldrive")
                 }
                 NavigationLink {
                     SantanderDirectoryView(path: home_path)
                 } label: {
-                    Label("Go to Home", systemImage: "house")
+                    Label(l10n.t("Go to Home"), systemImage: "house")
                 }
                 Divider()
-                Toggle("Display hidden files", isOn: $display_hidden_files)
+                Toggle(l10n.t("Display hidden files"), isOn: $display_hidden_files)
                 Divider()
                 Button {
                     sort_ascending = true
                 } label: {
-                    Label("Sort A-Z", systemImage: "textformat")
+                    Label(l10n.t("Sort A-Z"), systemImage: "textformat")
                 }
                 Button {
                     sort_ascending = false
                 } label: {
-                    Label("Sort Z-A", systemImage: "textformat")
+                    Label(l10n.t("Sort Z-A"), systemImage: "textformat")
                 }
             } label: {
                 Image(systemName: "ellipsis.circle")
@@ -194,11 +195,11 @@ struct SantanderDirectoryView: View {
     }
 
     private var empty_state_message: String {
-        if !search_text.isEmpty { return "No matching items." }
+        if !search_text.isEmpty { return l10n.t("No matching items.") }
         if !display_hidden_files && !items.isEmpty {
-            return "No visible items. Enable \"Display hidden files\" to show dotfiles."
+            return l10n.t("No visible items. Enable \"Display hidden files\" to show dotfiles.")
         }
-        return empty_message ?? "Directory is empty."
+        return l10n.t(empty_message ?? "Directory is empty.")
     }
 
     private func load() {
@@ -299,6 +300,7 @@ struct SantanderDirectoryView: View {
 struct SantanderFileView: View {
     let path: SantanderPath
 
+    @EnvironmentObject private var l10n: L10n
     @State private var is_editing = false
     @State private var is_editable = false
     @State private var edit_text = ""
@@ -319,10 +321,10 @@ struct SantanderFileView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     if is_editing {
-                        Button("Cancel") {
+                        Button(l10n.t("Cancel")) {
                             is_editing = false
                         }
-                        Button("Save") {
+                        Button(l10n.t("Save")) {
                             save()
                         }
                     } else {
@@ -347,11 +349,11 @@ struct SantanderFileView: View {
                         || Self.plist_editor_content(from: data) != nil
                 }
             }
-            .alert("Save Failed", isPresented: Binding(
+            .alert(l10n.t("Save Failed"), isPresented: Binding(
                 get: { save_error != nil },
                 set: { if !$0 { save_error = nil } }
             )) {
-                Button("OK", role: .cancel) {}
+                Button(l10n.t("OK"), role: .cancel) {}
             } message: {
                 Text(save_error ?? "")
             }
@@ -386,7 +388,7 @@ struct SantanderFileView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.black)
             } else {
-                ContentUnavailableView(failure_text("Failed to render image"), systemImage: "photo")
+                ContentUnavailableView(failure_text(l10n.t("Failed to render image")), systemImage: "photo")
             }
         }
     }
@@ -424,7 +426,7 @@ struct SantanderFileView: View {
 
     private func save() {
         guard Self.grant_file_write(path.path) else {
-            save_error = "Missing write permission."
+            save_error = l10n.t("Missing write permission.")
             return
         }
         if let format = original_plist_format {
@@ -432,7 +434,7 @@ struct SantanderFileView: View {
             return
         }
         guard let data = edit_text.data(using: original_encoding) else {
-            save_error = "Could not encode text."
+            save_error = l10n.t("Could not encode text.")
             return
         }
         do {
@@ -445,7 +447,7 @@ struct SantanderFileView: View {
 
     private func save_plist(format: PropertyListSerialization.PropertyListFormat) {
         guard let edited_data = edit_text.data(using: .utf8) else {
-            save_error = "Could not encode text."
+            save_error = l10n.t("Could not encode text.")
             return
         }
         let object: Any
@@ -454,7 +456,7 @@ struct SantanderFileView: View {
         } else if let plist = try? PropertyListSerialization.propertyList(from: edited_data, options: [], format: nil) {
             object = plist
         } else {
-            save_error = "Edited text is not a valid plist/JSON document."
+            save_error = l10n.t("Edited text is not a valid plist/JSON document.")
             return
         }
         do {
@@ -537,9 +539,9 @@ struct SantanderFileView: View {
             guard grant_file_read(url.path),
                   let granted = try? Data(contentsOf: url, options: .mappedIfSafe) else {
                 return """
-                Failed to read file:
+                \(L10n.shared.t("Failed to read file:"))
                 \(url.path)
-                Error: \(error.localizedDescription)
+                \(L10n.shared.t("Error: %@", error.localizedDescription))
 
                 \(unreadable_file_details(for: url))
                 """
@@ -548,7 +550,7 @@ struct SantanderFileView: View {
         }
 
         if data.isEmpty {
-            return "(empty file)"
+            return L10n.shared.t("(empty file)")
         }
 
         if let plist = decode_property_list(from: data) {
@@ -568,9 +570,9 @@ struct SantanderFileView: View {
 
         var is_dir = ObjCBool(false)
         let exists = fm.fileExists(atPath: url.path, isDirectory: &is_dir)
-        lines.append("Exists: \(exists ? "yes" : "no")")
+        lines.append(L10n.shared.t("Exists: %@", exists ? L10n.shared.t("yes") : L10n.shared.t("no")))
         if exists {
-            lines.append("Kind: \(is_dir.boolValue ? "directory" : "regular item")")
+            lines.append(L10n.shared.t("Kind: %@", is_dir.boolValue ? L10n.shared.t("directory") : L10n.shared.t("regular item")))
         }
 
         let keys: Set<URLResourceKey> = [
@@ -581,36 +583,36 @@ struct SantanderFileView: View {
         ]
         if let values = try? url.resourceValues(forKeys: keys) {
             if let type = values.contentType {
-                lines.append("UTType: \(type.identifier)")
+                lines.append(L10n.shared.t("UTType: %@", type.identifier))
             }
             if let size = values.fileSize {
-                lines.append("Size: \(size) bytes")
+                lines.append(L10n.shared.t("Size: %d bytes", size))
             }
             if let is_symlink = values.isSymbolicLink {
-                lines.append("Symlink: \(is_symlink ? "yes" : "no")")
+                lines.append(L10n.shared.t("Symlink: %@", is_symlink ? L10n.shared.t("yes") : L10n.shared.t("no")))
             }
             if values.isSymbolicLink == true,
                let target = try? fm.destinationOfSymbolicLink(atPath: url.path) {
-                lines.append("Symlink target: \(target)")
+                lines.append(L10n.shared.t("Symlink target: %@", target))
             }
             if let is_alias = values.isAliasFile {
-                lines.append("Alias file: \(is_alias ? "yes" : "no")")
+                lines.append(L10n.shared.t("Alias file: %@", is_alias ? L10n.shared.t("yes") : L10n.shared.t("no")))
             }
         }
 
         if let attrs = try? fm.attributesOfItem(atPath: url.path) {
             if let file_type = attrs[.type] as? FileAttributeType {
-                lines.append("File attribute type: \(file_type.rawValue)")
+                lines.append(L10n.shared.t("File attribute type: %@", file_type.rawValue))
             }
             let owner_name = attrs[.ownerAccountName] as? String
             let owner_id = (attrs[.ownerAccountID] as? NSNumber)?.intValue
             switch (owner_name, owner_id) {
             case let (name?, id?):
-                lines.append("Owner: \(name) (\(id))")
+                lines.append(L10n.shared.t("Owner: %@ (%d)", name, id))
             case let (name?, nil):
-                lines.append("Owner: \(name)")
+                lines.append(L10n.shared.t("Owner: %@", name))
             case let (nil, id?):
-                lines.append("Owner ID: \(id)")
+                lines.append(L10n.shared.t("Owner ID: %d", id))
             default:
                 break
             }
@@ -619,22 +621,22 @@ struct SantanderFileView: View {
             let group_id = (attrs[.groupOwnerAccountID] as? NSNumber)?.intValue
             switch (group_name, group_id) {
             case let (name?, id?):
-                lines.append("Group: \(name) (\(id))")
+                lines.append(L10n.shared.t("Group: %@ (%d)", name, id))
             case let (name?, nil):
-                lines.append("Group: \(name)")
+                lines.append(L10n.shared.t("Group: %@", name))
             case let (nil, id?):
-                lines.append("Group ID: \(id)")
+                lines.append(L10n.shared.t("Group ID: %d", id))
             default:
                 break
             }
             if let perms = attrs[.posixPermissions] as? NSNumber {
-                lines.append(String(format: "POSIX perms: %04o", perms.intValue))
+                lines.append(L10n.shared.t("POSIX perms: %04o", perms.intValue))
             }
         }
 
-        lines.append("Readable: \(fm.isReadableFile(atPath: url.path) ? "yes" : "no")")
-        lines.append("Writable: \(fm.isWritableFile(atPath: url.path) ? "yes" : "no")")
-        lines.append("Executable: \(fm.isExecutableFile(atPath: url.path) ? "yes" : "no")")
+        lines.append(L10n.shared.t("Readable: %@", fm.isReadableFile(atPath: url.path) ? L10n.shared.t("yes") : L10n.shared.t("no")))
+        lines.append(L10n.shared.t("Writable: %@", fm.isWritableFile(atPath: url.path) ? L10n.shared.t("yes") : L10n.shared.t("no")))
+        lines.append(L10n.shared.t("Executable: %@", fm.isExecutableFile(atPath: url.path) ? L10n.shared.t("yes") : L10n.shared.t("no")))
 
         return lines.joined(separator: "\n")
     }
@@ -713,7 +715,7 @@ struct SantanderFileView: View {
         let limit = min(data.count, 4096)
         let chunk = data.prefix(limit)
         var lines: [String] = []
-        lines.append("Binary data (\(data.count) bytes). Showing first \(limit) bytes:")
+        lines.append(L10n.shared.t("Binary data (%d bytes). Showing first %d bytes:", data.count, limit))
         lines.append("")
 
         var offset = 0

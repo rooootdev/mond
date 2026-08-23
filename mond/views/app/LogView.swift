@@ -9,6 +9,7 @@ import SwiftUI
 import PartyUI
 
 struct LogView: View {
+    @EnvironmentObject private var l10n: L10n
     @State private var log = ""
 
     var body: some View {
@@ -47,11 +48,10 @@ struct LogView: View {
                     Button {
                         UIPasteboard.general.string = log
                     } label: {
-                        Label("Copy Output", systemImage: "doc.on.doc")
+                        Label(l10n.t("Copy Output"), systemImage: "doc.on.doc")
                     }
                 }
             }
         }
     }
 }
-
