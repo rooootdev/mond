@@ -1,0 +1,7 @@
+"system_default" = "Predeterminado del sistema";
+"system_default_description" = "Usar el idioma del dispositivo";
+"language" = "Idioma";
+"choose_language" = "Elegir idioma";
+"restart_required" = "Reinicio requerido";
+"exit" = "Salir";
+"restart_required_message" = "Para que el cambio de idioma surta efecto, la app debe reiniciarse.";

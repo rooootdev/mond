@@ -1,0 +1,86 @@
+"menu_warning.do_not_reboot" = "Do not reboot!";
+"menu_warning.mg_empty" = "Your MobileGestalt.plist seems to be empty.";
+"menu_warning.mg_invalid" = "Your MobileGestalt.plist seems to be invalid.";
+"menu_warning.bootloop" = "Rebooting now might cause a bootloop. Try pressing 'Revert Tweaks'. If the warnings dont go away after that, you're fucked.";
+
+"menu.apply_tweaks" = "Apply Tweaks";
+"menu.revert_tweaks" = "Revert Tweaks";
+"menu.tweak_warning" = "**WARNING:** These tweaks have the capability to break features on your device or softbrick it if misused!";
+
+"artwork.original_subtype_format" = "Original ";
+"artwork.disable_dynamic_island" = "Disable Dynamic Island";
+"artwork.subtype" = "Subtype";
+"artwork.custom_device_name" = "Custom Device Name";
+"artwork.device_name" = "Device Name";
+"artwork.device_artwork" = "Device Artwork";
+
+"software.enable_dynamic_island_capability" = "Enable Dynamic Island Capability";
+"software.enable_dynamic_island_capability_info" = "An alternate way to enable the Dynamic Island, as used by Nugget.";
+"software.always_on_display" = "Always-On Display";
+"software.always_on_display_info" = "Can increase screen burn-in risk on devices that don't officially support it.";
+"software.aod_vibrancy" = "AOD Vibrancy";
+"software.aod_vibrancy_info" = "Turn this on if your Always-On Display renders incorrectly.";
+"software.disable_wallpaper_parallax" = "Disable Wallpaper Parallax";
+"software.disable_wallpaper_parallax_info" = "Prevents the wallpaper from moving when you tilt or move the device.";
+"software.charge_limit_menu" = "Charge Limit Menu";
+"software.charge_limit_menu_info" = "Reveals the Settings menu; whether it actually limits charging depends on your hardware.";
+"software.boot_shutdown_chime" = "Boot & Shutdown Chime";
+"software.boot_shutdown_chime_info" = "Adds the chime sound when the device powers on or shuts down.";
+"software.enable_liquid_glass_low_performance_mode" = "Enable Liquid Glass Low-Performance Mode";
+"software.enable_liquid_glass_low_performance_mode_info" = "Intended for iOS 26 and newer.";
+"software.disable_liquid_glass_low_performance_mode" = "Disable Liquid Glass Low-Performance Mode";
+"software.disable_liquid_glass_low_performance_mode_info" = "Don't use this at the same time as the option above.";
+"software.software_oriented_features" = "Software-Oriented Features";
+
+"hardware.camera_control_settings" = "iPhone 16 Camera Control Settings";
+"hardware.camera_control_settings_info" = "Exposes the Camera Control settings and its related capabilities.";
+"hardware.action_button_settings" = "Action Button Settings";
+"hardware.action_button_settings_info" = "Reveals the Action Button settings page.";
+"hardware.collision_sos" = "Collision SOS";
+"hardware.collision_sos_info" = "Reveals the collision detection options in the SOS settings.";
+"hardware.tap_to_wake" = "Tap to Wake";
+"hardware.tap_to_wake_info" = "Meant for devices like the iPhone SE where tapping to wake isn't otherwise available.";
+"hardware.pulse_width_modulation" = "Pulse Width Modulation";
+"hardware.hardware_oriented_features" = "Hardware-Oriented Feature";
+
+"eligibility.security_research_device_mode" = "Security Research Device Mode";
+"eligibility.security_research_device_mode_info" = "Flags the device as an Apple Security Research Device.";
+"eligibility.disable_region_restrictions" = "Disable Region Restrictions";
+"eligibility.disable_region_restrictions_info" = "This tweak may be broken or have no effect on some iOS versions or devices.";
+"eligibility.disable_region_restrictions_warning" = "Please do not use this feature to bypass region restrictions that would equate to breaking regional laws (e.g. disabling the camera shutter sound). We will NOT be held responsible for enabling any illegal activites!";
+"eligibility.apple_intelligence" = "Apple Intelligence";
+"eligibility.apple_intelligence_info" = "How to use this tweak:\n1. Spoof to the model next to the first one supported by Apple Intelligence.\n2. Spoof back to your model.\n3. Spoof to your final model and you should see the Apple Intelligence icon in Settings.\n4. Connect iPhone to power and leave the Settings > Storage tab open for ~1 hour.\n\nNOTE: Do not spoof back.";
+"eligibility.spoofing" = "Spoofing";
+"eligibility.default_model" = "Default";
+"eligibility.device_spoofing_info" = "Device Spoofing Info";
+"eligibility.device_spoofing_info_body" = "Only spoof your device model if you want to download Apple Intelligence. This may break Face ID. If you decide to unspoof and want to keep Apple Intelligence, do NOT re-enter the Apple Intelligence & Siri menu in Settings.";
+"eligibility.apple_intelligence_spoof" = "Apple Intelligence Spoof";
+"eligibility.apple_intelligence_spoof_info" = "How to use this tweak:\n1. Spoof to the model next to the first one supported by Apple Intelligence.\n2. Spoof back to your model.\n3. Spoof to your final model and you should see the Apple Intelligence icon in Settings.\n4. Connect iPhone to power and leave the Settings > Storage tab open for ~1 hour.\n\nNOTE: Do not spoof back.";
+"eligibility.eligibility" = "Eligibility";
+
+"ipados.allow_ipados_apps" = "Allow iPad Apps";
+"ipados.allow_ipados_apps_info" = "Allows iPad apps to be installed on iPhone.";
+"ipados.apple_pencil_settings" = "Apple Pencil Settings";
+"ipados.apple_pencil_settings_info" = "Reveals the Apple Pencil settings page.";
+"ipados.stage_manager_support" = "Stage Manager Support";
+"ipados.stage_manager_support_info" = "Flags the device as capable of Stage Manager.";
+"ipados.ipados_mode" = "Enable iPadOS Mode";
+"ipados.ipados_mode_info" = "Experimental and high risk; This is a very dangerous tweak to use! If you use an alphanumeric passcode, DO NOT USE THIS TWEAK AT ALL! Please do not turn off \"Show Dock In Stage Manager\" or your device will BOOTLOOP when rotating to landscape! Some users have also reported that enabling the iPadOS UI and then tapping Stage Manager can cause the device to enter Recovery Mode, even when the UI itself appears unchanged. The Settings search bar may move to the top before this happens. With these three things in mind, you may experience general instability, or other major issues such as app data randomly disappearing. But I guess some funny multitasking features that still make the device relatively unusable are cool? Whatever dude, I'm not here to tell you how to use your own device.";
+"ipados.ipados_features" = "iPadOS Features";
+
+"internal.internal_storage_view" = "Internal Storage View";
+"internal.internal_storage_view_info" = "Displays internal files in the Storage settings; can be dangerous on some iPads.";
+"internal.internal_features" = "Internal Features";
+"internal.apple_internal_install" = "Apple Internal Install";
+"internal.apple_internal_install_info" = "Turns on internal features like the Metal HUD; some services may act up.";
+"internal.internal" = "Internal";
+
+"warning.failed_to_load_mg" = "Failed to load current MobileGestalt!";
+"warning.restart_and_check_logs" = "Restart the app and try again. Check logs for more detailed information.";
+"warning.successfully_applyed_mg" = "Successfully applied Gestalt tweaks!";
+"warning.respring_to_take_effect" = "Respring your device for changes to take effect. Note that some tweaks may require a reboot for them to apply properly.";
+"warning.failed_to_apply_mg" = "Failed to apply MobileGestalt!";
+"warning.successfully_reverted_mg" = "Successfully reverted Gestalt tweaks!";
+"warning.reboot_to_take_effect" = "Reboot your device for changes to take effect.";
+"warning.failed_to_revert_mg" = "Failed to revert MobileGestalt!";
+"warning.check_logs" = "Check logs for error information.";

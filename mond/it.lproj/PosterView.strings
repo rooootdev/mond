@@ -1,0 +1,15 @@
+"apply" = "Applica";
+"reset" = "Reimposta";
+"import_tendies" = "Importa Tendies";
+"explore_tendies" = "Esplora Tendies";
+"tendies_warning" = "Importa fino a 5 pacchetti di sfondi.\n**NOTA:** Importare più di 5 Tendies alla volta non è una buona idea, e importarne più di 15 è un'idea TERRIBILE. Non dire che non ti avevo avvertito.";
+"imported" = "Importato";
+"poster_apply_success_title" = "PosterBoard applicato correttamente!";
+"poster_take_effect" = "Per applicare le modifiche:\n1. Tocca «Apri» per avviare PosterBoard\n2. Chiudilo dal selettore app";
+"open" = "Apri";
+"poster_apply_failed_title" = "Impossibile applicare PosterBoard!";
+"poster_apply_failed_body" = "Riavvia l'app e riprova. Controlla i log per maggiori informazioni.";
+"poster_reset_success_title" = "Modifiche a PosterBoard annullate correttamente!";
+"poster_reset_success_body" = "Esegui un respring del dispositivo per applicare le modifiche.";
+"poster_reset_failed_title" = "Impossibile annullare le modifiche a PosterBoard!";
+"poster_reset_failed_body" = "Riavvia l'app e riprova. Controlla i log per maggiori informazioni.";

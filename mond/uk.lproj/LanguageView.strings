@@ -1,0 +1,7 @@
+"system_default" = "Системна мова";
+"system_default_description" = "Використовувати мову пристрою";
+"language" = "Мова";
+"choose_language" = "Вибір мови";
+"restart_required" = "Потрібен перезапуск";
+"exit" = "Вийти";
+"restart_required_message" = "Щоб зміна мови набула чинності, потрібно перезапустити застосунок.";

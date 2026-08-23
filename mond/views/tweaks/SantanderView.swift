@@ -140,25 +140,25 @@ struct SantanderDirectoryView: View {
                 NavigationLink {
                     SantanderDirectoryView(path: root_path)
                 } label: {
-                    Label("Go to Root", systemImage: "externaldrive")
+                    Label(NSLocalizedString("go_to_root", tableName: "SantanderView", comment: ""), systemImage: "externaldrive")
                 }
                 NavigationLink {
                     SantanderDirectoryView(path: home_path)
                 } label: {
-                    Label("Go to Home", systemImage: "house")
+                    Label(NSLocalizedString("go_to_home", tableName: "SantanderView", comment: ""), systemImage: "house")
                 }
                 Divider()
-                Toggle("Display hidden files", isOn: $display_hidden_files)
+                Toggle(NSLocalizedString("display_hidden_files", tableName: "SantanderView", comment: ""), isOn: $display_hidden_files)
                 Divider()
                 Button {
                     sort_ascending = true
                 } label: {
-                    Label("Sort A-Z", systemImage: "textformat")
+                    Label(NSLocalizedString("sort_az", tableName: "SantanderView", comment: ""), systemImage: "textformat")
                 }
                 Button {
                     sort_ascending = false
                 } label: {
-                    Label("Sort Z-A", systemImage: "textformat")
+                    Label(NSLocalizedString("sort_za", tableName: "SantanderView", comment: ""), systemImage: "textformat")
                 }
             } label: {
                 Image(systemName: "ellipsis.circle")
@@ -194,11 +194,11 @@ struct SantanderDirectoryView: View {
     }
 
     private var empty_state_message: String {
-        if !search_text.isEmpty { return "No matching items." }
+        if !search_text.isEmpty { return NSLocalizedString("no_matching_items", tableName: "SantanderView", comment: "") }
         if !display_hidden_files && !items.isEmpty {
-            return "No visible items. Enable \"Display hidden files\" to show dotfiles."
+            return NSLocalizedString("no_visible_items", tableName: "SantanderView", comment: "")
         }
-        return empty_message ?? "Directory is empty."
+        return empty_message ?? NSLocalizedString("directory_empty", tableName: "SantanderView", comment: "")
     }
 
     private func load() {
@@ -227,7 +227,7 @@ struct SantanderDirectoryView: View {
                 return SantanderPath(url: url, display_name: bundle_id(for: url), is_directory: true)
             }
             if items.isEmpty {
-                return SantanderDirectoryListing(items: [], empty_state_message: "No app containers found.")
+                return SantanderDirectoryListing(items: [], empty_state_message: NSLocalizedString("no_app_containers_found", tableName: "SantanderView", comment: ""))
             }
             return SantanderDirectoryListing(items: items, empty_state_message: nil)
         }
@@ -242,12 +242,12 @@ struct SantanderDirectoryView: View {
             return listing
         }
 
-        return SantanderDirectoryListing(items: [], empty_state_message: "Cannot list directory (missing permissions).")
+        return SantanderDirectoryListing(items: [], empty_state_message: NSLocalizedString("cannot_list_directory", tableName: "SantanderView", comment: ""))
     }
 
     private static func try_direct_listing(for path: SantanderPath) -> SantanderDirectoryListing? {
         guard path.is_directory else {
-            return SantanderDirectoryListing(items: [], empty_state_message: "Not a directory.")
+            return SantanderDirectoryListing(items: [], empty_state_message: NSLocalizedString("not_a_directory", tableName: "SantanderView", comment: ""))
         }
 
         let fm = FileManager.default
@@ -263,7 +263,7 @@ struct SantanderDirectoryView: View {
         do {
             let urls = try fm.contentsOfDirectory(at: path.url, includingPropertiesForKeys: nil)
             let items = urls.map(SantanderPath.init(url:))
-            return SantanderDirectoryListing(items: items, empty_state_message: items.isEmpty ? "Directory is empty." : nil)
+            return SantanderDirectoryListing(items: items, empty_state_message: items.isEmpty ? NSLocalizedString("directory_empty", tableName: "SantanderView", comment:"") : nil)
         } catch {
             return nil
         }
@@ -319,10 +319,10 @@ struct SantanderFileView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     if is_editing {
-                        Button("Cancel") {
+                        Button(NSLocalizedString("cancel", comment: "")) {
                             is_editing = false
                         }
-                        Button("Save") {
+                        Button(NSLocalizedString("save", tableName: "SantanderView", comment: "")) {
                             save()
                         }
                     } else {
@@ -347,11 +347,11 @@ struct SantanderFileView: View {
                         || Self.plist_editor_content(from: data) != nil
                 }
             }
-            .alert("Save Failed", isPresented: Binding(
+            .alert(NSLocalizedString("save_failed", comment: ""), isPresented: Binding(
                 get: { save_error != nil },
                 set: { if !$0 { save_error = nil } }
             )) {
-                Button("OK", role: .cancel) {}
+                Button(NSLocalizedString("ok", tableName: "SantanderView", comment: ""), role: .cancel) {}
             } message: {
                 Text(save_error ?? "")
             }
@@ -386,7 +386,7 @@ struct SantanderFileView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.black)
             } else {
-                ContentUnavailableView(failure_text("Failed to render image"), systemImage: "photo")
+                ContentUnavailableView(failure_text(NSLocalizedString("failed_to_render_image", tableName: "SantanderView", comment: "")), systemImage: "photo")
             }
         }
     }
@@ -424,7 +424,7 @@ struct SantanderFileView: View {
 
     private func save() {
         guard Self.grant_file_write(path.path) else {
-            save_error = "Missing write permission."
+            save_error = NSLocalizedString("missing_write_permission", tableName: "SantanderView", comment: "")
             return
         }
         if let format = original_plist_format {
@@ -432,7 +432,7 @@ struct SantanderFileView: View {
             return
         }
         guard let data = edit_text.data(using: original_encoding) else {
-            save_error = "Could not encode text."
+            save_error = NSLocalizedString("could_not_encode_text", tableName: "SantanderView", comment: "")
             return
         }
         do {
@@ -445,7 +445,7 @@ struct SantanderFileView: View {
 
     private func save_plist(format: PropertyListSerialization.PropertyListFormat) {
         guard let edited_data = edit_text.data(using: .utf8) else {
-            save_error = "Could not encode text."
+            save_error = NSLocalizedString("could_not_encode_text", tableName: "SantanderView", comment: "")
             return
         }
         let object: Any
@@ -454,7 +454,7 @@ struct SantanderFileView: View {
         } else if let plist = try? PropertyListSerialization.propertyList(from: edited_data, options: [], format: nil) {
             object = plist
         } else {
-            save_error = "Edited text is not a valid plist/JSON document."
+            save_error = NSLocalizedString("invalid_plist_json", tableName: "SantanderView", comment: "")
             return
         }
         do {

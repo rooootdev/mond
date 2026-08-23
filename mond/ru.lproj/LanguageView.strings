@@ -1,0 +1,7 @@
+"system_default" = "Системный язык";
+"system_default_description" = "Использовать язык устройства";
+"language" = "Язык";
+"choose_language" = "Выбор языка";
+"restart_required" = "Требуется перезапуск";
+"exit" = "Выйти";
+"restart_required_message" = "Чтобы смена языка вступила в силу, приложение нужно перезапустить.";

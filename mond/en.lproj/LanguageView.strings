@@ -1,0 +1,7 @@
+"system_default" = "System Default";
+"system_default_description" = "Match your device's language";
+"language" = "Language";
+"choose_language" = "Choose Language";
+"restart_required" = "Restart Required";
+"exit" = "Exit";
+"restart_required_message" = "The app needs to restart for the language change to take effect.";

@@ -1,0 +1,10 @@
+/* English localization for mond */
+//Keys that used in multiple files or other sht
+"warning" = "Warning!";
+"respring" = "Respring";
+"not_supported" = "Not supported!";
+"check_your_ios" = "Your iOS version may not be supported by mond.\nMond only supports iOS 27.0 developer beta 1 - 4.";
+"cancel" = "Cancel";
+"done" = "Done";
+"save_failed" = "Save failed";
+"information" = "Information";

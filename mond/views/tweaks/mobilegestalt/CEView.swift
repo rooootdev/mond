@@ -39,7 +39,8 @@ func ce_encode(_ value: Any?, as type: ce_type) -> String {
         case .int:
             (value as? NSNumber)?.stringValue ?? ""
         case .bool:
-            ((value as? NSNumber)?.boolValue == true) ? "true" : "false"
+            ((value as? NSNumber)?.boolValue == true) ? NSLocalizedString("true", tableName: "CEView", comment: "") : 
+            NSLocalizedString("false", tableName: "CEView", comment: "")
         case .data:
             (value as? Data)?.base64EncodedString() ?? ""
     }
@@ -52,16 +53,16 @@ func ce_parse(_ text: String, as type: ce_type) throws -> Any {
         case .str:
             return text
         case .int:
-            guard let v = Int64(t) else { throw ce_err.bad_val("Invalid Integer") }
+            guard let v = Int64(t) else { throw ce_err.bad_val(NSLocalizedString("invalid_integer", tableName: "CEView", comment: "")) }
             return NSNumber(value: v)
         case .bool:
             switch t.lowercased() {
                 case "true", "1", "yes": return NSNumber(value: true)
                 case "false", "0", "no": return NSNumber(value: false)
-                default: throw ce_err.bad_val("Enter true/false")
+                default: throw ce_err.bad_val(NSLocalizedString("enter_true_false", tableName: "CEView", comment: ""))
             }
         case .data:
-            guard let d = Data(base64Encoded: t) else { throw ce_err.bad_val("Invalid base64") }
+            guard let d = Data(base64Encoded: t) else { throw ce_err.bad_val(NSLocalizedString("invalid_base64", tableName: "CEView", comment: "")) }
             return d
     }
 }
@@ -97,7 +98,8 @@ struct CEView: View {
     var body: some View {
         List {
             if keys.isEmpty {
-                Text(search.isEmpty ? "No CacheExtra fields" : "No results")
+                Text(search.isEmpty ? NSLocalizedString("no_cache_extra_fields", tableName: "CEView", comment: "") : 
+                NSLocalizedString("no_results", tableName: "CEView", comment: ""))
                     .foregroundStyle(.secondary)
             } else {
                 ForEach(keys, id: \.self) { key in
@@ -135,7 +137,7 @@ struct CEView: View {
                 }
             }
         }
-        .searchable(text: $search, prompt: "Search for keys or values")
+        .searchable(text: $search, prompt: NSLocalizedString("search_for_keys_or_values", tableName: "CEView", comment: ""))
         .navigationTitle("CacheExtra")
         .onAppear() {
             mg_load()
@@ -178,16 +180,16 @@ struct CEView: View {
             let data = try PropertyListSerialization.data(fromPropertyList: mg_dict_now, format: .xml, options: 0)
             try mg_write(data)
             
-            Alertinator.shared.alert(
-                title: "Saved",
-                body: "Field changes written to MobileGestalt. Respring for changes to take effect.",
-                actionLabel: "Respring",
+            AlertinatorLocalized.shared.alert(
+                title: NSLocalizedString("saved", tableName: "CEView", comment: ""),
+                body: NSLocalizedString("you_must_respring", tableName: "CEView", comment: ""),
+                actionLabel: NSLocalizedString("respring", comment: ""),
                 action: {
                     state.respring()
                 }
             )
         } catch {
-            Alertinator.shared.alert(title: "Save failed", body: error.localizedDescription)
+            AlertinatorLocalized.shared.alert(title: NSLocalizedString("save_failed", comment: ""), body: error.localizedDescription)
         }
     }
 }
@@ -219,8 +221,8 @@ private struct CEEditSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Type") {
-                    Picker("Type", selection: $type) {
+                Section(NSLocalizedString("type", tableName: "CEView", comment: "")) {
+                    Picker(NSLocalizedString("type", tableName: "CEView", comment: ""), selection: $type) {
                         ForEach(ce_type.allCases) { t in Text(t.label).tag(t) }
                     }
                     .pickerStyle(.menu)
@@ -228,7 +230,7 @@ private struct CEEditSheet: View {
                         error = nil
                     }
                 }
-                Section("Value") {
+                Section(NSLocalizedString("value", tableName: "CEView", comment: "")) {
                     TextEditor(text: $text)
                         .font(.system(.body, design: .monospaced))
                         .frame(minHeight: 120)
@@ -243,10 +245,10 @@ private struct CEEditSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") { dismiss() }
+                    Button(NSLocalizedString("cancel", comment: "")) { dismiss() }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
+                    Button(NSLocalizedString("done", comment: "")) {
                         do {
                             save(key, try ce_parse(text, as: type))
                             dismiss()
@@ -274,19 +276,19 @@ private struct CEAddSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Key") {
-                    TextField("Key name", text: $key)
+                Section(NSLocalizedString("key", tableName: "CEView", comment: "")) {
+                    TextField(NSLocalizedString("key_name", tableName: "CEView", comment: ""), text: $key)
                         .font(.system(.body, design: .monospaced))
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
                 }
-                Section("Type") {
-                    Picker("Type", selection: $type) {
+                Section(NSLocalizedString("type", tableName: "CEView", comment: "")) {
+                    Picker(NSLocalizedString("type", tableName: "CEView", comment: ""), selection: $type) {
                         ForEach(ce_type.allCases) { t in Text(t.label).tag(t) }
                     }
                     .pickerStyle(.menu)
                 }
-                Section("Value") {
+                Section(NSLocalizedString("value", tableName: "CEView", comment: "")) {
                     TextEditor(text: $text)
                         .font(.system(.body, design: .monospaced))
                         .frame(minHeight: 100)
@@ -297,21 +299,21 @@ private struct CEAddSheet: View {
                     Section { Text(error).foregroundStyle(.red) }
                 }
             }
-            .navigationTitle("Add Field")
+            .navigationTitle(NSLocalizedString("add_field", tableName: "CEView", comment: ""))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") { dismiss() }
+                    Button(NSLocalizedString("cancel", comment: "")) { dismiss() }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add") {
+                    Button(NSLocalizedString("add", tableName: "CEView", comment: "")) {
                         let trimmed = key.trimmingCharacters(in: .whitespacesAndNewlines)
                         guard !trimmed.isEmpty else {
-                            error = "Key cannot be empty"
+                            error = NSLocalizedString("key_cant_be_empty", tableName: "CEView", comment: "")
                             return
                         }
                         guard (mg_dict_now["CacheExtra"] as? [String: Any])?[trimmed] == nil else {
-                            error = "Key already exists"
+                            error = NSLocalizedString("key_already_exist", tableName: "CEView", comment: "")
                             return
                         }
                         do {

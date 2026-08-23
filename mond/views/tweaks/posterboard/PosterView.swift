@@ -31,7 +31,7 @@ struct PosterView: View {
                                 ProgressView()
                             }
                             
-                            Text("Apply")
+                            Text(NSLocalizedString("apply", tableName: "PosterView", comment: ""))
                         }
                     }
                     .disabled(state.poster_files.isEmpty || busy)
@@ -40,7 +40,7 @@ struct PosterView: View {
                         Button {
                             reset()
                         } label: {
-                            Text("Reset")
+                            Text(NSLocalizedString("reset", tableName: "PosterView", comment: ""))
                         }
                         .disabled(busy)
                     }
@@ -50,18 +50,18 @@ struct PosterView: View {
                     Button {
                         show_importer = true
                     } label: {
-                        Text("Import Tendies")
+                        Text(NSLocalizedString("import_tendies", tableName: "PosterView", comment: ""))
                     }
                     .disabled(busy)
                     
                     Button {
                         show_explorer = true
                     } label: {
-                        Text("Explore Tendies")
+                        Text(NSLocalizedString("explore_tendies", tableName: "PosterView", comment: ""))
                     }
                     .disabled(busy)
                 } footer: {
-                    Text("Import up to 5 wallpaper packs.\n**NOTE:** Importing more than 5 tendies at once is not a good idea and importing more than 15 is a TERRIBLE idea. Dont say I didnt warn you.")
+                    Text(try! AttributedString(markdown:NSLocalizedString("tendies_warning", tableName: "PosterView", comment: "")))
                 }
 
                 if !state.poster_files.isEmpty {
@@ -73,7 +73,7 @@ struct PosterView: View {
                             state.remove_poster_files(at: offsets)
                         }
                     } header: {
-                        Label("Imported", systemImage: "document.on.document")
+                        Label(NSLocalizedString("imported", tableName: "PosterView", comment: ""), systemImage: "document.on.document")
                     }
                 }
             }
@@ -112,10 +112,10 @@ struct PosterView: View {
             let count = try pb.apply(at: state.poster_files)
             print("(pb) applied \(count) descriptor(s).")
             busy = false
-            Alertinator.shared.alert(
-                title: "Successfully applied PosterBoard!",
-                body: "For changes to take effect:\n1. Click 'Open' to launch Posterboard\n2. Close it from the App Switcher",
-                actionLabel: "Open",
+            AlertinatorLocalized.shared.alert(
+                title: NSLocalizedString("poster_apply_success_title", tableName: "PosterView", comment: ""),
+                body: NSLocalizedString("poster_take_effect", tableName: "PosterView", comment: ""),
+                actionLabel: NSLocalizedString("open", tableName: "PosterView", comment: ""),
                 action: {
                     // state.respring()
                     
@@ -127,9 +127,9 @@ struct PosterView: View {
         } catch {
             print("(pb) failed: \(error.localizedDescription)\n")
             busy = false
-            Alertinator.shared.alert(
-                title: "Failed to apply PosterBoard!",
-                body: "Restart the app and try again. Check logs for more detailed information."
+            AlertinatorLocalized.shared.alert(
+                title: NSLocalizedString("poster_apply_failed_title", tableName: "PosterView", comment: ""),
+                body: NSLocalizedString("poster_apply_failed_body", tableName: "PosterView", comment: "")
             )
         }
     }
@@ -140,10 +140,10 @@ struct PosterView: View {
             try pb.reset()
             print("(pb) reset done.")
             busy = false
-            Alertinator.shared.alert(
-                title: "Successfully reverted PosterBoard!",
-                body: "Respring your device for changes to take effect.",
-                actionLabel: "Respring",
+            AlertinatorLocalized.shared.alert(
+                title: NSLocalizedString("poster_reset_success_title", tableName: "PosterView", comment: ""),
+                body: NSLocalizedString("poster_reset_success_body", tableName: "PosterView", comment: ""),
+                actionLabel: NSLocalizedString("respring", comment: ""),
                 action: {
                     state.respring()
                 }
@@ -151,9 +151,9 @@ struct PosterView: View {
         } catch {
             print("(pb) failed: \(error.localizedDescription)")
             busy = false
-            Alertinator.shared.alert(
-                title: "Failed to revert PosterBoard!",
-                body: "Restart the app and try again. Check logs for more detailed information."
+            AlertinatorLocalized.shared.alert(
+                title: NSLocalizedString("poster_reset_failed_title", tableName: "PosterView", comment: ""),
+                body: NSLocalizedString("poster_reset_failed_body", tableName: "PosterView", comment: "")
             )
         }
     }

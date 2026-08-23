@@ -1,0 +1,15 @@
+"apply" = "Примени";
+"reset" = "Ресетуј";
+"import_tendies" = "Импортуј Tendies";
+"explore_tendies" = "Истражи Tendies";
+"tendies_warning" = "Можете да импортујете до 5 позадина.\n**НАПОМЕНА:** Импортовање више од 5 тendies одједном није добра идеја, а више од 15 је УЖАСНА идеја. Немојте после да кажете да вас нисам упозорио.";
+"imported" = "Импортовано";
+"poster_apply_success_title" = "PosterBoard је успешно примењен!";
+"poster_take_effect" = "Да би промене ступиле на снагу:\n1. Кликните на „Отвори“ да покренете Posterboard\n2. Затворите га из недавно коришћених апликација";
+"open" = "Отвори";
+"poster_apply_failed_title" = "Примена PosterBoard-а није успела!";
+"poster_apply_failed_body" = "Поново покрените апликацију и покушајте поново. Погледајте логове за више информације.";
+"poster_reset_success_title" = "PosterBoard је успешно ресетован у претходно стање!";
+"poster_reset_success_body" = "Урадите respring уређаја да би промене ступиле на снагу.";
+"poster_reset_failed_title" = "Ресетовање PosterBoard-а није успело!";
+"poster_reset_failed_body" = "Поново покрените апликацију и покушајте поново. Погледајте логове за више информације.";

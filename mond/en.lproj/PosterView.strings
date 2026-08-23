@@ -1,0 +1,15 @@
+"apply" = "Apply";
+"reset" = "Reset";
+"import_tendies" = "Import Tendies";
+"explore_tendies" = "Explore Tendies";
+"tendies_warning" = "Import up to 5 wallpaper packs.\n**NOTE:** Importing more than 5 tendies at once is not a good idea and importing more than 15 is a TERRIBLE idea. Dont say I didnt warn you.";
+"imported" = "Imported";
+"poster_apply_success_title" = "Successfully applied PosterBoard!";
+"poster_take_effect" = "For changes to take effect:\n1. Click 'Open' to launch Posterboard\n2. Close it from the App Switcher";
+"open" = "Open";
+"poster_apply_failed_title" = "Failed to apply PosterBoard!";
+"poster_apply_failed_body" = "Restart the app and try again. Check logs for more detailed information.";
+"poster_reset_success_title" = "Successfully reverted PosterBoard!";
+"poster_reset_success_body" = "Respring your device for changes to take effect.";
+"poster_reset_failed_title" = "Failed to revert PosterBoard!";
+"poster_reset_failed_body" = "Restart the app and try again. Check logs for more detailed information.";

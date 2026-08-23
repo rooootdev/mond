@@ -100,6 +100,11 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				es,
+				ru,
+				it,
+				uk,
+				sr,
 				Base,
 			);
 			mainGroup = CCF44B36300858B300739BFC;
@@ -271,7 +276,7 @@
 				DEVELOPMENT_TEAM = DN4S6CXFWY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = mond;
+				INFOPLIST_KEY_CFBundleDisplayName = mondL;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -309,7 +314,7 @@
 				DEVELOPMENT_TEAM = DN4S6CXFWY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = mond;
+				INFOPLIST_KEY_CFBundleDisplayName = mondL;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -1,0 +1,7 @@
+"system_default" = "Системски язык";
+"system_default_description" = "Користи језик уређаја";
+"language" = "Језик";
+"choose_language" = "Избор језика";
+"restart_required" = "Потребан рестарт";
+"exit" = "Изаћи";
+"restart_required_message" = "Да би промена језика ступила на снагу, апликацију је потребно поново покренути.";

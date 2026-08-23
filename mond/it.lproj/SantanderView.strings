@@ -1,0 +1,17 @@
+"go_to_root" = "Vai alla radice";
+"go_to_home" = "Vai alla home";
+"display_hidden_files" = "Mostra file nascosti";
+"sort_az" = "Ordina da A a Z";
+"sort_za" = "Ordina da Z ad A";
+"save" = "Salva";
+"ok" = "OK";
+"failed_to_render_image" = "Impossibile visualizzare l'immagine";
+"missing_write_permission" = "Permesso di scrittura mancante.";
+"could_not_encode_text" = "Impossibile codificare il testo.";
+"invalid_plist_json" = "Il testo modificato non è un documento plist/JSON valido.";
+"no_visible_items" = "Nessun elemento visibile. Abilita «Mostra file nascosti» per visualizzare i dotfile.";
+"directory_empty" = "La directory è vuota.";
+"no_app_containers_found" = "Nessun contenitore app trovato.";
+"cannot_list_directory" = "Impossibile elencare la directory (permessi insufficienti).";
+"not_a_directory" = "Non è una directory.";
+"no_matching_items" = "Nessun elemento corrispondente.";

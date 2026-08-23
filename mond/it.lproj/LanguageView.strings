@@ -1,0 +1,7 @@
+"system_default" = "Lingua di sistema";
+"system_default_description" = "Usa la lingua del dispositivo";
+"language" = "Lingua";
+"choose_language" = "Scegli lingua";
+"restart_required" = "Riavvio richiesto";
+"exit" = "Esci";
+"restart_required_message" = "L'app deve essere riavviata affinché la modifica della lingua abbia effetto.";
