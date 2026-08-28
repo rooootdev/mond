@@ -44,7 +44,6 @@
 
 **Known Issues:**<br>
 &#45; Tweaks may disappear on reboot<br>
-&#45; Apple Intelligence spoofing doesnt work on iPhone 15<br>
 &#45; Disable Region restrictions may be broken on some versions/devices<br>
 &#45; iPadOS UI and related tweaks may not work and/or **bootloop** you!<br>
 
