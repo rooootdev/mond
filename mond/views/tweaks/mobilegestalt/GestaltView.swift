@@ -53,6 +53,7 @@ struct GestaltView: View {
     @State private var enable_device_name: Bool = false
     @State private var mg_device_name: String = ""
     @State private var product_type: String = ""
+    @State private var tweak_version: Int = 0
 
     var body: some View {
         NavigationStack {
@@ -77,12 +78,14 @@ struct GestaltView: View {
                     Button {
                         mg_apply_ui_state(selected_st, enable_device_name, mg_device_name, product_type)
                         mg_apply()
+                        tweak_version += 1
                     } label: {
                         Text("Apply Tweaks")
                     }
 
                     Button {
                         mg_revert()
+                        tweak_version += 1
                     } label: {
                         Text("Revert Tweaks")
                     }
@@ -210,8 +213,6 @@ struct GestaltView: View {
                 }
 
                 Section {
-                    let cache_extra = mg_dict_now["CacheExtra"] as? NSMutableDictionary
-
                     TweakToggle(title: "Allow iPad Apps")
                     TweakToggle(title: "Apple Pencil Settings")
 
@@ -220,7 +221,10 @@ struct GestaltView: View {
                     }
 
                     TweakToggle(title: "Enable iPadOS Mode")
-                        .disabled(cache_extra?["+3Uf0Pm5F8Xy7Onyvko0vA"] as? String != "iPhone")
+                        .disabled({
+                            let cache_extra = mg_dict_now["CacheExtra"] as? [String: Any]
+                            return cache_extra?["+3Uf0Pm5F8Xy7Onyvko0vA"] as? String != "iPhone"
+                        }())
                 } header: {
                     Label("iPadOS Features", systemImage: "ipad")
                 }

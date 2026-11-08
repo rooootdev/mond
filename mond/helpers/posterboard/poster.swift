@@ -60,10 +60,9 @@ enum pb {
     }
 
     static func read_meta_key(at url: URL, key: String) -> String? {
-        var path_c = url.path.utf8CString.map { Int8($0) }
-        let handle = bad_query(&path_c, true, nil, false, nil)
+        let handle = grant_path(url.path, create: true)
         guard handle >= 0 else { return nil }
-        defer { bad_query_release(handle) }
+        defer { release_path_grant(handle) }
 
         guard let data = try? Data(contentsOf: url),
               let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any] else {
@@ -116,10 +115,9 @@ enum pb {
         let container = try find_pb_container()
         let root = poster_extensions_root(container: container)
 
-        var root_c = root.path.utf8CString.map { Int8($0) }
-        let root_handle = bad_query(&root_c, true, nil, false, nil)
+        let root_handle = grant_path(root.path, create: true)
         guard root_handle >= 0 else { return }
-        defer { bad_query_release(root_handle) }
+        defer { release_path_grant(root_handle) }
 
         guard fm.fileExists(atPath: root.path) else { return }
 
@@ -127,10 +125,9 @@ enum pb {
             let desc_path = root.appendingPathComponent(ext).appendingPathComponent("descriptors")
             guard fm.fileExists(atPath: desc_path.path) else { continue }
 
-            var path_c = desc_path.path.utf8CString.map { Int8($0) }
-            let handle = bad_query(&path_c, true, nil, false, nil)
+            let handle = grant_path(desc_path.path, create: true)
             guard handle >= 0 else { continue }
-            defer { bad_query_release(handle) }
+            defer { release_path_grant(handle) }
 
             for item in (try? fm.contentsOfDirectory(atPath: desc_path.path)) ?? [] {
                 try? fm.removeItem(at: desc_path.appendingPathComponent(item))
@@ -233,9 +230,8 @@ enum pb {
         let dest_dir = descriptors_url(container: container, ext: ext)
         try ensure_directory(at: dest_dir.path)
 
-        var path_c = dest_dir.path.utf8CString.map { Int8($0) }
-        let handle = bad_query(&path_c, true, nil, false, nil)
-        defer { bad_query_release(handle) }
+        let handle = grant_path(dest_dir.path, create: true)
+        defer { release_path_grant(handle) }
         guard handle >= 0 else { throw pb_error.access_denied(dest_dir.path) }
 
         let dest_url = dest_dir.appendingPathComponent(UUID().uuidString)
@@ -255,9 +251,8 @@ enum pb {
         }
 
         let anchor = last_existing.isEmpty ? path : last_existing
-        var path_c = anchor.utf8CString.map { Int8($0) }
-        let handle = bad_query(&path_c, true, nil, false, nil)
-        defer { bad_query_release(handle) }
+        let handle = grant_path(anchor, create: true)
+        defer { release_path_grant(handle) }
         guard handle >= 0 else { throw pb_error.access_denied(path) }
 
         try fm.createDirectory(atPath: path, withIntermediateDirectories: true)

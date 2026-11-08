@@ -38,7 +38,7 @@ struct mond: App {
         }
         
         UserDefaults.standard.register(defaults: [
-            "method": "bad_query",
+            "method": "worse_query",
             "atomic_write": true
         ])
         if UserDefaults.standard.bool(forKey: "ka_on") {

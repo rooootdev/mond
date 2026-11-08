@@ -49,7 +49,7 @@
 &#45; iPadOS UI and related tweaks may not work and/or **bootloop** you!<br>
 
 **Credits:**<br>
-&#45; [forcequit](https://github.com/forcequitOS) for his work on bad_query<br>
+&#45; [forcequit](https://github.com/forcequitOS) for worse_query, the sandbox escape used by mond<br>
 &#45; [johnny](https://github.com/0xjohnnydev) for his work on the MCM bug class<br>
 &#45; [jailbreak.party](https://github.com/jailbreakdotparty) for PartyUI, GestaltView and the implementation of [neon](https://github.com/neonmodder123)'s respring method<br>
 

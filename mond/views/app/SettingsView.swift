@@ -12,7 +12,7 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var state: AppState
     
-    @AppStorage("method") private var method: String = "bad_query"
+    @AppStorage("method") private var method: String = "worse_query"
     @AppStorage("ka_on") private var ka_on = true
     @AppStorage("token") private var token: String = ""
     @AppStorage("dismiss_after_import") private var dismiss_after_import = false
@@ -71,11 +71,11 @@ struct SettingsView: View {
                 
                 Section {
                     Picker("Method", selection: $method) {
+                        Text("worse_query").tag("worse_query")
                         Text("bad_query").tag("bad_query")
-                        Text("cmg").tag("cmg")
                     }
                     .pickerStyle(.segmented)
-                    
+
                     Button {
                         grant_all(state: state)
                     } label: {
@@ -83,8 +83,6 @@ struct SettingsView: View {
                     }
                 } header: {
                     Label("Exploit", systemImage: "wrench.and.screwdriver")
-                } footer: {
-                    Text(method == "cmg" ? "**CMG:** Supports iOS 27.0 b1 - b4. Only MobileGestalt will work with this method. Only use this when bad_query isnt working for you." : "**bad_query:** Supports iOS 27.0 b1 - b4. By [forcequit](https://github.com/forcequitOS).")
                 }
                 
                 Section {
@@ -156,7 +154,7 @@ struct SettingsView: View {
                 
                 Section {
                     CreditsRow(name: "roooot", role: "Main developer", profile: URL(string: "https://github.com/rooootdev")!)
-                    CreditsRow(name: "forcequit", role: "The bad_query exploit", profile: URL(string: "https://github.com/forcequitOS")!)
+                    CreditsRow(name: "forcequit", role: "bad/worse_query sandbox escape", profile: URL(string: "https://github.com/forcequitOS")!)
                     CreditsRow(name: "johnny", role: "His work on the MCM bug class", profile: URL(string: "https://github.com/0xjohnnydev")!)
                     CreditsRow(name: "jailbreak.party", role: "PartyUI, GestaltView", profile: URL(string: "https://github.com/jailbreakdotparty")!)
                     CreditsRow(name: "SerStars", role: "Tendies repository", profile: URL(string: "https://github.com/SerStars")!)

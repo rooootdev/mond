@@ -10,7 +10,6 @@ import PartyUI
 
 struct ContentView: View {
     @EnvironmentObject var state: AppState
-    @AppStorage("method") private var method: String = "bad_query"
     @AppStorage("ignore_failure") private var ignore_failure = false
     
     @State private var is_valid: Bool = false
@@ -53,7 +52,7 @@ struct ContentView: View {
                             }
                         }
                     }
-                    .disabled((method == "cmg" || state.pb_granted != true) && !ignore_failure)
+                    .disabled((state.pb_granted != true) && !ignore_failure)
                     
                     NavigationLink {
                         SantanderView()
@@ -67,13 +66,9 @@ struct ContentView: View {
                             }
                         }
                     }
-                    .disabled((method == "cmg" || state.apps_granted != true) && !ignore_failure)
+                    .disabled((state.apps_granted != true) && !ignore_failure)
                 } header: {
                     Label("Tweaks", systemImage: "paintbrush")
-                } footer: {
-                    if method == "cmg" {
-                         Text("Only MobileGestalt is available when method is set to cmg.")
-                    }
                 }
                 
                 Section {

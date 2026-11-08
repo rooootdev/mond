@@ -15,9 +15,22 @@
 		CCF44B3F300858B300739BFC /* mond.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mond.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CC03DACC303BC8D70035A9FB /* Exceptions for "mond" folder in "mond" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = CCF44B3E300858B300739BFC /* mond */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CCF44B41300858B300739BFC /* mond */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CC03DACC303BC8D70035A9FB /* Exceptions for "mond" folder in "mond" target */,
+			);
 			path = mond;
 			sourceTree = "<group>";
 		};
@@ -266,13 +279,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = mond;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = mond/mond.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DN4S6CXFWY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = mond/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = mond;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -283,8 +299,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.roooot.mond;
+				MARKETING_VERSION = 3;
+				OTHER_CFLAGS = "-march=armv8.3-a+pauth";
+				PRODUCT_BUNDLE_IDENTIFIER = com.roooot.mondapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -304,13 +321,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = mond;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = mond/mond.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DN4S6CXFWY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = mond/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = mond;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -321,8 +341,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.roooot.mond;
+				MARKETING_VERSION = 3;
+				OTHER_CFLAGS = "-march=armv8.3-a+pauth";
+				PRODUCT_BUNDLE_IDENTIFIER = com.roooot.mondapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;

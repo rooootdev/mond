@@ -11,6 +11,25 @@ import AVFoundation
 import UniformTypeIdentifiers
 import ImageIO
 
+enum SantanderClipboard {
+    static var url: URL?
+    static var is_cut = false
+}
+
+func santander_grant_write(_ path: String) -> Bool {
+    let fm = FileManager.default
+    if fm.isWritableFile(atPath: path) { return true }
+    let handle = grant_path(path, create: true)
+    return handle >= 0 && fm.isWritableFile(atPath: path)
+}
+
+func santander_grant_read(_ path: String) -> Bool {
+    let fm = FileManager.default
+    if fm.isReadableFile(atPath: path) { return true }
+    let handle = grant_path(path, create: true)
+    return handle >= 0 && fm.isReadableFile(atPath: path)
+}
+
 struct SantanderPath: Hashable {
     let url: URL
     let last_path_component: String
@@ -84,12 +103,68 @@ struct SantanderDirectoryView: View {
     @State private var sort_ascending = true
     @State private var display_hidden_files = true
 
+    @State private var show_create_sheet = false
+    @State private var create_name = ""
+    @State private var create_is_folder = false
+    @State private var show_import_picker = false
+    @State private var pending_rename: SantanderPath?
+    @State private var rename_text = ""
+    @State private var operation_error: String?
+    @State private var confirm_delete: SantanderPath?
+
     var body: some View {
         content
             .navigationTitle(path.title)
             .searchable(text: $search_text, placement: .navigationBarDrawer(displayMode: .always))
             .toolbar { toolbar }
             .task { load() }
+            .sheet(isPresented: $show_create_sheet) {
+                AlertController(
+                    title: create_is_folder ? "New Folder" : "New File",
+                    text: $create_name,
+                    placeholder: create_is_folder ? "Folder name" : "File name",
+                    confirmLabel: "Create"
+                ) {
+                    create_item()
+                }
+            }
+            .alert("Rename", isPresented: Binding(
+                get: { pending_rename != nil },
+                set: { if !$0 { pending_rename = nil } }
+            )) {
+                TextField("Name", text: $rename_text)
+                Button("Rename") { rename_item() }
+                Button("Cancel", role: .cancel) { pending_rename = nil }
+            }
+            .alert("Delete", isPresented: Binding(
+                get: { confirm_delete != nil },
+                set: { if !$0 { confirm_delete = nil } }
+            )) {
+                Button("Delete", role: .destructive) { delete_item() }
+                Button("Cancel", role: .cancel) { confirm_delete = nil }
+            } message: {
+                Text("Delete \"\(confirm_delete?.title ?? "")\"? This cannot be undone.")
+            }
+            .alert("Error", isPresented: Binding(
+                get: { operation_error != nil },
+                set: { if !$0 { operation_error = nil } }
+            )) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(operation_error ?? "")
+            }
+            .fileImporter(
+                isPresented: $show_import_picker,
+                allowedContentTypes: [.item],
+                allowsMultipleSelection: false
+            ) { result in
+                switch result {
+                case .success(let urls):
+                    if let url = urls.first { import_file(from: url) }
+                case .failure(let error):
+                    operation_error = error.localizedDescription
+                }
+            }
     }
 
     @ViewBuilder
@@ -111,12 +186,14 @@ struct SantanderDirectoryView: View {
                 } label: {
                     row(for: item)
                 }
+                .contextMenu { row_context_menu(for: item) }
             } else {
                 NavigationLink {
                     SantanderFileView(path: item)
                 } label: {
                     row(for: item)
                 }
+                .contextMenu { row_context_menu(for: item) }
             }
         }
         .listStyle(.insetGrouped)
@@ -133,10 +210,72 @@ struct SantanderDirectoryView: View {
         }
     }
 
+    @ViewBuilder
+    private func row_context_menu(for item: SantanderPath) -> some View {
+        Button {
+            SantanderClipboard.url = item.url
+            SantanderClipboard.is_cut = false
+        } label: {
+            Label("Copy", systemImage: "doc.on.doc")
+        }
+
+        Button {
+            SantanderClipboard.url = item.url
+            SantanderClipboard.is_cut = true
+        } label: {
+            Label("Cut", systemImage: "scissors")
+        }
+
+        Button {
+            pending_rename = item
+            rename_text = item.title
+        } label: {
+            Label("Rename", systemImage: "pencil")
+        }
+
+        Divider()
+
+        Button(role: .destructive) {
+            confirm_delete = item
+        } label: {
+            Label("Delete", systemImage: "trash")
+        }
+    }
+
     @ToolbarContentBuilder
     private var toolbar: some ToolbarContent {
+        ToolbarItem(placement: .topBarLeading) {
+            if SantanderClipboard.url != nil {
+                Button {
+                    paste()
+                } label: {
+                    Label("Paste", systemImage: "doc.on.clipboard")
+                }
+            }
+        }
         ToolbarItem(placement: .topBarTrailing) {
             Menu {
+                Button {
+                    create_name = ""
+                    create_is_folder = false
+                    show_create_sheet = true
+                } label: {
+                    Label("New File", systemImage: "doc.badge.plus")
+                }
+                Button {
+                    create_name = ""
+                    create_is_folder = true
+                    show_create_sheet = true
+                } label: {
+                    Label("New Folder", systemImage: "folder.badge.plus")
+                }
+                Divider()
+                Button {
+                    show_import_picker = true
+                } label: {
+                    Label("Import File", systemImage: "square.and.arrow.down")
+                }
+                Divider()
                 NavigationLink {
                     SantanderDirectoryView(path: root_path)
                 } label: {
@@ -236,8 +375,7 @@ struct SantanderDirectoryView: View {
             return listing
         }
 
-        var grant_c = path.path.utf8CString.map { Int8($0) }
-        let handle = bad_query(&grant_c, true, nil, false, nil)
+        let handle = grant_path(path.path, create: true)
         if handle >= 0, let listing = try_direct_listing(for: path) {
             return listing
         }
@@ -293,6 +431,119 @@ struct SantanderDirectoryView: View {
     private static func metadata_identifier(from data: Data) -> String? {
         let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any]
         return plist?["MCMMetadataIdentifier"] as? String
+    }
+
+    private func create_item() {
+        let name = create_name.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !name.isEmpty else {
+            operation_error = "Name cannot be empty."
+            return
+        }
+        let target = path.url.appendingPathComponent(name)
+        let fm = FileManager.default
+        guard santander_grant_write(path.path) else {
+            operation_error = "No write permission for this directory."
+            return
+        }
+        do {
+            if create_is_folder {
+                try fm.createDirectory(at: target, withIntermediateDirectories: false)
+            } else {
+                guard fm.createFile(atPath: target.path, contents: Data()) else {
+                    operation_error = "Failed to create file."
+                    return
+                }
+            }
+            show_create_sheet = false
+            load()
+        } catch {
+            operation_error = error.localizedDescription
+        }
+    }
+
+    private func rename_item() {
+        guard let item = pending_rename else { return }
+        let newName = rename_text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !newName.isEmpty else {
+            operation_error = "Name cannot be empty."
+            pending_rename = nil
+            return
+        }
+        guard santander_grant_write(item.path) else {
+            operation_error = "No write permission for this item."
+            pending_rename = nil
+            return
+        }
+        let dest = item.url.deletingLastPathComponent().appendingPathComponent(newName)
+        do {
+            try FileManager.default.moveItem(at: item.url, to: dest)
+            pending_rename = nil
+            load()
+        } catch {
+            operation_error = error.localizedDescription
+            pending_rename = nil
+        }
+    }
+
+    private func delete_item() {
+        guard let item = confirm_delete else { return }
+        guard santander_grant_write(item.path) else {
+            operation_error = "No write permission for this item."
+            confirm_delete = nil
+            return
+        }
+        do {
+            try FileManager.default.removeItem(at: item.url)
+            confirm_delete = nil
+            load()
+        } catch {
+            operation_error = error.localizedDescription
+            confirm_delete = nil
+        }
+    }
+
+    private func paste() {
+        guard let source = SantanderClipboard.url else { return }
+        guard santander_grant_write(path.path) else {
+            operation_error = "No write permission for this directory."
+            return
+        }
+        let dest = path.url.appendingPathComponent(source.lastPathComponent)
+        let fm = FileManager.default
+        do {
+            if SantanderClipboard.is_cut {
+                try fm.moveItem(at: source, to: dest)
+                SantanderClipboard.url = nil
+                SantanderClipboard.is_cut = false
+            } else {
+                if fm.fileExists(atPath: dest.path) {
+                    try fm.removeItem(at: dest)
+                }
+                try fm.copyItem(at: source, to: dest)
+            }
+            load()
+        } catch {
+            operation_error = error.localizedDescription
+        }
+    }
+
+    private func import_file(from source: URL) {
+        guard santander_grant_write(path.path) else {
+            operation_error = "No write permission for this directory."
+            return
+        }
+        let _ = source.startAccessingSecurityScopedResource()
+        defer { source.stopAccessingSecurityScopedResource() }
+        let dest = path.url.appendingPathComponent(source.lastPathComponent)
+        do {
+            if FileManager.default.fileExists(atPath: dest.path) {
+                try FileManager.default.removeItem(at: dest)
+            }
+            try FileManager.default.copyItem(at: source, to: dest)
+            load()
+        } catch {
+            operation_error = error.localizedDescription
+        }
     }
 }
 
@@ -514,8 +765,7 @@ struct SantanderFileView: View {
         if fm.isReadableFile(atPath: path) {
             return true
         }
-        var path_c = path.utf8CString.map { Int8($0) }
-        let handle = bad_query(&path_c, true, nil, false, nil)
+        let handle = grant_path(path, create: true)
         return handle >= 0 && fm.isReadableFile(atPath: path)
     }
 
@@ -524,8 +774,7 @@ struct SantanderFileView: View {
         if fm.isWritableFile(atPath: path) {
             return true
         }
-        var path_c = path.utf8CString.map { Int8($0) }
-        let handle = bad_query(&path_c, true, nil, false, nil)
+        let handle = grant_path(path, create: true)
         return handle >= 0 && fm.isWritableFile(atPath: path)
     }
 
@@ -729,6 +978,42 @@ struct SantanderFileView: View {
         }
 
         return lines.joined(separator: "\n")
+    }
+}
+
+private struct AlertController: View {
+    @Environment(\.dismiss) private var dismiss
+    let title: String
+    @Binding var text: String
+    let placeholder: String
+    let confirmLabel: String
+    let onConfirm: () -> Void
+
+    var body: some View {
+        NavigationStack {
+            VStack(spacing: 16) {
+                TextField(placeholder, text: $text)
+                    .textFieldStyle(.roundedBorder)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 20)
+                Spacer()
+            }
+            .navigationTitle(title)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel") { dismiss() }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(confirmLabel) {
+                        onConfirm()
+                        dismiss()
+                    }
+                    .fontWeight(.semibold)
+                    .disabled(text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                }
+            }
+        }
     }
 }
 

@@ -16,6 +16,7 @@ struct mg_tweak {
     let minv: Double?
     let info_t: InfoType?
     let info_msg: String?
+    let can_apply: (NSMutableDictionary) -> String?
     
     let r: (NSMutableDictionary) -> Bool
     let w_on: (NSMutableDictionary) -> Void
@@ -45,6 +46,7 @@ extension mg_tweak {
             minv: minv,
             info_t: nil,
             info_msg: nil,
+            can_apply: { _ in nil },
             r: { dict in
                 guard let extra = dict["CacheExtra"] as? NSDictionary else { return false }
                 return extra[key] as? T == value
@@ -66,6 +68,7 @@ extension mg_tweak {
             minv: minv,
             info_t: nil,
             info_msg: nil,
+            can_apply: { _ in nil },
             r: { dict in
                 guard let extra = dict["CacheExtra"] as? NSDictionary,
                       let key = keys.first
@@ -95,6 +98,7 @@ extension mg_tweak {
             minv: minv,
             info_t: info_t,
             info_msg: info_msg,
+            can_apply: { _ in nil },
             r: { dict in
                 guard let extra = dict["CacheExtra"] as? NSDictionary else { return false }
                 return extra[key] as? T == value
@@ -116,6 +120,7 @@ extension mg_tweak {
             minv: minv,
             info_t: info_t,
             info_msg: info_msg,
+            can_apply: { _ in nil },
             r: { dict in
                 guard let extra = dict["CacheExtra"] as? NSDictionary,
                       let key = keys.first
@@ -169,6 +174,7 @@ let all_tweaks: [mg_tweak] = [
         minv: nil,
         info_t: .info,
         info_msg: "This tweak may be broken or have no effect on some iOS versions or devices.",
+        can_apply: { _ in nil },
         r: { dict in
             guard let cache_extra = dict["CacheExtra"] as? NSMutableDictionary else { return false }
             return cache_extra[region_code_key] as? String == "LL" &&
@@ -192,6 +198,7 @@ let all_tweaks: [mg_tweak] = [
         minv: 18.1,
         info_t: .info,
         info_msg: "How to use this tweak:\n1. Spoof to the model next to the first one supported by Apple Intelligence.\n2. Spoof back to your model.\n3. Spoof to your final model and you should see the Apple Intelligence icon in Settings.\n4. Connect iPhone to power and leave the Settings > Storage tab open for ~1 hour.\n\nNOTE: Do not spoof back.",
+        can_apply: { _ in nil },
         r: { dict in
             guard let cache_extra = dict["CacheExtra"] as? NSMutableDictionary else { return false }
             return (cache_extra["A62OafQ85EJAiiqKn4agtg"] as? Int) == 1
@@ -215,6 +222,15 @@ let all_tweaks: [mg_tweak] = [
         minv: nil,
         info_t: .warning,
         info_msg: "Experimental and high risk; This is a very dangerous tweak to use! If you use an alphanumeric passcode, DO NOT USE THIS TWEAK AT ALL! Please do not turn off \"Show Dock In Stage Manager\" or your device will BOOTLOOP when rotating to landscape! Some users have also reported that enabling the iPadOS UI and then tapping Stage Manager can cause the device to enter Recovery Mode, even when the UI itself appears unchanged. The Settings search bar may move to the top before this happens. With these three things in mind, you may experience general instability, or other major issues such as app data randomly disappearing. But I guess some funny multitasking features that still make the device relatively unusable are cool? Whatever dude, I'm not here to tell you how to use your own device.",
+        can_apply: { dict in
+            guard let cache_data = dict["CacheData"] as? NSMutableData else {
+                return "CacheData is missing from MobileGestalt."
+            }
+            guard cache_data_safe_offset("mtrAoWJ3gsq+I90ZnQ0vQw", in: cache_data) != nil else {
+                return "CacheData offset not found for this device/iOS version. iPadOS Mode binary patch is not supported."
+            }
+            return nil
+        },
         r: { dict in
             guard let cache_extra = dict["CacheExtra"] as? NSMutableDictionary else { return false }
             let values: [String: Int] = [
@@ -266,6 +282,18 @@ let all_tweaks: [mg_tweak] = [
         minv: nil,
         info_t: nil,
         info_msg: nil,
+        can_apply: { dict in
+            guard let cache_data = dict["CacheData"] as? NSMutableData else {
+                return "CacheData is missing from MobileGestalt."
+            }
+            let keys = ["EqrsVvjcYDdxHBiQmGhAWw", "Oji6HRoPi7rH7HPdWVakuw", "LBJfwOEzExRxzlAnSuI7eg"]
+            for key in keys {
+                if cache_data_safe_offset(key, in: cache_data) == nil {
+                    return "CacheData offset not found for \(key). Internal Features binary patch is not supported on this device/iOS version."
+                }
+            }
+            return nil
+        },
         r: { dict in
             guard let cache_data = dict["CacheData"] as? NSMutableData,
                   let off = cache_data_safe_offset("EqrsVvjcYDdxHBiQmGhAWw", in: cache_data) else { return false }
@@ -525,7 +553,7 @@ func mg_apply() {
         let data = try PropertyListSerialization.data(fromPropertyList: mg_dict_now, format: .xml, options: 0)
 
         try mg_write(data)
-        mg_dict_now = NSMutableDictionary()
+        mg_reload()
         enable_device_name = false
 
         print("(mg) successfully overwrote mobilegestalt!")
@@ -543,6 +571,7 @@ func mg_revert() {
         let backup_url = URL(fileURLWithPath: AppPaths.backups).appendingPathComponent("SavedGestalt.plist")
         let backup_data = try Data(contentsOf: backup_url)
         try mg_write(backup_data)
+        mg_reload()
 
         print("(mg) successfully reverted mobilegestalt!)")
         Alertinator.shared.alert(title: "Successfully reverted Gestalt tweaks!", body: "Reboot your device for changes to take effect.")
@@ -550,6 +579,12 @@ func mg_revert() {
         print("(mg) failed to revert mobilegestalt: \(error)")
         Alertinator.shared.alert(title: "Failed to revert MobileGestalt!", body: "Check logs for error information.")
     }
+}
+
+func mg_reload() {
+    guard let data = try? Data(contentsOf: URL(fileURLWithPath: TweakPaths.gestalt)),
+          let dict = try? PropertyListSerialization.propertyList(from: data, format: nil) as? NSMutableDictionary else { return }
+    mg_dict_now = dict
 }
 
 private enum mg_write_err: Error {
@@ -694,6 +729,10 @@ func mg_tweak_binding(_ tweak: mg_tweak) -> Binding<Bool> {
             tweak.is_on(in: mg_dict_now)
         },
         set: { enabled in
+            if let error = tweak.can_apply(mg_dict_now) {
+                Alertinator.shared.alert(title: "Cannot apply \(tweak.title)", body: error)
+                return
+            }
             if enabled {
                 tweak.apply_on(to: mg_dict_now)
             } else {
