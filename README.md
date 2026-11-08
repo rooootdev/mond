@@ -7,7 +7,7 @@
 </div>
 
 <p align="left">
-  Edit MobileGestalt on iOS 27.0 beta 1 - 4!<br>
+  Edit MobileGestalt on iOS 26.0 - 26.7.2 / 27.2!<br>
   <a href="https://discord.gg/gw8PcRF3Jr">
     <img src="https://img.shields.io/badge/Discord-Join%20Server-7289DA.svg" alt="Discord">
   </a>
@@ -44,12 +44,11 @@
 
 **Known Issues:**<br>
 &#45; Tweaks may disappear on reboot<br>
-&#45; Apple Intelligence spoofing doesnt work on iPhone 15<br>
 &#45; Disable Region restrictions may be broken on some versions/devices<br>
 &#45; iPadOS UI and related tweaks may not work and/or **bootloop** you!<br>
 
 **Credits:**<br>
-&#45; [forcequit](https://github.com/forcequitOS) for worse_query, the sandbox escape used by mond<br>
+&#45; [forcequit](https://github.com/forcequitOS) for worse_ and bad_ query, the sandbox escapes used by mond<br>
 &#45; [johnny](https://github.com/0xjohnnydev) for his work on the MCM bug class<br>
 &#45; [jailbreak.party](https://github.com/jailbreakdotparty) for PartyUI, GestaltView and the implementation of [neon](https://github.com/neonmodder123)'s respring method<br>
 
