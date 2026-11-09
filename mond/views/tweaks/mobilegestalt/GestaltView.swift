@@ -119,6 +119,10 @@ struct GestaltView: View {
                         if doubleSystemVersion() >= 26.0 {
                             Text("iPhone Air").tag("air")
                         }
+                        
+                        if doubleSystemVersion() >= 27.0 {
+                            Text("iPhone Duo").tag("duo")
+                        }
 
                         if has_home_button() {
                             Text("iPhone X Gestures").tag("x")
@@ -193,6 +197,11 @@ struct GestaltView: View {
                                     Text("iPhone 17 Pro").tag("iPhone18,1")
                                     Text("iPhone 17 Pro Max").tag("iPhone18,2")
                                     Text("iPhone Air").tag("iPhone18,4")
+                                }
+                                if doubleSystemVersion() >= 27.0 {
+                                    Text("iPhone 18 Pro").tag("iPhone19,2")
+                                    Text("iPhone 18 Pro Max").tag("iPhone19,7")
+                                    Text("iPhone Duo").tag("iPhone19,4")
                                 }
                             }
                         }
