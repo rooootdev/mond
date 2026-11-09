@@ -441,6 +441,8 @@ var selected_st_value: Int {
             return 2868
         case "air":
             return 2736
+        case "duo":
+            return 2088
         case "x":
             return 2436
         default:
@@ -456,7 +458,8 @@ private var st_to_sel: [Int: String] {
         2976: "15pm",
         2622: "16p",
         2868: "16pm",
-        2736: "air"
+        2736: "air",
+        2088: "duo",
     ]
 }
 
