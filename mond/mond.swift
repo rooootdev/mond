@@ -25,6 +25,13 @@ var path: String {
     return url.path
 }
 
+func getAppGroup() -> String {
+    if let task = SecTaskCreateFromSelf(nil), let groups = SecTaskCopyValueForEntitlement(task, "com.apple.security.application-groups" as CFString, nil) {
+        return (groups as? [String])?.first ?? "group.com.roooot.mondapp"
+    }
+    return "group.com.roooot.mondapp"
+}
+
 @main
 struct mond: App {
     @StateObject private var state = AppState.shared
@@ -68,6 +75,8 @@ struct mond: App {
                         Alertinator.shared.alert(title: "Not supported!", body: "Your iOS version may not be supported by mond.\nMond only supports iOS 26.0 - 26.7.2 / 27.2.")
                     }
                     
+                    worse_query_group = getAppGroup()
+                    print("(wq) Using app group: \(worse_query_group)")
                     grant_all(state: state)
                 }
                 .overlay {
